@@ -6,17 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, worl!")
+        NavigationView(){
+            VStack(){
+                if(Auth.auth().currentUser != nil){
+                    HomeScreen()
+                } else {
+                    LoginScreen()
+                }
+            }
         }
-        .padding()
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
