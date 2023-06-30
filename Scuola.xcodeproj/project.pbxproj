@@ -45,11 +45,11 @@
 		9CF703E32A4E8EAB00E96A5D /* MuxSpaces in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF703E22A4E8EAB00E96A5D /* MuxSpaces */; };
 		9CF703E52A4E8EAB00E96A5D /* MuxSpacesReplayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF703E42A4E8EAB00E96A5D /* MuxSpacesReplayKit */; };
 		9CF703E72A4E8EAB00E96A5D /* MuxSpacesUX in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF703E62A4E8EAB00E96A5D /* MuxSpacesUX */; };
-		9CF703EF2A4E907900E96A5D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF703EE2A4E907900E96A5D /* HomeScreen.swift */; };
 		9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704012A4E928900E96A5D /* LoginScreen.swift */; };
 		9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704032A4E92B500E96A5D /* SignupScreen.swift */; };
 		9CF704062A4E92D000E96A5D /* PersonalInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704052A4E92D000E96A5D /* PersonalInfoPage.swift */; };
 		9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704072A4E92EC00E96A5D /* CustomColor.swift */; };
+		9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704092A4E93BB00E96A5D /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,11 +83,11 @@
 		9CF703A72A4E8D5900E96A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF703A92A4E8D5E00E96A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF703E82A4E8F7900E96A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9CF703EE2A4E907900E96A5D /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = ../../../../../test/Scuola/Core/Home/HomeScreen.swift; sourceTree = "<group>"; };
 		9CF704012A4E928900E96A5D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		9CF704032A4E92B500E96A5D /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
 		9CF704052A4E92D000E96A5D /* PersonalInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoPage.swift; sourceTree = "<group>"; };
 		9CF704072A4E92EC00E96A5D /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		9CF704092A4E93BB00E96A5D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +226,7 @@
 		9CF703ED2A4E906D00E96A5D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9CF703EE2A4E907900E96A5D /* HomeScreen.swift */,
+				9CF704092A4E93BB00E96A5D /* HomeScreen.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -426,10 +426,10 @@
 			files = (
 				9CF703802A4E890200E96A5D /* ContentView.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
+				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
 				9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */,
-				9CF703EF2A4E907900E96A5D /* HomeScreen.swift in Sources */,
 				9CF704062A4E92D000E96A5D /* PersonalInfoPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
