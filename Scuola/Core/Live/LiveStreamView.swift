@@ -29,6 +29,9 @@ struct LiveStreamView: View {
                     }
 
                 }
+                .onDisappear(){
+                    player.pause()
+                }
             VStack(){
                 Spacer()
                 Button(action: { print("Stream Screen") }) {
@@ -45,7 +48,7 @@ struct LiveStreamView: View {
                 Button(action: {
                     permissionsManager.requestCameraPermission { granted in
                         if granted {
-                            
+                            permissionsGranted = true
                         } else {
                             showingAlert = true
                         }
@@ -72,6 +75,11 @@ struct LiveStreamView: View {
                 secondaryButton: .cancel()
             )
         }
+        .background(NavigationLink(
+            destination: CameraStreamView(),
+            isActive: $permissionsGranted,
+            label: EmptyView.init
+        ))
             
     }
 }

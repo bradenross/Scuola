@@ -54,6 +54,8 @@
 		9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7040E2A4E9E5300E96A5D /* DashboardView.swift */; };
 		9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */; };
 		9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704162A51405D00E96A5D /* PermissionsManager.swift */; };
+		9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704182A5146AF00E96A5D /* CameraStreamView.swift */; };
+		9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041B2A514C3900E96A5D /* CameraManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		9CF7040E2A4E9E5300E96A5D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamView.swift; sourceTree = "<group>"; };
 		9CF704162A51405D00E96A5D /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
+		9CF704182A5146AF00E96A5D /* CameraStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamView.swift; sourceTree = "<group>"; };
+		9CF7041B2A514C3900E96A5D /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,12 +220,13 @@
 		9CF703EB2A4E906000E96A5D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9CF704152A51404B00E96A5D /* Permissions */,
-				9CF704102A4F4CE700E96A5D /* Live */,
 				9CF7040B2A4E98E700E96A5D /* Auth */,
-				9CF703F82A4E90AD00E96A5D /* Theme */,
-				9CF703F02A4E908100E96A5D /* LoginSignup */,
 				9CF703EC2A4E906800E96A5D /* Dashboard */,
+				9CF7041A2A514BE100E96A5D /* Devices */,
+				9CF704102A4F4CE700E96A5D /* Live */,
+				9CF703F02A4E908100E96A5D /* LoginSignup */,
+				9CF704152A51404B00E96A5D /* Permissions */,
+				9CF703F82A4E90AD00E96A5D /* Theme */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */,
+				9CF704182A5146AF00E96A5D /* CameraStreamView.swift */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -291,6 +297,14 @@
 				9CF704162A51405D00E96A5D /* PermissionsManager.swift */,
 			);
 			path = Permissions;
+			sourceTree = "<group>";
+		};
+		9CF7041A2A514BE100E96A5D /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7041B2A514C3900E96A5D /* CameraManager.swift */,
+			);
+			path = Devices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF703802A4E890200E96A5D /* ContentView.swift in Sources */,
+				9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
 				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
@@ -469,6 +484,7 @@
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
+				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
 				9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */,
 				9CF704062A4E92D000E96A5D /* PersonalInfoPage.swift in Sources */,
 			);
