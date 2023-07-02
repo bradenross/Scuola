@@ -52,6 +52,8 @@
 		9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704092A4E93BB00E96A5D /* HomeScreen.swift */; };
 		9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7040C2A4E98FA00E96A5D /* SessionService.swift */; };
 		9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7040E2A4E9E5300E96A5D /* DashboardView.swift */; };
+		9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */; };
+		9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704162A51405D00E96A5D /* PermissionsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		9CF704092A4E93BB00E96A5D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		9CF7040C2A4E98FA00E96A5D /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		9CF7040E2A4E9E5300E96A5D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamView.swift; sourceTree = "<group>"; };
+		9CF704162A51405D00E96A5D /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 		9CF703EB2A4E906000E96A5D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9CF704152A51404B00E96A5D /* Permissions */,
+				9CF704102A4F4CE700E96A5D /* Live */,
 				9CF7040B2A4E98E700E96A5D /* Auth */,
 				9CF703F82A4E90AD00E96A5D /* Theme */,
 				9CF703F02A4E908100E96A5D /* LoginSignup */,
@@ -269,6 +275,22 @@
 				9CF7040C2A4E98FA00E96A5D /* SessionService.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		9CF704102A4F4CE700E96A5D /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		9CF704152A51404B00E96A5D /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				9CF704162A51405D00E96A5D /* PermissionsManager.swift */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,8 +462,10 @@
 			files = (
 				9CF703802A4E890200E96A5D /* ContentView.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
+				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */,
+				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
@@ -609,11 +633,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scuola/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I wanna see you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -639,11 +665,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scuola/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I wanna see you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

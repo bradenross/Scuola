@@ -15,6 +15,9 @@ struct HomeScreen: View {
     var body: some View {
         VStack(){
             Text("Test")
+            Button(action: {Logout()}) {
+                Text("Logout")
+            }
         }
         
     }

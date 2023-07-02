@@ -15,7 +15,13 @@ struct DashboardView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
+            LiveStreamView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
         }
+        .rotationEffect(.degrees(0))
     }
 }
 

@@ -18,4 +18,6 @@ struct BrandColor {
     
     static let backgroundGradient = LinearGradient(gradient: Gradient(colors: [BrandColor.color4, BrandColor.color3, BrandColor.color2, BrandColor.color1]), startPoint: .top, endPoint: .bottom)
     
+    static let primaryButtonGradient = LinearGradient(gradient: Gradient(colors: [BrandColor.color1, BrandColor.color3]), startPoint: .leading, endPoint: .trailing)
+    
 }
