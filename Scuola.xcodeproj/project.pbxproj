@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8132A52888C0083EADC /* VideoView.swift */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
 		9CF703802A4E890200E96A5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037F2A4E890200E96A5D /* ContentView.swift */; };
 		9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703812A4E890400E96A5D /* Assets.xcassets */; };
@@ -56,6 +57,8 @@
 		9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704162A51405D00E96A5D /* PermissionsManager.swift */; };
 		9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704182A5146AF00E96A5D /* CameraStreamView.swift */; };
 		9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041B2A514C3900E96A5D /* CameraManager.swift */; };
+		9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041D2A52224900E96A5D /* BroadcastManager.swift */; };
+		9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mux-ScuolaiOSDev.env"; path = "../../../Downloads/mux-ScuolaiOSDev.env"; sourceTree = "<group>"; };
+		9C7CA8132A52888C0083EADC /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaApp.swift; sourceTree = "<group>"; };
 		9CF7037F2A4E890200E96A5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +105,8 @@
 		9CF704162A51405D00E96A5D /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		9CF704182A5146AF00E96A5D /* CameraStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamView.swift; sourceTree = "<group>"; };
 		9CF7041B2A514C3900E96A5D /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		9CF7041D2A52224900E96A5D /* BroadcastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastManager.swift; sourceTree = "<group>"; };
+		9CF704222A527BCB00E96A5D /* MuxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +164,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C7CA8122A5286250083EADC /* OnDemand */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA8132A52888C0083EADC /* VideoView.swift */,
+			);
+			path = OnDemand;
+			sourceTree = "<group>";
+		};
 		9CF703712A4E890200E96A5D = {
 			isa = PBXGroup;
 			children = (
+				9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */,
 				9CF703A92A4E8D5E00E96A5D /* GoogleService-Info.plist */,
 				9CF7037C2A4E890200E96A5D /* Scuola */,
 				9CF7038D2A4E890400E96A5D /* ScuolaTests */,
@@ -225,6 +241,8 @@
 				9CF7041A2A514BE100E96A5D /* Devices */,
 				9CF704102A4F4CE700E96A5D /* Live */,
 				9CF703F02A4E908100E96A5D /* LoginSignup */,
+				9CF704212A527BBE00E96A5D /* Mux */,
+				9C7CA8122A5286250083EADC /* OnDemand */,
 				9CF704152A51404B00E96A5D /* Permissions */,
 				9CF703F82A4E90AD00E96A5D /* Theme */,
 			);
@@ -287,6 +305,7 @@
 			children = (
 				9CF704112A4F4D0300E96A5D /* LiveStreamView.swift */,
 				9CF704182A5146AF00E96A5D /* CameraStreamView.swift */,
+				9CF7041D2A52224900E96A5D /* BroadcastManager.swift */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -305,6 +324,14 @@
 				9CF7041B2A514C3900E96A5D /* CameraManager.swift */,
 			);
 			path = Devices;
+			sourceTree = "<group>";
+		};
+		9CF704212A527BBE00E96A5D /* Mux */ = {
+			isa = PBXGroup;
+			children = (
+				9CF704222A527BCB00E96A5D /* MuxManager.swift */,
+			);
+			path = Mux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,15 +502,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF703802A4E890200E96A5D /* ContentView.swift in Sources */,
+				9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */,
 				9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
 				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
+				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
 				9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
+				9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */,
 				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
 				9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */,
 				9CF704062A4E92D000E96A5D /* PersonalInfoPage.swift in Sources */,

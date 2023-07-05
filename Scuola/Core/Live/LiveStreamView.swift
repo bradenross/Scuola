@@ -75,11 +75,9 @@ struct LiveStreamView: View {
                 secondaryButton: .cancel()
             )
         }
-        .background(NavigationLink(
-            destination: CameraStreamView(),
-            isActive: $permissionsGranted,
-            label: EmptyView.init
-        ))
+        .sheet(isPresented: $permissionsGranted) {
+            CameraStreamView()
+        }
             
     }
 }

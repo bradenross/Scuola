@@ -12,6 +12,29 @@ struct CameraStreamView: View {
     @ObservedObject private var cameraViewModel = CameraManager()
     @State private var videoTimer = 0.0
     @State private var isRecording = false
+    @State private var showingAlert = false
+    
+    @State var timerString = "00:00:00"
+    @State var timerCount = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    
+    func startRecording(){
+        withAnimation {
+            isRecording.toggle()
+        }
+    }
+    
+    func stopRecording(){
+        isRecording = false
+        timerCount = 0
+        timerString = "00:00:00"
+    }
+    
+    func secondsToHoursMinutesSeconds(_ seconds: Int) -> String {
+        let (h, m, s) = (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        return String(format: "%02d:%02d:%02d", h, m, s)
+    }
     
     var body: some View {
         ZStack(){
@@ -27,11 +50,20 @@ struct CameraStreamView: View {
                 Text("Camera Permission Granted")
             }
             VStack(){
-                Text("\(videoTimer)")
+                Text("\(timerString)")
+                    .padding(10)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.white, lineWidth: 3)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.white.opacity(0.5))
                     )
+                    .padding(.vertical, 20)
+                    .onReceive(timer) { _ in
+                        if(isRecording){
+                            timerCount += 1
+                            timerString = "\(secondsToHoursMinutesSeconds(timerCount))"
+                        }
+                    }
+                Spacer()
                 ZStack(){
                     Circle()
                         .stroke(.white, lineWidth: 5)
@@ -48,12 +80,30 @@ struct CameraStreamView: View {
                             .transition(AnyTransition.scale.animation(.easeInOut(duration: isRecording ? 0.2 : 0.5)))
                     }
                 }
+                .padding(.vertical, 20)
                 .onTapGesture {
-                    withAnimation {
-                        isRecording.toggle()
+                    if(!isRecording){
+                        startRecording()
+                    } else {
+                        showingAlert = true
                     }
                 }
             }
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Are you sure?"),
+                message: Text("Are you sure you want to stop your live stream?"),
+                primaryButton: .default(Text("Stop").bold(), action: {
+                    stopRecording()
+                }),
+                secondaryButton: .default(Text("Cancel"), action: {
+                    print("Cancelled")
+                })
+            )
+        }
+        .onDisappear(){
+            stopRecording()
         }
     }
 }
