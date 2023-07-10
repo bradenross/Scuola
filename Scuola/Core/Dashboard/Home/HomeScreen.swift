@@ -14,10 +14,6 @@ struct HomeScreen: View {
     
     var body: some View {
         VStack(){
-            Text("Test")
-            Button(action: {Logout()}) {
-                Text("Logout")
-            }
             AsyncImage(url: URL(string: "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?time=0")) { image in
                 image.resizable()
             } placeholder: {
@@ -27,14 +23,6 @@ struct HomeScreen: View {
             .frame(width: 100)
         }
         
-    }
-    
-    func Logout(){
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
     }
 }
 

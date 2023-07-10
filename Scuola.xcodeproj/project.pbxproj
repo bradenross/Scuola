@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8132A52888C0083EADC /* VideoView.swift */; };
+		9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81A2A5A66A60083EADC /* SettingsView.swift */; };
+		9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81F2A5BAB280083EADC /* FBAuth.swift */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
 		9CF703802A4E890200E96A5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037F2A4E890200E96A5D /* ContentView.swift */; };
 		9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703812A4E890400E96A5D /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 /* Begin PBXFileReference section */
 		9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mux-ScuolaiOSDev.env"; path = "../../../Downloads/mux-ScuolaiOSDev.env"; sourceTree = "<group>"; };
 		9C7CA8132A52888C0083EADC /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		9C7CA81A2A5A66A60083EADC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9C7CA81F2A5BAB280083EADC /* FBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuth.swift; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaApp.swift; sourceTree = "<group>"; };
 		9CF7037F2A4E890200E96A5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,52 @@
 			path = OnDemand;
 			sourceTree = "<group>";
 		};
+		9C7CA8152A5A600D0083EADC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA81A2A5A66A60083EADC /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9C7CA8162A5A62600083EADC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA81C2A5BAB110083EADC /* Firebase */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9C7CA8172A5A62680083EADC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C7CA8182A5A62720083EADC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C7CA8192A5A66110083EADC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9CF703F82A4E90AD00E96A5D /* Theme */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9C7CA81C2A5BAB110083EADC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA81F2A5BAB280083EADC /* FBAuth.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		9CF703712A4E890200E96A5D = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +247,11 @@
 		9CF7037C2A4E890200E96A5D /* Scuola */ = {
 			isa = PBXGroup;
 			children = (
+				9C7CA8192A5A66110083EADC /* Common */,
 				9CF703EB2A4E906000E96A5D /* Core */,
+				9C7CA8182A5A62720083EADC /* Controller */,
+				9C7CA8172A5A62680083EADC /* View */,
+				9C7CA8162A5A62600083EADC /* Helper */,
 				9CF703E82A4E8F7900E96A5D /* Info.plist */,
 				9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */,
 				9CF7037F2A4E890200E96A5D /* ContentView.swift */,
@@ -236,6 +290,7 @@
 		9CF703EB2A4E906000E96A5D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9C7CA8152A5A600D0083EADC /* Settings */,
 				9CF7040B2A4E98E700E96A5D /* Auth */,
 				9CF703EC2A4E906800E96A5D /* Dashboard */,
 				9CF7041A2A514BE100E96A5D /* Devices */,
@@ -244,7 +299,6 @@
 				9CF704212A527BBE00E96A5D /* Mux */,
 				9C7CA8122A5286250083EADC /* OnDemand */,
 				9CF704152A51404B00E96A5D /* Permissions */,
-				9CF703F82A4E90AD00E96A5D /* Theme */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -506,9 +560,11 @@
 				9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
 				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
+				9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
 				9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */,
+				9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,

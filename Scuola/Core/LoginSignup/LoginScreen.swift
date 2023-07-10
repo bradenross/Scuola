@@ -13,16 +13,6 @@ struct LoginScreen: View {
     @State var passwordInput: String = ""
     @State var errorPopup: Bool = false
     
-    func login() {
-        Auth.auth().signIn(withEmail: emailInput, password: passwordInput) { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-            } else {
-                print("success")
-            }
-        }
-    }
-    
     var body: some View {
         NavigationView(){
             VStack {
@@ -60,7 +50,11 @@ struct LoginScreen: View {
                 Spacer()
                 VStack {
                     
-                    Button(action: { Task{login()} }) {
+                    Button(action: {
+                        Task{
+                            FBAuth().login(email: emailInput, password: passwordInput)
+                        }
+                    }) {
                         Text("Login")
                             .bold()
                             .frame(maxWidth: 300, maxHeight: 50)
