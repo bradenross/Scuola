@@ -202,6 +202,10 @@
 		9C7CA8182A5A62720083EADC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9CF7040B2A4E98E700E96A5D /* Auth */,
+				9CF7041A2A514BE100E96A5D /* Devices */,
+				9CF704212A527BBE00E96A5D /* Mux */,
+				9CF704152A51404B00E96A5D /* Permissions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,14 +295,10 @@
 			isa = PBXGroup;
 			children = (
 				9C7CA8152A5A600D0083EADC /* Settings */,
-				9CF7040B2A4E98E700E96A5D /* Auth */,
 				9CF703EC2A4E906800E96A5D /* Dashboard */,
-				9CF7041A2A514BE100E96A5D /* Devices */,
 				9CF704102A4F4CE700E96A5D /* Live */,
 				9CF703F02A4E908100E96A5D /* LoginSignup */,
-				9CF704212A527BBE00E96A5D /* Mux */,
 				9C7CA8122A5286250083EADC /* OnDemand */,
-				9CF704152A51404B00E96A5D /* Permissions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
