@@ -12,6 +12,13 @@
 		9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81F2A5BAB280083EADC /* FBAuth.swift */; };
 		9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */; };
 		9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */; };
+		9C7CA8282A63BF2D0083EADC /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8272A63BF2D0083EADC /* VideoAsset.swift */; };
+		9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8292A63BF3C0083EADC /* LiveStream.swift */; };
+		9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */; };
+		9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82F2A6641FB0083EADC /* CommentSection.swift */; };
+		9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8312A6642410083EADC /* CommentSectionPreview.swift */; };
+		9C7CA8352A664FE40083EADC /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8342A664FE40083EADC /* CommentView.swift */; };
+		9C7CA8392A66599E0083EADC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8382A66599E0083EADC /* Comment.swift */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
 		9CF703802A4E890200E96A5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037F2A4E890200E96A5D /* ContentView.swift */; };
 		9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703812A4E890400E96A5D /* Assets.xcassets */; };
@@ -89,6 +96,13 @@
 		9C7CA81F2A5BAB280083EADC /* FBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuth.swift; sourceTree = "<group>"; };
 		9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
+		9C7CA8272A63BF2D0083EADC /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
+		9C7CA8292A63BF3C0083EADC /* LiveStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStream.swift; sourceTree = "<group>"; };
+		9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAssetView.swift; sourceTree = "<group>"; };
+		9C7CA82F2A6641FB0083EADC /* CommentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSection.swift; sourceTree = "<group>"; };
+		9C7CA8312A6642410083EADC /* CommentSectionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSectionPreview.swift; sourceTree = "<group>"; };
+		9C7CA8342A664FE40083EADC /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		9C7CA8382A66599E0083EADC /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaApp.swift; sourceTree = "<group>"; };
 		9CF7037F2A4E890200E96A5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +224,8 @@
 				9CF7041A2A514BE100E96A5D /* Devices */,
 				9CF704212A527BBE00E96A5D /* Mux */,
 				9CF704152A51404B00E96A5D /* Permissions */,
+				9C7CA8262A63BA2D0083EADC /* Videos */,
+				9C7CA8362A6659710083EADC /* Watch */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,6 +244,50 @@
 				9C7CA81F2A5BAB280083EADC /* FBAuth.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9C7CA8262A63BA2D0083EADC /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA8272A63BF2D0083EADC /* VideoAsset.swift */,
+				9C7CA8292A63BF3C0083EADC /* LiveStream.swift */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		9C7CA82B2A64E7230083EADC /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA82E2A6641DD0083EADC /* VideoAsset */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		9C7CA82E2A6641DD0083EADC /* VideoAsset */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */,
+				9C7CA82F2A6641FB0083EADC /* CommentSection.swift */,
+				9C7CA8312A6642410083EADC /* CommentSectionPreview.swift */,
+				9C7CA8342A664FE40083EADC /* CommentView.swift */,
+			);
+			path = VideoAsset;
+			sourceTree = "<group>";
+		};
+		9C7CA8362A6659710083EADC /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA8372A66598A0083EADC /* VideoAsset */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		9C7CA8372A66598A0083EADC /* VideoAsset */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA8382A66599E0083EADC /* Comment.swift */,
+			);
+			path = VideoAsset;
 			sourceTree = "<group>";
 		};
 		9CF703712A4E890200E96A5D = {
@@ -303,6 +363,7 @@
 				9CF704102A4F4CE700E96A5D /* Live */,
 				9CF703F02A4E908100E96A5D /* LoginSignup */,
 				9C7CA8122A5286250083EADC /* OnDemand */,
+				9C7CA82B2A64E7230083EADC /* Watch */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -569,17 +630,24 @@
 				9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */,
+				9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */,
 				9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */,
 				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
+				9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */,
 				9CF704042A4E92B500E96A5D /* SignupScreen.swift in Sources */,
 				9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */,
+				9C7CA8352A664FE40083EADC /* CommentView.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
+				9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */,
+				9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
 				9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */,
 				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
+				9C7CA8282A63BF2D0083EADC /* VideoAsset.swift in Sources */,
 				9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */,
+				9C7CA8392A66599E0083EADC /* Comment.swift in Sources */,
 				9CF704062A4E92D000E96A5D /* PersonalInfoPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

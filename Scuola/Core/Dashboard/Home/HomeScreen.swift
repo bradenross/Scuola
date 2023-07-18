@@ -17,17 +17,8 @@ struct HomeScreen: View {
             FeaturedView()
             Spacer()
                 .frame(maxHeight: .infinity)
-            VStack(){
-                AsyncImage(url: URL(string: "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?time=0")) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .scaledToFit()
-                .frame(width: 100)
-            }
+            
         }
-        
     }
 }
 

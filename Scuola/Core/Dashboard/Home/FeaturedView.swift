@@ -10,9 +10,14 @@ import SwiftUI
 struct FeaturedView: View {
     var body: some View {
         VStack(){
-            Text("Featured")
+            HStack(){
+                Text("Featured")
+                    .multilineTextAlignment(.leading)
+                Spacer()
+                    .frame(maxWidth: .infinity)
+            }
             ScrollView(.horizontal) {
-                HStack {
+                LazyHStack {
                     ForEach(1...10, id: \.self) { value in
                         HStack(){
                             FeaturedItem()
@@ -20,6 +25,7 @@ struct FeaturedView: View {
                     }
                 }
             }
+            .scrollIndicators(.hidden)
         }
     }
 }
