@@ -49,7 +49,7 @@ struct SignupScreen: View {
                     .bold()
                     .frame(maxWidth: 300, maxHeight: 50)
                     .background(.white)
-                    .foregroundColor(BrandColor.color1)
+                    .foregroundColor(ScuolaColor.color1)
                     .cornerRadius(100)
             }
             Button(action: {screenDecrement()}) {
@@ -57,12 +57,12 @@ struct SignupScreen: View {
                     .bold()
                     .frame(maxWidth: 300, maxHeight: 50)
                     .background(.white)
-                    .foregroundColor(BrandColor.color1)
+                    .foregroundColor(ScuolaColor.color1)
                     .cornerRadius(100)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(BrandColor.backgroundGradient)
+        .background(ScuolaColor.backgroundGradient)
         .navigationBarBackButtonHidden(true)
     }
     

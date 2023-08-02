@@ -11,7 +11,10 @@ import AVKit
 
 struct VideoAssetView: View {
     var asset: VideoAsset
-    @State private var test = false
+    @State private var isCommentSectionOpen = false
+    
+    @State private var testDesc = "gfhjkljlhgfklhgfklhgfklhgfasfjaksdhfkjashdfkjahsdfkasdfjkhaksjfhajkshfkjashfkjahsfdjkhasjkfhaljkfhakjhfjkahskjfhakjlfhakjlhfjkahfkjahskjfhajfhakjdhfkajhsdfkahsdfjkhasdkjfhakjsdhfkajshdfkahsdfkhakjsfhaksdhfkjasdhfjkashdfakljsdhfjakshfajksfhakjshfalksdfhaksjfhakjsfhaklshfakljshfakjsfhaksdhfaksjdfhakjlsdfhaskljfhaskjdfhajksfhajksdhfkajlshfklajshfjkalshfkjalsfhaksjldfhakjsfhakjsfhaklshfkjashfajkshfdaklsjdfhaskjl[bradenross.me](https://www.bradenross.me)dfhasflkjashfakljsfhaklsjdfhkashfalsjkdhfaklsjdhfjahsdklhasdfhaklsdhfkahsflkahsdflkahsdfkahsdflkhasdlkfhaksdfhkalsdhfklashflahsflashdflahsdfljkashdflkashdfjkashdfkjashdfklhasdfklhaifuaehnviibvsjdknasdvanvi"
+    
     var body: some View {
         VStack(){
             HStack(){
@@ -23,33 +26,23 @@ struct VideoAssetView: View {
             VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(asset.id).m3u8")!)
                         .frame(height: 300)
             VStack(){
-                HStack(){
-                    Text(asset.user)
+                ScrollView(){
+                    ProfileBarView()
+                    ActionBar()
+                    DescriptionView(description: testDesc)
+                    CommentSectionPreview()
+                        .onTapGesture {
+                            isCommentSectionOpen = true
+                        }
                     Spacer()
-                        .frame(maxWidth: .infinity)
-                    Button("Subscribe"){
-                        test = true
-                    }
+                        .frame(maxHeight: .infinity)
                 }
-                HStack(){
-                    Image(systemName: "hand.thumbsup")
-                    Text("354")
-                    Divider()
-                    Image(systemName: "hand.thumbsdown")
-                    Text("543")
-                    
-                }
-                .frame(height: 30)
-                CommentSectionPreview()
-                Spacer()
-                    .frame(maxHeight: .infinity)
             }
-            .sheet(isPresented: $test){
+            .sheet(isPresented: $isCommentSectionOpen){
                 CommentSection()
                     .presentationDetents([.medium, .large])
                     .presentationCompactAdaptation(.popover)
             }
-            .padding(.horizontal, 20)
             .padding(.vertical, 15)
         }
     }

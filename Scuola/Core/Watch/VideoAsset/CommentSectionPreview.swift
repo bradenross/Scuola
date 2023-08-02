@@ -20,7 +20,8 @@ struct CommentSectionPreview: View {
         .padding(10)
         .background(){
             RoundedRectangle(cornerRadius: 15)
-                .fill(.black)
+                .fill(ScuolaColor.foreground)
         }
+        .padding(.horizontal, 20)
     }
 }

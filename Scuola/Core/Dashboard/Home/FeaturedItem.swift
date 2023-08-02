@@ -41,7 +41,7 @@ struct FeaturedItem: View {
                         HStack(){
                             Text("435")
                             Image(systemName: "eye.fill")
-//                                .foregroundColor(.red)
+                                .foregroundColor(.white)
                                 .shadow(radius: 3)
                         }
                         .padding(10)
