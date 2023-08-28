@@ -56,22 +56,8 @@ struct SignupScreen: View {
             Spacer()
             signupScreens[screenIndex]
             Spacer()
-            Button(action: {screenIncrement()}) {
-                Text("Continue")
-                    .bold()
-                    .frame(maxWidth: 300, maxHeight: 50)
-                    .background(.white)
-                    .foregroundColor(BrandedColor.color1)
-                    .cornerRadius(100)
-            }
-            Button(action: {screenDecrement()}) {
-                Text("Back")
-                    .bold()
-                    .frame(maxWidth: 300, maxHeight: 50)
-                    .background(.white)
-                    .foregroundColor(BrandedColor.color1)
-                    .cornerRadius(100)
-            }
+            ScuolaButton(title: "Continue", action: {screenIncrement()})
+            ScuolaButton(title: "Back", type: "secondary", action: {screenDecrement()})
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BrandedColor.backgroundGradient)
