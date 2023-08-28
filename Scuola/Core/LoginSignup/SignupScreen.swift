@@ -56,7 +56,7 @@ struct SignupScreen: View {
             Spacer()
             signupScreens[screenIndex]
             Spacer()
-            ScuolaButton(title: "Continue", action: {screenIncrement()})
+            ScuolaButton(title: screenIndex < signupScreens.count - 1 ? "Continue" : "Finish", action: {screenIncrement()})
             ScuolaButton(title: "Back", type: "secondary", action: {screenDecrement()})
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
