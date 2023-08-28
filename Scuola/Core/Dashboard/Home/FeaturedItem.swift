@@ -61,7 +61,7 @@ struct FeaturedItem: View {
             isSheetShowing = true
         }
         .sheet(isPresented: $isSheetShowing){
-            VideoAssetView(asset: VideoAsset(title: "Test video", user: "Braden Ross", id: "3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg"))
+            VideoAssetView(asset: VideoAsset(title: "What Am I Doing With My Life??", user: "Braden Ross", id: "3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg"))
         }
         .frame(width: 350, height: 250)
         .padding(15)

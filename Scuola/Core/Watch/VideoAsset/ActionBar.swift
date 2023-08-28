@@ -72,62 +72,15 @@ struct ActionBar: View {
                 .padding(10)
                 .background(){
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(ScuolaColor.foreground)
+                        .fill(BrandedColor.foreground)
                 }
                 Spacer()
                     .frame(maxWidth: .infinity)
                 
-                Button(action: {}){
-                    HStack(){
-                        Text("Share")
-                        Image(systemName: "arrowshape.turn.up.forward.fill")
-                    }
-                    .tint(ScuolaColor.text)
-                    .padding(10)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(ScuolaColor.foreground)
-                    }
-                }
-                
-                Button(action: {onSaveTapped()}){
-                    HStack(){
-                        Text("Save")
-                        Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
-                    }
-                    .tint(ScuolaColor.text)
-                    .padding(10)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(ScuolaColor.foreground)
-                    }
-                }
-                
-                Button(action: {}){
-                    HStack(){
-                        Text("Remove Ads")
-                        Image(systemName: "sparkles.tv")
-                    }
-                    .tint(ScuolaColor.text)
-                    .padding(10)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(ScuolaColor.foreground)
-                    }
-                }
-                
-                Button(action: {}){
-                    HStack(){
-                        Text("Download")
-                        Image(systemName: "square.and.arrow.down")
-                    }
-                    .tint(ScuolaColor.text)
-                    .padding(10)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(ScuolaColor.foreground)
-                    }
-                }
+                ScuolaActionButton(title: "Share", symbol: "arrowshape.turn.up.forward", action: {})
+                ScuolaActionButton(title: "Save", symbol: isSaved ? "bookmark.fill" : "bookmark", symbolColor: isSaved ? BrandedColor.dynamicAccentColor : BrandedColor.text, action: {onSaveTapped()})
+                ScuolaActionButton(title: "Remove Ads", symbol: "sparkles.tv", action: {})
+                ScuolaActionButton(title: "Download", symbol: "square.and.arrow.down", action: {})
                 
             }
             .padding(.horizontal, 20)

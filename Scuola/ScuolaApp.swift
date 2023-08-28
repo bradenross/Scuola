@@ -8,6 +8,8 @@
 import SwiftUI
 import FirebaseCore
 import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -23,18 +25,28 @@ struct ScuolaApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var sessionService = SessionServiceImpl()
+    @ObservedObject var appState = AppState.shared
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                switch sessionService.state {
-                    case .loggedIn:
-                        DashboardView()
-                            .environmentObject(sessionService)
-                    case .loggedOut:
-                        LoginScreen()
+            ZStack(){
+                NavigationView {
+                    switch sessionService.state {
+                        case .loggedIn:
+                            DashboardView()
+                                .environmentObject(sessionService)
+                        case .loggedOut:
+                            LoginScreen()
+                        }
+                    
+                }
+                if(appState.isLoading){
+                    ZStack(){
+                        BrandedColor.backgroundGradient.opacity(0.5).ignoresSafeArea()
+                        ProgressView()
+                        LoadingIndicator()
                     }
-                
+                }
             }
         }
     }

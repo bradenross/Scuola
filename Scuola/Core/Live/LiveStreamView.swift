@@ -38,7 +38,7 @@ struct LiveStreamView: View {
                     Text("Stream Screen")
                         .bold()
                         .frame(maxWidth: 300, maxHeight: 50)
-                        .background(ScuolaColor.primaryButtonGradient)
+                        .background(BrandedColor.primaryButtonGradient)
                         .foregroundColor(.white)
                         .cornerRadius(100)
                 }
@@ -57,7 +57,7 @@ struct LiveStreamView: View {
                     Text("Stream Camera")
                         .bold()
                         .frame(maxWidth: 300, maxHeight: 50)
-                        .background(ScuolaColor.primaryButtonGradient)
+                        .background(BrandedColor.primaryButtonGradient)
                         .foregroundColor(.white)
                         .cornerRadius(100)
                         .shadow(radius: 3)

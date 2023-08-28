@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class FBAuth {
     func signOut(){
@@ -27,6 +29,25 @@ class FBAuth {
         }
     }
     
-    
+    func createNewUser(user: Account){
+        let db = Firestore.firestore()
+            
+            do {
+                let data = try JSONEncoder().encode(user)
+                guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                    return
+                }
+                
+                db.collection("customObjects").document(user.id).setData(dictionary) { error in
+                    if let error = error {
+                        print("Error writing document: \(error)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            } catch {
+                print("Encoding error: \(error)")
+            }
+    }
     
 }

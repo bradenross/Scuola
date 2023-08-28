@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PersonalInfoPage: View {
-    @Binding var firstName: String
+    @Binding var name: String
+    @Binding var username: String
     
     var body: some View {
         VStack(){
-            TextField("First Name", text: $firstName)
+            TextField("Name", text: $name)
+            TextField("Username", text: $username)
         }
     }
 }

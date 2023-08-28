@@ -59,7 +59,7 @@ struct LoginScreen: View {
                             .bold()
                             .frame(maxWidth: 300, maxHeight: 50)
                             .background(.white)
-                            .foregroundColor(ScuolaColor.color1)
+                            .foregroundColor(BrandedColor.color1)
                             .cornerRadius(100)
                     }
                         
@@ -82,7 +82,7 @@ struct LoginScreen: View {
                 .padding(30)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(ScuolaColor.backgroundGradient)
+            .background(BrandedColor.backgroundGradient)
         }
     }
 }

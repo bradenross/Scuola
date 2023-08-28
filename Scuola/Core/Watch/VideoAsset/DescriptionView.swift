@@ -18,27 +18,19 @@ struct DescriptionView: View {
         }) {
             VStack {
                 Group {
-                    if isExpanded {
-                        HStack(alignment: .bottom) {
-                            Text(LocalizedStringKey(description))
-                                .multilineTextAlignment(.leading)
-                                .tint(.white)
-                            Image(systemName: "chevron.up")
-                        }
-                    } else {
-                        HStack(alignment: .bottom) {
-                            Text(LocalizedStringKey(description))
-                                .multilineTextAlignment(.leading)
-                                .tint(.white)
-                            Image(systemName: "chevron.down")
-                        }
+                    HStack(alignment: .top) {
+                        Text(LocalizedStringKey(description))
+                            .multilineTextAlignment(.leading)
+                            .tint(BrandedColor.text)
+                        Image(systemName: "chevron.up")
+                            .rotationEffect(.degrees(isExpanded ? 0 : -180))
                     }
                 }
                 .lineLimit(isExpanded ? nil : 3)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .padding(10)
-            .background(RoundedRectangle(cornerRadius: 15).fill(ScuolaColor.foreground)) // Lower opacity when expanded
+            .background(RoundedRectangle(cornerRadius: 15).fill(BrandedColor.foreground))
         }
         .padding(.horizontal, 20)
     }

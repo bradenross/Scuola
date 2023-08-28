@@ -10,12 +10,19 @@ import SwiftUI
 struct ProfileBarView: View {
     var body: some View {
         HStack(){
-            Text("Braden Ross")
+            Circle()
+                .frame(maxWidth: 75)
+            VStack(alignment: .leading){
+                Text("Braden Ross")
+                    .fontWeight(.bold)
+                Text("49.3K Subscribers")
+                    .fontWeight(.light)
+                    .foregroundColor(BrandedColor.secondaryText)
+            }
             Spacer()
                 .frame(maxWidth: .infinity)
-            Button("Subscribe"){
-                
-            }
+                .layoutPriority(-1)
+            ScuolaActionButton(title: "Subscribe", symbol: "star", symbolColor: BrandedColor.dynamicAccentColor, action: {})
         }
         .padding(.horizontal, 20)
     }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 import AVKit
 
 struct HomeScreen: View {

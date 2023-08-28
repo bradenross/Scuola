@@ -24,12 +24,26 @@ struct VideoAssetView: View {
             }
             .padding(15)
             VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(asset.id).m3u8")!)
-                        .frame(height: 300)
+                .aspectRatio(1920/1080, contentMode: .fit)
             VStack(){
                 ScrollView(){
+                    Spacer()
+                        .frame(height: 15)
                     ProfileBarView()
                     ActionBar()
                     DescriptionView(description: testDesc)
+                    
+                    VStack(){
+                        Text("AD SPACE")
+                    }
+                        .frame(maxWidth: .infinity, idealHeight: 100)
+                        .padding(10)
+                        .background(){
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(BrandedColor.foreground)
+                        }
+                        .padding(15)
+                    
                     CommentSectionPreview()
                         .onTapGesture {
                             isCommentSectionOpen = true
@@ -43,7 +57,11 @@ struct VideoAssetView: View {
                     .presentationDetents([.medium, .large])
                     .presentationCompactAdaptation(.popover)
             }
-            .padding(.vertical, 15)
+            .onAppear(){
+                getAllComments(videoID: "vqzU9C6NOUuu21lJYOeG"){comment in
+                    print("TEST")
+                }
+            }
         }
     }
 }

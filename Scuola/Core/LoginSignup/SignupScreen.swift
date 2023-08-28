@@ -9,24 +9,36 @@ import SwiftUI
 
 struct SignupScreen: View {
     @State var screenIndex = 0
-    @State var firstName: String = ""
+    @State var progressIndex = 0
+    
+    @State var name: String = ""
+    @State var username: String = ""
+    @State var birthdate: Date = Date()
+    @State var bio: String = ""
+    
     private var signupScreens: [AnyView] {[
+        AnyView(PersonalInfoPage(name: $name, username: $username)),
+        AnyView(BirthdatePage(birthdate: $birthdate)),
         AnyView(LoginScreen()),
-        AnyView(PersonalInfoPage(firstName: $firstName)),
-        AnyView(LoginScreen()),
-        AnyView(PersonalInfoPage(firstName: $firstName))
+        AnyView(PersonalInfoPage(name: $name, username: $username))
     ]}
     
     @Environment(\.presentationMode) var presentationMode
     
     private func screenIncrement() {
         if(screenIndex < signupScreens.count - 1){
+            withAnimation(Animation.linear(duration: 1)){
+                progressIndex += 1
+            }
             screenIndex += 1
         }
     }
     
     private func screenDecrement() {
         if(screenIndex > 0){
+            withAnimation(Animation.linear(duration: 1)){
+                progressIndex -= 1
+            }
             screenIndex -= 1
         } else {
             presentationMode.wrappedValue.dismiss()
@@ -36,7 +48,7 @@ struct SignupScreen: View {
     var body: some View {
         VStack(){
             HStack(){
-                ProgressView("\(screenIndex)/\(signupScreens.count)", value: Double(screenIndex), total: Double(signupScreens.count))
+                ProgressView("\(screenIndex)/\(signupScreens.count)", value: Double(progressIndex), total: Double(signupScreens.count))
                     .accentColor(.white)
                     .foregroundColor(.white)
             }
@@ -49,7 +61,7 @@ struct SignupScreen: View {
                     .bold()
                     .frame(maxWidth: 300, maxHeight: 50)
                     .background(.white)
-                    .foregroundColor(ScuolaColor.color1)
+                    .foregroundColor(BrandedColor.color1)
                     .cornerRadius(100)
             }
             Button(action: {screenDecrement()}) {
@@ -57,12 +69,12 @@ struct SignupScreen: View {
                     .bold()
                     .frame(maxWidth: 300, maxHeight: 50)
                     .background(.white)
-                    .foregroundColor(ScuolaColor.color1)
+                    .foregroundColor(BrandedColor.color1)
                     .cornerRadius(100)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(ScuolaColor.backgroundGradient)
+        .background(BrandedColor.backgroundGradient)
         .navigationBarBackButtonHidden(true)
     }
     

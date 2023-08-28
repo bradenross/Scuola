@@ -20,6 +20,11 @@ struct DashboardView: View {
                     Image(systemName: "web.camera")
                     Text("Stream")
                 }
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")
