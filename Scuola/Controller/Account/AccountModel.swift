@@ -21,6 +21,19 @@ struct Account: Identifiable, Codable {
     var userType: String
     var verified: Bool
     var live: Bool
+    
+    enum CodingKeys: String, CodingKey {
+            case id
+            case username
+            case name
+            case bio
+            case followers
+            case following
+            case birthdate
+            case userType
+            case verified
+            case live
+        }
 }
 
 func getAccountFromFB(id: String, completion: @escaping (Account?) -> Void) {
