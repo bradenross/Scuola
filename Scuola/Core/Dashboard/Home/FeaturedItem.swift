@@ -9,10 +9,11 @@ import SwiftUI
 
 struct FeaturedItem: View {
     @State private var isSheetShowing = false
+    var imageUrl: String
     var body: some View {
         VStack(){
             ZStack(){
-                AsyncImage(url: URL(string: "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?time=0")) { image in
+                AsyncImage(url: URL(string: imageUrl)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -23,7 +24,7 @@ struct FeaturedItem: View {
                 }
                 .opacity(0.5)
                 
-                AsyncImage(url: URL(string: "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?time=0")) { image in
+                AsyncImage(url: URL(string: imageUrl)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -65,11 +66,5 @@ struct FeaturedItem: View {
         }
         .frame(width: 350, height: 250)
         .padding(15)
-    }
-}
-
-struct FeaturedItem_Previews: PreviewProvider {
-    static var previews: some View {
-        FeaturedItem()
     }
 }

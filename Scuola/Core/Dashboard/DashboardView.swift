@@ -20,7 +20,7 @@ struct DashboardView: View {
                     Image(systemName: "web.camera")
                     Text("Stream")
                 }
-            ProfileView()
+            ProfileView(accId: UserDefaults.standard.string(forKey: "uid")!)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")

@@ -18,15 +18,22 @@ struct FeaturedView: View {
             }
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(1...10, id: \.self) { value in
+                    ForEach(getFeaturedSection(), id: \.self) { url in
                         HStack(){
-                            FeaturedItem()
+                            FeaturedItem(imageUrl: url)
                         }
                     }
                 }
             }
             .scrollIndicators(.hidden)
         }
+    }
+    
+    func getFeaturedSection() -> [String]{
+        
+        
+        
+        return [""]
     }
 }
 

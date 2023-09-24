@@ -24,12 +24,12 @@ struct SignupScreen: View {
     @State var confirmPassword: String = ""
     @State var birthdate: Date = Date()
     @State var bio: String = ""
+    let picture: String = "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/blank-profile-picture.webp?alt=media&token=8bb1bb7b-559c-4465-bbed-c3bf72f400e4"
     
     private var signupScreens: [AnyView] {[
         AnyView(EmailPasswordPage(title: $title, email: $email, password: $password, confirmPassword: $confirmPassword)),
         AnyView(ProfileInfoPage(title: $title, name: $name, username: $username, bio: $bio)),
-        AnyView(BirthdatePage(title: $title, birthdate: $birthdate)),
-        AnyView(NotificationsPermissionPage(title: $title))
+        AnyView(BirthdatePage(title: $title, birthdate: $birthdate))
     ]}
     
     @Environment(\.presentationMode) var presentationMode
@@ -61,10 +61,13 @@ struct SignupScreen: View {
             } else {
                 print("User signed up successfully")
                 let uid = authResult!.user.uid
-                let account = Account(id: uid, username: username, name: name, bio: bio, followers: 0, following: 0, birthdate: birthdate, userType: "default", verified: false, live: false)
+                let account = Account(id: uid, username: username, name: name, bio: bio, followers: 0, following: 0, birthdate: birthdate, userType: "default", verified: false, live: false, picture: picture)
                 do {
+                    UserDefaults.standard.set(uid, forKey: "uid")
+                    UserDefaults.standard.set(username, forKey: "username")
                     let db = Firestore.firestore()
                     try db.collection("users").document(account.id).setData(from: account)
+                    screenIncrement()
                 } catch let error {
                     print("Error encoding or storing data: \(error)")
                 }
@@ -220,39 +223,31 @@ struct BirthdatePage: View {
 
 struct NotificationsPermissionPage: View {
     @Binding var title: String
-    @State var notificationStatus: String = ""
     
     var body: some View {
         HStack(){
             Spacer()
-            Text(notificationStatus)
-                .frame(alignment: .center)
-                .multilineTextAlignment(.center)
-                .font(.callout)
+            VStack(){
+                Text("Why turn on notifications?")
+                    .font(.headline)
+                    .bold()
+                TabView(){
+                    Text("🔔 Creators go live")
+                    Text("💬 Messages from your friends instantly")
+                    Text("📨 Interactions on your posts")
+                }.tabViewStyle(PageTabViewStyle())
+            }
+            .frame(height: 200)
+            .background(){
+                BrandedColor.color1
+                    .cornerRadius(15)
+                    .shadow(radius: 5)
+            }
             Spacer()
         }
         .padding(15)
         .onAppear{
-            title = "Notifications"
-            let current = UNUserNotificationCenter.current()
-            current.getNotificationSettings(completionHandler: { permission in
-                switch permission.authorizationStatus  {
-                case .notDetermined:
-                    requestNotificationPermission()
-                case .authorized:
-                    notificationStatus = "Notifications are already turned on"
-                case .denied:
-                    notificationStatus = "Notifications are not enabled\nPlease visit the settings to turn them on"
-                case .provisional:
-                    // @available(iOS 12.0, *)
-                    print("The application is authorized to post non-interruptive user notifications.")
-                case .ephemeral:
-                    // @available(iOS 14.0, *)
-                    print("The application is temporarily authorized to post notifications. Only available to app clips.")
-                @unknown default:
-                    notificationStatus = "Notifications are not enabled\nPlease visit the settings to turn them on"
-                }
-            })
+            requestNotificationPermission()
         }
     }
     

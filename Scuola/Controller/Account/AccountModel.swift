@@ -21,6 +21,7 @@ struct Account: Identifiable, Codable {
     var userType: String
     var verified: Bool
     var live: Bool
+    var picture: String
     
     enum CodingKeys: String, CodingKey {
             case id
@@ -33,6 +34,7 @@ struct Account: Identifiable, Codable {
             case userType
             case verified
             case live
+            case picture
         }
 }
 
@@ -59,10 +61,11 @@ func getAccountFromFB(id: String, completion: @escaping (Account?) -> Void) {
                    let birthdate = accountData["birthdate"] as? Timestamp,
                    let userType = accountData["userType"] as? String,
                    let verified = accountData["verified"] as? Bool,
-                   let live = accountData["live"] as? Bool {
+                   let live = accountData["live"] as? Bool,
+                   let picture = accountData["picture"] as? String {
                         let birthdateDate = birthdate.dateValue()
                     
-                        let account = Account(id: id, username: username, name: name, bio: bio, followers: followers, following: following, birthdate: birthdateDate, userType: userType, verified: verified, live: live)
+                        let account = Account(id: id, username: username, name: name, bio: bio, followers: followers, following: following, birthdate: birthdateDate, userType: userType, verified: verified, live: live, picture: picture)
                         AppState.shared.isLoading = false
                         completion(account)
                 } else {
@@ -80,7 +83,7 @@ func suffixNumber(num: Int) -> String{
         return "\(num)"
     }
     
-    let exp:Int = Int(log10(Double(num)) / 3.0 ); //log10(1000));
+    let exp:Int = Int(log10(Double(num)) / 3.0 );
 
     let units:[String] = ["K","M","G","T","P","E"];
 

@@ -46,10 +46,11 @@ func getComment(videoID: String, id: String, completion: @escaping (Account?) ->
                    let birthdate = accountData["birthdate"] as? Timestamp,
                    let userType = accountData["userType"] as? String,
                    let verified = accountData["verified"] as? Bool,
-                   let live = accountData["live"] as? Bool {
+                   let live = accountData["live"] as? Bool,
+                   let picture = accountData["picture"] as? String {
                         let birthdateDate = birthdate.dateValue()
                     
-                        let account = Account(id: id, username: username, name: name, bio: bio, followers: followers, following: following, birthdate: birthdateDate, userType: userType, verified: verified, live: live)
+                        let account = Account(id: id, username: username, name: name, bio: bio, followers: followers, following: following, birthdate: birthdateDate, userType: userType, verified: verified, live: live, picture: picture)
                         AppState.shared.isLoading = false
                         completion(account)
                 } else {

@@ -22,16 +22,20 @@ struct ProfileHeaderView: View {
                     Spacer()
                     ZStack(){
                         Circle()
-                            .stroke(BrandedColor.backgroundGradient, lineWidth: 8)
+                            .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 8)
                             .frame(width: 100, height: 100)
                         Circle()
                             .stroke(Color.black, lineWidth: 4)
                             .frame(width: 100, height: 100)
                             .overlay(
-                                Image("headerpic")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
+                                AsyncImage(url: URL(string: account.picture)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                } placeholder: {
+                                    
+                                }
                             )
                     }
                     Spacer()

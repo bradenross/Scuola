@@ -18,9 +18,12 @@ struct BrandedColor {
     static let background = Color("Background")
     static let text = Color("Text")
     static let secondaryText = Color("SecondaryText")
+    static let liveRed = Color("LiveRed")
     
     static let backgroundGradient = LinearGradient(gradient: Gradient(colors: [BrandedColor.color4, BrandedColor.color3, BrandedColor.color2, BrandedColor.color1]), startPoint: .top, endPoint: .bottom)
     
     static let primaryButtonGradient = LinearGradient(gradient: Gradient(colors: [BrandedColor.color1, BrandedColor.color3]), startPoint: .leading, endPoint: .trailing)
+    
+    static let liveGradient = LinearGradient(gradient: Gradient(colors: [BrandedColor.liveRed, Color.red]), startPoint: .top, endPoint: .bottom)
     
 }
