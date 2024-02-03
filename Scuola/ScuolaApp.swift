@@ -36,7 +36,7 @@ struct ScuolaApp: App {
                             DashboardView()
                                 .environmentObject(sessionService)
                         case .loggedOut:
-                            LoginScreen()
+                            LandingPage()
                         }
                     
                 }

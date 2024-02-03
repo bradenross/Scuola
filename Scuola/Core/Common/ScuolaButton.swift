@@ -13,11 +13,11 @@ struct ScuolaButton: View {
     var action: () -> Void
     
     var body: some View {
-        if(type == "secondary"){
+        if(type.lowercased() == "secondary"){
             Button(action: action) {
                 Text(title)
                     .bold()
-                    .frame(maxWidth: 300, maxHeight: 50)
+                    .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
                     .foregroundColor(.white)
                     .cornerRadius(100)
                     .overlay(
@@ -25,14 +25,49 @@ struct ScuolaButton: View {
                             .stroke(Color.white, lineWidth: 3)
                     )
             }
-        } else {
+        } else if(type.lowercased() == "primary"){
             Button(action: action){
                 Text(title)
                     .bold()
-                    .frame(maxWidth: 300, maxHeight: 50)
+                    .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
                     .background(.white)
-                    .foregroundColor(BrandedColor.color1)
+                    .foregroundColor(BrandedColor.dynamicAccentColor)
                     .cornerRadius(100)
+            }
+        }
+    }
+}
+
+struct ScuolaNavButton<Content: View>: View {
+    var title: String
+    var type: String = "primary"
+    var navigateTo: Content
+    
+    var body: some View {
+        if(type.lowercased() == "secondary"){
+            Button(action: {}) {
+                NavigationLink(destination: navigateTo) {
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                        .foregroundColor(.white)
+                        .cornerRadius(100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.white, lineWidth: 3)
+                        )
+                }
+            }
+        } else if(type.lowercased() == "primary"){
+            Button(action: {}) {
+                NavigationLink(destination: navigateTo) {
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                        .background(.white)
+                        .foregroundColor(BrandedColor.dynamicAccentColor)
+                        .cornerRadius(100)
+                }
             }
         }
     }

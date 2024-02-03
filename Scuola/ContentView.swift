@@ -16,7 +16,7 @@ struct ContentView: View {
                 if(Auth.auth().currentUser != nil){
                     HomeScreen()
                 } else {
-                    LoginScreen()
+                    LandingPage()
                 }
             }
         }

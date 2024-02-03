@@ -27,9 +27,13 @@
 		9C7CA8472A809FD40083EADC /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8462A809FD40083EADC /* ProfileHeaderView.swift */; };
 		9C7CA8492A889AEA0083EADC /* ScuolaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8482A889AEA0083EADC /* ScuolaButton.swift */; };
 		9C7CA84C2A89DE400083EADC /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA84B2A89DE400083EADC /* AccountModel.swift */; };
+		9C8C435D2B68A8B000280963 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C435C2B68A8B000280963 /* LandingPage.swift */; };
 		9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */; };
 		9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */; };
 		9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */; };
+		9CD336EC2ACBDB3200312187 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */; };
+		9CEC38B52B609BA300192619 /* BubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC38B42B609BA300192619 /* BubbleBackground.swift */; };
+		9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
 		9CF703802A4E890200E96A5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037F2A4E890200E96A5D /* ContentView.swift */; };
 		9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703812A4E890400E96A5D /* Assets.xcassets */; };
@@ -121,9 +125,13 @@
 		9C7CA8462A809FD40083EADC /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		9C7CA8482A889AEA0083EADC /* ScuolaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaButton.swift; sourceTree = "<group>"; };
 		9C7CA84B2A89DE400083EADC /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		9C8C435C2B68A8B000280963 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
+		9CEC38B42B609BA300192619 /* BubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleBackground.swift; sourceTree = "<group>"; };
+		9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaApp.swift; sourceTree = "<group>"; };
 		9CF7037F2A4E890200E96A5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,7 +143,6 @@
 		9CF703982A4E890400E96A5D /* ScuolaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaUITests.swift; sourceTree = "<group>"; };
 		9CF7039A2A4E890400E96A5D /* ScuolaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9CF703A72A4E8D5900E96A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9CF703A92A4E8D5E00E96A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF703E82A4E8F7900E96A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9CF704012A4E928900E96A5D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		9CF704032A4E92B500E96A5D /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
@@ -322,6 +329,7 @@
 			children = (
 				9C7CA8412A7B5ED40083EADC /* ScuolaActionButton.swift */,
 				9C7CA8482A889AEA0083EADC /* ScuolaButton.swift */,
+				9CEC38B42B609BA300192619 /* BubbleBackground.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 			children = (
 				9C7CA8442A8093490083EADC /* ProfileView.swift */,
 				9C7CA8462A809FD40083EADC /* ProfileHeaderView.swift */,
+				9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -371,7 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */,
-				9CF703A92A4E8D5E00E96A5D /* GoogleService-Info.plist */,
+				9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */,
 				9CF7037C2A4E890200E96A5D /* Scuola */,
 				9CF7038D2A4E890400E96A5D /* ScuolaTests */,
 				9CF703972A4E890400E96A5D /* ScuolaUITests */,
@@ -471,6 +480,7 @@
 			children = (
 				9CF704012A4E928900E96A5D /* LoginScreen.swift */,
 				9CF704032A4E92B500E96A5D /* SignupScreen.swift */,
+				9C8C435C2B68A8B000280963 /* LandingPage.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -667,6 +677,7 @@
 			files = (
 				9CF703852A4E890400E96A5D /* Preview Assets.xcassets in Resources */,
 				9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */,
+				9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */,
 				9CF703A82A4E8D5A00E96A5D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,10 +709,12 @@
 				9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */,
 				9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
+				9C8C435D2B68A8B000280963 /* LandingPage.swift in Sources */,
 				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
 				9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */,
+				9CD336EC2ACBDB3200312187 /* ProfileContentView.swift in Sources */,
 				9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */,
 				9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */,
 				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
@@ -729,6 +742,7 @@
 				9CF704022A4E928900E96A5D /* LoginScreen.swift in Sources */,
 				9C7CA8392A66599E0083EADC /* Comment.swift in Sources */,
 				9C7CA83D2A79F2460083EADC /* ActionBar.swift in Sources */,
+				9CEC38B52B609BA300192619 /* BubbleBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +912,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -930,6 +945,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

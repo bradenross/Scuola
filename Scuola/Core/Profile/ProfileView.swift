@@ -11,9 +11,14 @@ struct ProfileView: View {
     var accId: String
     @State var acc: Account = Account(id: "", username: "", name: "", bio: "", followers: 0, following: 0, birthdate: Date(), userType: "default", verified: false, live: false, picture: "")
     var body: some View {
-        ScrollView(){
-            VStack(){
-                ProfileHeaderView(account: $acc)
+        GeometryReader { geometry in
+            ScrollView(){
+                VStack(){
+                    ProfileHeaderView(account: $acc)
+                    ProfileContentView(account: $acc)
+                        .frame(maxHeight: .infinity)
+                }
+                .frame(maxWidth: .infinity, minHeight: geometry.size.height, maxHeight: .infinity)
             }
         }
         .onAppear(){

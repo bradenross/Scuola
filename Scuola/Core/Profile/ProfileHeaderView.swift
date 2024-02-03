@@ -25,7 +25,7 @@ struct ProfileHeaderView: View {
                             .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 8)
                             .frame(width: 100, height: 100)
                         Circle()
-                            .stroke(Color.black, lineWidth: 4)
+                            .stroke(BrandedColor.background, lineWidth: 4)
                             .frame(width: 100, height: 100)
                             .overlay(
                                 AsyncImage(url: URL(string: account.picture)) { image in

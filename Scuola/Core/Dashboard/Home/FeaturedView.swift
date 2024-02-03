@@ -33,7 +33,7 @@ struct FeaturedView: View {
         
         
         
-        return [""]
+        return ["https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?width=214&height=121&time=3", "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?width=214&height=121&time=3", "https://image.mux.com/3ZOQL2w7FW2301acK6dqxNI3w8J6Ibsb5Pj00A6bgFiIg/thumbnail.png?width=214&height=121&time=3", "https://image.mux.com/ygmhdz5X01bhNaN3QzPf00TC1MfZ1JdYwBQ3xtgxuFZKE/thumbnail.png?width=214&height=121&time=6"]
     }
 }
 

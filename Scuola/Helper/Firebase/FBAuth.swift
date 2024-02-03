@@ -22,6 +22,7 @@ class FBAuth {
     func login(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
+                print("BRADEN ROSS")
                 print(error?.localizedDescription ?? "")
             } else {
                 guard let uid = Auth.auth().currentUser?.uid else { return }
