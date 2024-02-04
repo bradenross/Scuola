@@ -21,7 +21,7 @@ struct LandingPage: View {
                     .font(.subheadline)
                 Spacer()
                 VStack {
-                    ScuolaNavButton(title: "Log In", navigateTo: LoginScreen())
+                    ScuolaNavButton(title: "Log In", navigateTo: LoginPage())
                     ScuolaNavButton(title: "Sign Up", type: "secondary", navigateTo: SignupScreen())
                         
                 }

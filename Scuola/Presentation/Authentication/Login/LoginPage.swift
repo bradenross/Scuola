@@ -1,14 +1,13 @@
 //
-//  LoginScreen.swift
+//  LoginPage.swift
 //  Scuola
 //
-//  Created by Braden Ross on 6/29/23.
+//  Created by Braden Ross on 2/3/24.
 //
 
 import SwiftUI
-import Firebase
 
-struct LoginScreen: View {
+struct LoginPage: View {
     @State var emailInput: String = ""
     @State var passwordInput: String = ""
     @State var errorPopup: Bool = false
@@ -78,11 +77,5 @@ struct LoginScreen: View {
             LinearGradient(colors: BrandedColor.backgroundGradientColors, startPoint: .topLeading, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
         }
-    }
-}
-
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
     }
 }
