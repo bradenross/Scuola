@@ -1,8 +1,8 @@
 //
-//  FBAuth.swift
+//  FirebaseAuthManager.swift
 //  Scuola
 //
-//  Created by Braden Ross on 7/9/23.
+//  Created by Braden Ross on 2/4/24.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class FBAuth {
+final class FirebaseAuthManager: AuthenticationUseCase {
     func signOut(){
         do {
             try Auth.auth().signOut()

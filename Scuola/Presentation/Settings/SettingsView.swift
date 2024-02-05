@@ -43,7 +43,7 @@ struct SettingsView: View {
             
             Section(){
                 Button("Sign Out"){
-                    FBAuth().signOut()
+                    FirebaseAuthManager().signOut()
                 }
             }
         }

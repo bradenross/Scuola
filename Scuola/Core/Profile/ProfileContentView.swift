@@ -11,9 +11,9 @@ struct ProfileContentView: View {
     @Binding var account: Account
     var body: some View {
         TabView {
-            LoginScreen()
+            LoginPage()
             SignupScreen()
-            LoginScreen()
+            LoginPage()
             SignupScreen()
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

@@ -61,7 +61,7 @@ struct LoginPage: View {
                 
                 ScuolaButton(title: "Login", action: {
                     Task{
-                        FBAuth().login(email: emailInput, password: passwordInput)
+                        FirebaseAuthManager().login(email: emailInput, password: passwordInput)
                     }
                 })
                 

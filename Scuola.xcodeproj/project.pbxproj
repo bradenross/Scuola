@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8132A52888C0083EADC /* VideoView.swift */; };
 		9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81A2A5A66A60083EADC /* SettingsView.swift */; };
-		9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81F2A5BAB280083EADC /* FBAuth.swift */; };
 		9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */; };
 		9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */; };
-		9C7CA8282A63BF2D0083EADC /* VideoAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8272A63BF2D0083EADC /* VideoAssetModel.swift */; };
 		9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8292A63BF3C0083EADC /* LiveStream.swift */; };
 		9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */; };
 		9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82F2A6641FB0083EADC /* CommentSection.swift */; };
@@ -37,6 +35,11 @@
 		9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */; };
 		9C8C43772B6ECD7000280963 /* NumberFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43762B6ECD7000280963 /* NumberFormatterService.swift */; };
 		9C8C437C2B6F5DD900280963 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C437B2B6F5DD900280963 /* LoginPage.swift */; };
+		9C8C43812B6F62C900280963 /* ScuolaNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */; };
+		9C8C43842B708EF800280963 /* SessionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43832B708EF800280963 /* SessionServiceImpl.swift */; };
+		9C8C43872B70910400280963 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43862B70910400280963 /* AuthenticationUseCase.swift */; };
+		9C8C43892B7091B800280963 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43882B7091B800280963 /* FirebaseAuthManager.swift */; };
+		9C8C438B2B70948700280963 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C438A2B70948700280963 /* VideoAsset.swift */; };
 		9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */; };
 		9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */; };
 		9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */; };
@@ -114,10 +117,8 @@
 		9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mux-ScuolaiOSDev.env"; path = "../../../Downloads/mux-ScuolaiOSDev.env"; sourceTree = "<group>"; };
 		9C7CA8132A52888C0083EADC /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		9C7CA81A2A5A66A60083EADC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		9C7CA81F2A5BAB280083EADC /* FBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuth.swift; sourceTree = "<group>"; };
 		9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
-		9C7CA8272A63BF2D0083EADC /* VideoAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAssetModel.swift; sourceTree = "<group>"; };
 		9C7CA8292A63BF3C0083EADC /* LiveStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStream.swift; sourceTree = "<group>"; };
 		9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAssetView.swift; sourceTree = "<group>"; };
 		9C7CA82F2A6641FB0083EADC /* CommentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSection.swift; sourceTree = "<group>"; };
@@ -142,6 +143,11 @@
 		9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountUseCase.swift; sourceTree = "<group>"; };
 		9C8C43762B6ECD7000280963 /* NumberFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterService.swift; sourceTree = "<group>"; };
 		9C8C437B2B6F5DD900280963 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaNavButton.swift; sourceTree = "<group>"; };
+		9C8C43832B708EF800280963 /* SessionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionServiceImpl.swift; sourceTree = "<group>"; };
+		9C8C43862B70910400280963 /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
+		9C8C43882B7091B800280963 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		9C8C438A2B70948700280963 /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
 		9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -235,38 +241,12 @@
 			path = OnDemand;
 			sourceTree = "<group>";
 		};
-		9C7CA8152A5A600D0083EADC /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA81A2A5A66A60083EADC /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		9C7CA8162A5A62600083EADC /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA81C2A5BAB110083EADC /* Firebase */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		9C7CA8172A5A62680083EADC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9C7CA8182A5A62720083EADC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9CF7040B2A4E98E700E96A5D /* Auth */,
-				9CF7041A2A514BE100E96A5D /* Devices */,
 				9CF704212A527BBE00E96A5D /* Mux */,
 				9CF704152A51404B00E96A5D /* Permissions */,
 				9C7CA8262A63BA2D0083EADC /* Videos */,
-				9C7CA8362A6659710083EADC /* Watch */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,25 +255,14 @@
 			isa = PBXGroup;
 			children = (
 				9CBF2A2C2A8F1EA200D1FDC4 /* AppState */,
-				9CF703F82A4E90AD00E96A5D /* Theme */,
-				9CBF2A2F2A8F21C600D1FDC4 /* Views */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		9C7CA81C2A5BAB110083EADC /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA81F2A5BAB280083EADC /* FBAuth.swift */,
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		9C7CA8262A63BA2D0083EADC /* Videos */ = {
 			isa = PBXGroup;
 			children = (
 				9CBF2A322A930F3B00D1FDC4 /* Comments */,
-				9C7CA8272A63BF2D0083EADC /* VideoAssetModel.swift */,
 				9C7CA8292A63BF3C0083EADC /* LiveStream.swift */,
 			);
 			path = Videos;
@@ -321,27 +290,9 @@
 			path = VideoAsset;
 			sourceTree = "<group>";
 		};
-		9C7CA8362A6659710083EADC /* Watch */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA8372A66598A0083EADC /* VideoAsset */,
-			);
-			path = Watch;
-			sourceTree = "<group>";
-		};
-		9C7CA8372A66598A0083EADC /* VideoAsset */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA8382A66599E0083EADC /* Comment.swift */,
-			);
-			path = VideoAsset;
-			sourceTree = "<group>";
-		};
 		9C7CA8402A7B5EBC0083EADC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9C7CA8412A7B5ED40083EADC /* ScuolaActionButton.swift */,
-				9C7CA8482A889AEA0083EADC /* ScuolaButton.swift */,
 				9CEC38B42B609BA300192619 /* BubbleBackground.swift */,
 			);
 			path = Common;
@@ -361,7 +312,11 @@
 			isa = PBXGroup;
 			children = (
 				9C8C43792B6F5CC000280963 /* Authentication */,
+				9C8C437F2B6F628E00280963 /* BrandComponents */,
+				9CF703EC2A4E906800E96A5D /* Dashboard */,
 				9C8C43782B6F5C0300280963 /* Landing */,
+				9C8C438C2B7096EE00280963 /* Settings */,
+				9CF703F82A4E90AD00E96A5D /* Theme */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -378,7 +333,9 @@
 		9C8C43602B6EB45A00280963 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9CF7041A2A514BE100E96A5D /* Devices */,
 				9C8C43742B6ECD5100280963 /* Frameworks */,
+				9C8C43822B708ED100280963 /* Session */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -400,6 +357,8 @@
 			isa = PBXGroup;
 			children = (
 				9C8C436F2B6EC88300280963 /* Account.swift */,
+				9C7CA8382A66599E0083EADC /* Comment.swift */,
+				9C8C438A2B70948700280963 /* VideoAsset.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -408,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */,
+				9C8C43862B70910400280963 /* AuthenticationUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -453,20 +413,49 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		9C8C437F2B6F628E00280963 /* BrandComponents */ = {
+			isa = PBXGroup;
+			children = (
+				9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */,
+				9C7CA8412A7B5ED40083EADC /* ScuolaActionButton.swift */,
+				9C7CA8482A889AEA0083EADC /* ScuolaButton.swift */,
+				9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */,
+			);
+			path = BrandComponents;
+			sourceTree = "<group>";
+		};
+		9C8C43822B708ED100280963 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7040C2A4E98FA00E96A5D /* SessionService.swift */,
+				9C8C43832B708EF800280963 /* SessionServiceImpl.swift */,
+				9C8C43882B7091B800280963 /* FirebaseAuthManager.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		9C8C43852B70903F00280963 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7041B2A514C3900E96A5D /* CameraManager.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		9C8C438C2B7096EE00280963 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CA81A2A5A66A60083EADC /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		9CBF2A2C2A8F1EA200D1FDC4 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
 				9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */,
 			);
 			path = AppState;
-			sourceTree = "<group>";
-		};
-		9CBF2A2F2A8F21C600D1FDC4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9CBF2A322A930F3B00D1FDC4 /* Comments */ = {
@@ -503,13 +492,11 @@
 			isa = PBXGroup;
 			children = (
 				9C8C435E2B6EB44F00280963 /* Presentation */,
-				9C8C435F2B6EB45600280963 /* Domain */,
 				9C8C43602B6EB45A00280963 /* Data */,
+				9C8C435F2B6EB45600280963 /* Domain */,
 				9C7CA8192A5A66110083EADC /* Common */,
 				9CF703EB2A4E906000E96A5D /* Core */,
 				9C7CA8182A5A62720083EADC /* Controller */,
-				9C7CA8172A5A62680083EADC /* View */,
-				9C7CA8162A5A62600083EADC /* Helper */,
 				9CF703E82A4E8F7900E96A5D /* Info.plist */,
 				9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */,
 				9CF7037F2A4E890200E96A5D /* ContentView.swift */,
@@ -549,8 +536,6 @@
 			isa = PBXGroup;
 			children = (
 				9C7CA8402A7B5EBC0083EADC /* Common */,
-				9C7CA8152A5A600D0083EADC /* Settings */,
-				9CF703EC2A4E906800E96A5D /* Dashboard */,
 				9CF704102A4F4CE700E96A5D /* Live */,
 				9C7CA8122A5286250083EADC /* OnDemand */,
 				9C7CA8432A8093350083EADC /* Profile */,
@@ -586,14 +571,6 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		9CF7040B2A4E98E700E96A5D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				9CF7040C2A4E98FA00E96A5D /* SessionService.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		9CF704102A4F4CE700E96A5D /* Live */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,7 +592,7 @@
 		9CF7041A2A514BE100E96A5D /* Devices */ = {
 			isa = PBXGroup;
 			children = (
-				9CF7041B2A514C3900E96A5D /* CameraManager.swift */,
+				9C8C43852B70903F00280963 /* Camera */,
 			);
 			path = Devices;
 			sourceTree = "<group>";
@@ -799,6 +776,7 @@
 				9CF703802A4E890200E96A5D /* ContentView.swift in Sources */,
 				9C8C43632B6EB4FA00280963 /* SignupScreen.swift in Sources */,
 				9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */,
+				9C8C43892B7091B800280963 /* FirebaseAuthManager.swift in Sources */,
 				9C7CA8422A7B5ED40083EADC /* ScuolaActionButton.swift in Sources */,
 				9C8C436B2B6EBAC100280963 /* NotificationsPermissionPage.swift in Sources */,
 				9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */,
@@ -819,13 +797,16 @@
 				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
 				9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */,
 				9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */,
+				9C8C43872B70910400280963 /* AuthenticationUseCase.swift in Sources */,
 				9C7CA8472A809FD40083EADC /* ProfileHeaderView.swift in Sources */,
+				9C8C43842B708EF800280963 /* SessionServiceImpl.swift in Sources */,
+				9C8C43812B6F62C900280963 /* ScuolaNavButton.swift in Sources */,
 				9C8C43652B6EB70B00280963 /* CredentialsInputPage.swift in Sources */,
 				9C7CA8492A889AEA0083EADC /* ScuolaButton.swift in Sources */,
-				9C7CA8202A5BAB280083EADC /* FBAuth.swift in Sources */,
 				9C8C43692B6EBA5600280963 /* BirthdateInputPage.swift in Sources */,
 				9C7CA8352A664FE40083EADC /* CommentView.swift in Sources */,
 				9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */,
+				9C8C438B2B70948700280963 /* VideoAsset.swift in Sources */,
 				9C7CA83B2A721D830083EADC /* DescriptionView.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */,
@@ -838,7 +819,6 @@
 				9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */,
 				9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */,
 				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
-				9C7CA8282A63BF2D0083EADC /* VideoAssetModel.swift in Sources */,
 				9C7CA8392A66599E0083EADC /* Comment.swift in Sources */,
 				9C8C43772B6ECD7000280963 /* NumberFormatterService.swift in Sources */,
 				9C7CA83D2A79F2460083EADC /* ActionBar.swift in Sources */,
