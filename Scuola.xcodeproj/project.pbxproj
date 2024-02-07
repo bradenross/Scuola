@@ -11,7 +11,6 @@
 		9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA81A2A5A66A60083EADC /* SettingsView.swift */; };
 		9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */; };
 		9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */; };
-		9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8292A63BF3C0083EADC /* LiveStream.swift */; };
 		9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */; };
 		9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA82F2A6641FB0083EADC /* CommentSection.swift */; };
 		9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CA8312A6642410083EADC /* CommentSectionPreview.swift */; };
@@ -93,7 +92,7 @@
 		9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704182A5146AF00E96A5D /* CameraStreamView.swift */; };
 		9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041B2A514C3900E96A5D /* CameraManager.swift */; };
 		9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041D2A52224900E96A5D /* BroadcastManager.swift */; };
-		9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxManager.swift */; };
+		9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxCredentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +118,6 @@
 		9C7CA81A2A5A66A60083EADC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
-		9C7CA8292A63BF3C0083EADC /* LiveStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStream.swift; sourceTree = "<group>"; };
 		9C7CA82C2A64E7670083EADC /* VideoAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAssetView.swift; sourceTree = "<group>"; };
 		9C7CA82F2A6641FB0083EADC /* CommentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSection.swift; sourceTree = "<group>"; };
 		9C7CA8312A6642410083EADC /* CommentSectionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSectionPreview.swift; sourceTree = "<group>"; };
@@ -175,7 +173,7 @@
 		9CF704182A5146AF00E96A5D /* CameraStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamView.swift; sourceTree = "<group>"; };
 		9CF7041B2A514C3900E96A5D /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		9CF7041D2A52224900E96A5D /* BroadcastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastManager.swift; sourceTree = "<group>"; };
-		9CF704222A527BCB00E96A5D /* MuxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxManager.swift; sourceTree = "<group>"; };
+		9CF704222A527BCB00E96A5D /* MuxCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,41 +239,6 @@
 			path = OnDemand;
 			sourceTree = "<group>";
 		};
-		9C7CA8182A5A62720083EADC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9CF704212A527BBE00E96A5D /* Mux */,
-				9CF704152A51404B00E96A5D /* Permissions */,
-				9C7CA8262A63BA2D0083EADC /* Videos */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9C7CA8192A5A66110083EADC /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9CBF2A2C2A8F1EA200D1FDC4 /* AppState */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9C7CA8262A63BA2D0083EADC /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				9CBF2A322A930F3B00D1FDC4 /* Comments */,
-				9C7CA8292A63BF3C0083EADC /* LiveStream.swift */,
-			);
-			path = Videos;
-			sourceTree = "<group>";
-		};
-		9C7CA82B2A64E7230083EADC /* Watch */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA82E2A6641DD0083EADC /* VideoAsset */,
-			);
-			path = Watch;
-			sourceTree = "<group>";
-		};
 		9C7CA82E2A6641DD0083EADC /* VideoAsset */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,33 +253,18 @@
 			path = VideoAsset;
 			sourceTree = "<group>";
 		};
-		9C7CA8402A7B5EBC0083EADC /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9CEC38B42B609BA300192619 /* BubbleBackground.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9C7CA8432A8093350083EADC /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA8442A8093490083EADC /* ProfileView.swift */,
-				9C7CA8462A809FD40083EADC /* ProfileHeaderView.swift */,
-				9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		9C8C435E2B6EB44F00280963 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */,
 				9C8C43792B6F5CC000280963 /* Authentication */,
 				9C8C437F2B6F628E00280963 /* BrandComponents */,
 				9CF703EC2A4E906800E96A5D /* Dashboard */,
 				9C8C43782B6F5C0300280963 /* Landing */,
+				9C8C43912B7443B900280963 /* Profile */,
 				9C8C438C2B7096EE00280963 /* Settings */,
 				9CF703F82A4E90AD00E96A5D /* Theme */,
+				9C8C43902B74439300280963 /* Video */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -358,6 +306,7 @@
 			children = (
 				9C8C436F2B6EC88300280963 /* Account.swift */,
 				9C7CA8382A66599E0083EADC /* Comment.swift */,
+				9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */,
 				9C8C438A2B70948700280963 /* VideoAsset.swift */,
 			);
 			path = Entities;
@@ -376,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8C43752B6ECD5B00280963 /* NumberFormatter */,
+				9C8C43922B74488600280963 /* Permissions */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -392,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8C435C2B68A8B000280963 /* LandingPage.swift */,
+				9CEC38B42B609BA300192619 /* BubbleBackground.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -450,20 +401,55 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		9CBF2A2C2A8F1EA200D1FDC4 /* AppState */ = {
+		9C8C438D2B74426900280963 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */,
+				9C8C438E2B74429C00280963 /* Config */,
 			);
-			path = AppState;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		9CBF2A322A930F3B00D1FDC4 /* Comments */ = {
+		9C8C438E2B74429C00280963 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */,
+				9CF704222A527BCB00E96A5D /* MuxCredentials.swift */,
 			);
-			path = Comments;
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9C8C438F2B7442B500280963 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9C8C43902B74439300280963 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9CF704102A4F4CE700E96A5D /* Live */,
+				9C7CA8122A5286250083EADC /* OnDemand */,
+				9C7CA82E2A6641DD0083EADC /* VideoAsset */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		9C8C43912B7443B900280963 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */,
+				9C7CA8462A809FD40083EADC /* ProfileHeaderView.swift */,
+				9C7CA8442A8093490083EADC /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9C8C43922B74488600280963 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				9CF704162A51405D00E96A5D /* PermissionsManager.swift */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 		9CF703712A4E890200E96A5D = {
@@ -491,12 +477,11 @@
 		9CF7037C2A4E890200E96A5D /* Scuola */ = {
 			isa = PBXGroup;
 			children = (
-				9C8C435E2B6EB44F00280963 /* Presentation */,
 				9C8C43602B6EB45A00280963 /* Data */,
 				9C8C435F2B6EB45600280963 /* Domain */,
-				9C7CA8192A5A66110083EADC /* Common */,
-				9CF703EB2A4E906000E96A5D /* Core */,
-				9C7CA8182A5A62720083EADC /* Controller */,
+				9C8C438D2B74426900280963 /* Infrastructure */,
+				9C8C435E2B6EB44F00280963 /* Presentation */,
+				9C8C438F2B7442B500280963 /* Resources */,
 				9CF703E82A4E8F7900E96A5D /* Info.plist */,
 				9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */,
 				9CF7037F2A4E890200E96A5D /* ContentView.swift */,
@@ -530,18 +515,6 @@
 				9CF703A72A4E8D5900E96A5D /* GoogleService-Info.plist */,
 			);
 			path = ScuolaUITests;
-			sourceTree = "<group>";
-		};
-		9CF703EB2A4E906000E96A5D /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CA8402A7B5EBC0083EADC /* Common */,
-				9CF704102A4F4CE700E96A5D /* Live */,
-				9C7CA8122A5286250083EADC /* OnDemand */,
-				9C7CA8432A8093350083EADC /* Profile */,
-				9C7CA82B2A64E7230083EADC /* Watch */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		9CF703EC2A4E906800E96A5D /* Dashboard */ = {
@@ -581,28 +554,12 @@
 			path = Live;
 			sourceTree = "<group>";
 		};
-		9CF704152A51404B00E96A5D /* Permissions */ = {
-			isa = PBXGroup;
-			children = (
-				9CF704162A51405D00E96A5D /* PermissionsManager.swift */,
-			);
-			path = Permissions;
-			sourceTree = "<group>";
-		};
 		9CF7041A2A514BE100E96A5D /* Devices */ = {
 			isa = PBXGroup;
 			children = (
 				9C8C43852B70903F00280963 /* Camera */,
 			);
 			path = Devices;
-			sourceTree = "<group>";
-		};
-		9CF704212A527BBE00E96A5D /* Mux */ = {
-			isa = PBXGroup;
-			children = (
-				9CF704222A527BCB00E96A5D /* MuxManager.swift */,
-			);
-			path = Mux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -794,7 +751,7 @@
 				9CD336EC2ACBDB3200312187 /* ProfileContentView.swift in Sources */,
 				9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */,
 				9C7CA8242A5FC61D0083EADC /* FeaturedItem.swift in Sources */,
-				9CF704232A527BCB00E96A5D /* MuxManager.swift in Sources */,
+				9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */,
 				9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */,
 				9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */,
 				9C8C43872B70910400280963 /* AuthenticationUseCase.swift in Sources */,
@@ -809,7 +766,6 @@
 				9C8C438B2B70948700280963 /* VideoAsset.swift in Sources */,
 				9C7CA83B2A721D830083EADC /* DescriptionView.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
-				9C7CA82A2A63BF3C0083EADC /* LiveStream.swift in Sources */,
 				9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
