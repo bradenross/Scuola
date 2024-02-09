@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("accountPrivate") private var isAccountPrivate: Bool = false
+    
     var body: some View {
         Form(){
             VStack(){

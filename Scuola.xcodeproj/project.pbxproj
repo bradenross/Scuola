@@ -39,6 +39,24 @@
 		9C8C43872B70910400280963 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43862B70910400280963 /* AuthenticationUseCase.swift */; };
 		9C8C43892B7091B800280963 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43882B7091B800280963 /* FirebaseAuthManager.swift */; };
 		9C8C438B2B70948700280963 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C438A2B70948700280963 /* VideoAsset.swift */; };
+		9C8C43952B74896700280963 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43942B74896700280963 /* SubscriptionsView.swift */; };
+		9C8C43992B748A0800280963 /* HomeItemLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43982B748A0800280963 /* HomeItemLarge.swift */; };
+		9C8C439B2B7497B600280963 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C439A2B7497B600280963 /* Thumbnail.swift */; };
+		9CA9C0E72B759A0F00FF7605 /* RadikalTrial-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0D92B759A0E00FF7605 /* RadikalTrial-RegularItalic.otf */; };
+		9CA9C0E82B759A0F00FF7605 /* RadikalTrial-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DA2B759A0E00FF7605 /* RadikalTrial-Regular.otf */; };
+		9CA9C0E92B759A0F00FF7605 /* RadikalTrial-UltraThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DB2B759A0E00FF7605 /* RadikalTrial-UltraThinItalic.otf */; };
+		9CA9C0EA2B759A0F00FF7605 /* RadikalTrial-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DC2B759A0E00FF7605 /* RadikalTrial-LightItalic.otf */; };
+		9CA9C0EB2B759A0F00FF7605 /* RadikalTrial-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DD2B759A0E00FF7605 /* RadikalTrial-Thin.otf */; };
+		9CA9C0EC2B759A0F00FF7605 /* RadikalTrial-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DE2B759A0E00FF7605 /* RadikalTrial-Light.otf */; };
+		9CA9C0ED2B759A0F00FF7605 /* RadikalTrial-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0DF2B759A0E00FF7605 /* RadikalTrial-BoldItalic.otf */; };
+		9CA9C0EE2B759A0F00FF7605 /* Radikal-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E02B759A0F00FF7605 /* Radikal-Medium.otf */; };
+		9CA9C0EF2B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E12B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf */; };
+		9CA9C0F02B759A0F00FF7605 /* RadikalTrial-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E22B759A0F00FF7605 /* RadikalTrial-Black.otf */; };
+		9CA9C0F12B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E32B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf */; };
+		9CA9C0F22B759A0F00FF7605 /* RadikalTrial-UltraThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E42B759A0F00FF7605 /* RadikalTrial-UltraThin.otf */; };
+		9CA9C0F32B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E52B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf */; };
+		9CA9C0F42B759A0F00FF7605 /* RadikalTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C0E62B759A0F00FF7605 /* RadikalTrial-Bold.otf */; };
+		9CA9C0F82B75EB4A00FF7605 /* UserInteractionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */; };
 		9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */; };
 		9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */; };
 		9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */; };
@@ -146,6 +164,24 @@
 		9C8C43862B70910400280963 /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		9C8C43882B7091B800280963 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		9C8C438A2B70948700280963 /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
+		9C8C43942B74896700280963 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
+		9C8C43982B748A0800280963 /* HomeItemLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemLarge.swift; sourceTree = "<group>"; };
+		9C8C439A2B7497B600280963 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		9CA9C0D92B759A0E00FF7605 /* RadikalTrial-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-RegularItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0DA2B759A0E00FF7605 /* RadikalTrial-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-Regular.otf"; sourceTree = "<group>"; };
+		9CA9C0DB2B759A0E00FF7605 /* RadikalTrial-UltraThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-UltraThinItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0DC2B759A0E00FF7605 /* RadikalTrial-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-LightItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0DD2B759A0E00FF7605 /* RadikalTrial-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-Thin.otf"; sourceTree = "<group>"; };
+		9CA9C0DE2B759A0E00FF7605 /* RadikalTrial-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-Light.otf"; sourceTree = "<group>"; };
+		9CA9C0DF2B759A0E00FF7605 /* RadikalTrial-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-BoldItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0E02B759A0F00FF7605 /* Radikal-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Radikal-Medium.otf"; sourceTree = "<group>"; };
+		9CA9C0E12B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-MediumItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0E22B759A0F00FF7605 /* RadikalTrial-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-Black.otf"; sourceTree = "<group>"; };
+		9CA9C0E32B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-BlackItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0E42B759A0F00FF7605 /* RadikalTrial-UltraThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-UltraThin.otf"; sourceTree = "<group>"; };
+		9CA9C0E52B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-ThinItalic.otf"; sourceTree = "<group>"; };
+		9CA9C0E62B759A0F00FF7605 /* RadikalTrial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadikalTrial-Bold.otf"; sourceTree = "<group>"; };
+		9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionUseCase.swift; sourceTree = "<group>"; };
 		9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -281,6 +317,7 @@
 		9C8C43602B6EB45A00280963 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9CA9C0F62B75EB3700FF7605 /* Interactions */,
 				9CF7041A2A514BE100E96A5D /* Devices */,
 				9C8C43742B6ECD5100280963 /* Frameworks */,
 				9C8C43822B708ED100280963 /* Session */,
@@ -307,6 +344,7 @@
 				9C8C436F2B6EC88300280963 /* Account.swift */,
 				9C7CA8382A66599E0083EADC /* Comment.swift */,
 				9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */,
+				9C8C439A2B7497B600280963 /* Thumbnail.swift */,
 				9C8C438A2B70948700280963 /* VideoAsset.swift */,
 			);
 			path = Entities;
@@ -317,6 +355,7 @@
 			children = (
 				9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */,
 				9C8C43862B70910400280963 /* AuthenticationUseCase.swift */,
+				9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -420,6 +459,7 @@
 		9C8C438F2B7442B500280963 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CA9C0BC2B75969F00FF7605 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -450,6 +490,34 @@
 				9CF704162A51405D00E96A5D /* PermissionsManager.swift */,
 			);
 			path = Permissions;
+			sourceTree = "<group>";
+		};
+		9CA9C0BC2B75969F00FF7605 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9CA9C0E22B759A0F00FF7605 /* RadikalTrial-Black.otf */,
+				9CA9C0E32B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf */,
+				9CA9C0E62B759A0F00FF7605 /* RadikalTrial-Bold.otf */,
+				9CA9C0DF2B759A0E00FF7605 /* RadikalTrial-BoldItalic.otf */,
+				9CA9C0DE2B759A0E00FF7605 /* RadikalTrial-Light.otf */,
+				9CA9C0DC2B759A0E00FF7605 /* RadikalTrial-LightItalic.otf */,
+				9CA9C0E02B759A0F00FF7605 /* Radikal-Medium.otf */,
+				9CA9C0E12B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf */,
+				9CA9C0DA2B759A0E00FF7605 /* RadikalTrial-Regular.otf */,
+				9CA9C0D92B759A0E00FF7605 /* RadikalTrial-RegularItalic.otf */,
+				9CA9C0DD2B759A0E00FF7605 /* RadikalTrial-Thin.otf */,
+				9CA9C0E52B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf */,
+				9CA9C0E42B759A0F00FF7605 /* RadikalTrial-UltraThin.otf */,
+				9CA9C0DB2B759A0E00FF7605 /* RadikalTrial-UltraThinItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9CA9C0F62B75EB3700FF7605 /* Interactions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactions;
 			sourceTree = "<group>";
 		};
 		9CF703712A4E890200E96A5D = {
@@ -532,6 +600,8 @@
 				9CF704092A4E93BB00E96A5D /* HomeScreen.swift */,
 				9C7CA8212A5FC31D0083EADC /* FeaturedView.swift */,
 				9C7CA8232A5FC61D0083EADC /* FeaturedItem.swift */,
+				9C8C43942B74896700280963 /* SubscriptionsView.swift */,
+				9C8C43982B748A0800280963 /* HomeItemLarge.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -702,10 +772,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CA9C0F02B759A0F00FF7605 /* RadikalTrial-Black.otf in Resources */,
+				9CA9C0F42B759A0F00FF7605 /* RadikalTrial-Bold.otf in Resources */,
+				9CA9C0E92B759A0F00FF7605 /* RadikalTrial-UltraThinItalic.otf in Resources */,
+				9CA9C0F22B759A0F00FF7605 /* RadikalTrial-UltraThin.otf in Resources */,
+				9CA9C0EB2B759A0F00FF7605 /* RadikalTrial-Thin.otf in Resources */,
 				9CF703852A4E890400E96A5D /* Preview Assets.xcassets in Resources */,
+				9CA9C0EA2B759A0F00FF7605 /* RadikalTrial-LightItalic.otf in Resources */,
 				9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */,
+				9CA9C0F32B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf in Resources */,
+				9CA9C0E82B759A0F00FF7605 /* RadikalTrial-Regular.otf in Resources */,
+				9CA9C0E72B759A0F00FF7605 /* RadikalTrial-RegularItalic.otf in Resources */,
 				9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */,
+				9CA9C0ED2B759A0F00FF7605 /* RadikalTrial-BoldItalic.otf in Resources */,
+				9CA9C0EE2B759A0F00FF7605 /* Radikal-Medium.otf in Resources */,
+				9CA9C0EF2B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf in Resources */,
+				9CA9C0EC2B759A0F00FF7605 /* RadikalTrial-Light.otf in Resources */,
 				9CF703A82A4E8D5A00E96A5D /* GoogleService-Info.plist in Resources */,
+				9CA9C0F12B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,11 +820,13 @@
 				9C8C43892B7091B800280963 /* FirebaseAuthManager.swift in Sources */,
 				9C7CA8422A7B5ED40083EADC /* ScuolaActionButton.swift in Sources */,
 				9C8C436B2B6EBAC100280963 /* NotificationsPermissionPage.swift in Sources */,
+				9C8C439B2B7497B600280963 /* Thumbnail.swift in Sources */,
 				9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */,
 				9C8C43672B6EB9FD00280963 /* ProfileInfoInputPage.swift in Sources */,
 				9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */,
 				9C8C437C2B6F5DD900280963 /* LoginPage.swift in Sources */,
 				9CF704082A4E92EC00E96A5D /* CustomColor.swift in Sources */,
+				9CA9C0F82B75EB4A00FF7605 /* UserInteractionUseCase.swift in Sources */,
 				9C8C435D2B68A8B000280963 /* LandingPage.swift in Sources */,
 				9CF704172A51405D00E96A5D /* PermissionsManager.swift in Sources */,
 				9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */,
@@ -767,12 +853,14 @@
 				9C7CA83B2A721D830083EADC /* DescriptionView.swift in Sources */,
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */,
+				9C8C43992B748A0800280963 /* HomeItemLarge.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,
 				9C7CA83F2A7A07E50083EADC /* ProfileBarView.swift in Sources */,
 				9C7CA8452A8093490083EADC /* ProfileView.swift in Sources */,
 				9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */,
+				9C8C43952B74896700280963 /* SubscriptionsView.swift in Sources */,
 				9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */,
 				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
 				9C7CA8392A66599E0083EADC /* Comment.swift in Sources */,

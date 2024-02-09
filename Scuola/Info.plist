@@ -4,5 +4,11 @@
 <dict>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<string>NO</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Radikal-Medium.otf</string>
+		<string>RadikalTrial-Thin.otf</string>
+		<string>RadikalTrial-UltraThin.otf</string>
+	</array>
 </dict>
 </plist>

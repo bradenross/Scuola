@@ -8,42 +8,50 @@
 import SwiftUI
 
 struct ActionBar: View {
-    @State private var liked = false
-    @State private var disliked = true
-    @State private var likedNum = 562
-    @State private var dislikedNum = 8435
+    @State private var vote = 0
+    @State private var voteNum = 8435
     @State private var isSaved = false
+    let interactionUseCase = UserInteractionUseCaseImpl()
     
     private func onDislikedTapped(){
-        if(disliked == false){
-            if(liked == true){
-                likedNum -= 1
-            }
-            liked = false
-            disliked = true
-            dislikedNum += 1
+        var voteDiff = 0
+        if(vote == -1){
+            voteDiff = 1
+            vote = 0
+            voteNum += 1
         } else {
-            disliked = false
-            dislikedNum -= 1
+            if(vote == 0){
+                voteDiff = -1
+            } else {
+                voteDiff = -2
+            }
+            vote = -1
+            voteNum -= 1
         }
+        interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
     
     private func onLikedTapped(){
-        if(liked == false){
-            if(disliked == true){
-                dislikedNum -= 1
-            }
-            disliked = false
-            liked = true
-            likedNum += 1
+        var voteDiff = 0
+        if(vote == 1){
+            voteDiff = -1
+            vote = 0
+            voteNum -= 1
         } else {
-            liked = false
-            likedNum -= 1
+            if(vote == 0){
+                voteDiff = 1
+            } else {
+                voteDiff = 2
+            }
+            vote = 1
+            voteNum += 1
         }
+        interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
     
     private func onSaveTapped(){
         isSaved.toggle()
+        interactionUseCase.saveVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
     }
     
     var body: some View {
@@ -51,18 +59,18 @@ struct ActionBar: View {
             HStack(){
                 HStack(){
                     HStack(){
-                        Image(systemName: liked ? "hand.thumbsup.fill" : "hand.thumbsup")
-                            .foregroundColor(liked == true ? .green : .white)
-                        Text("\(likedNum)" as String)
+                        Image(systemName: vote == 1 ? "hand.thumbsup.fill" : "hand.thumbsup")
+                            .foregroundColor(vote == 1 ? .green : .white)
                     }
                     .onTapGesture {
                         onLikedTapped()
                     }
                     Divider()
+                    Text("\(voteNum)" as String)
+                    Divider()
                     HStack(){
-                        Image(systemName: disliked ? "hand.thumbsdown.fill" : "hand.thumbsdown")
-                            .foregroundColor(disliked == true ? .red : .white)
-                        Text("\(dislikedNum)" as String)
+                        Image(systemName: vote == -1 ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+                            .foregroundColor(vote == -1 ? .red : .white)
                     }
                     .onTapGesture {
                         onDislikedTapped()

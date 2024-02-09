@@ -17,6 +17,11 @@ struct DashboardView: View {
                 }
             LiveStreamView()
                 .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Explore")
+                }
+            LiveStreamView()
+                .tabItem {
                     Image(systemName: "web.camera")
                     Text("Stream")
                 }

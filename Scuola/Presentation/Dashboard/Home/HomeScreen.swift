@@ -15,6 +15,9 @@ struct HomeScreen: View {
         VStack(){
             FeaturedView()
             Spacer()
+                .frame(height: 25)
+            SubscriptionsView()
+            Spacer()
                 .frame(maxHeight: .infinity)
             
         }
