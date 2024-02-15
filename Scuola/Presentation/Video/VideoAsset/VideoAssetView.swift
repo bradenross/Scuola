@@ -10,7 +10,16 @@ import AVFoundation
 import AVKit
 
 struct VideoAssetView: View {
-    var asset: VideoAsset
+    var videoThumbnailInfo: Thumbnail
+    
+    let videoDataUseCase = FetchVideoDataUseCaseImpl()
+    
+    @State private var isFollowing: Bool = false
+    @State private var vote = 0
+    @State private var voteNum = 0
+    @State private var isSaved = false
+    @State private var ownerAccountData: Account?
+    
     @State private var isCommentSectionOpen = false
     
     @State private var testDesc = "gfhjkljlhgfklhgfklhgfklhgfasfjaksdhfkjashdfkjahsdfkasdfjkhaksjfhajkshfkjashfkjahsfdjkhasjkfhaljkfhakjhfjkahskjfhakjlfhakjlhfjkahfkjahskjfhajfhakjdhfkajhsdfkahsdfjkhasdkjfhakjsdhfkajshdfkahsdfkhakjsfhaksdhfkjasdhfjkashdfakljsdhfjakshfajksfhakjshfalksdfhaksjfhakjsfhaklshfakljshfakjsfhaksdhfaksjdfhakjlsdfhaskljfhaskjdfhajksfhajksdhfkajlshfklajshfjkalshfkjalsfhaksjldfhakjsfhakjsfhaklshfkjashfajkshfdaklsjdfhaskjl[bradenross.me](https://www.bradenross.me)dfhasflkjashfakljsfhaklsjdfhkashfalsjkdhfaklsjdhfjahsdklhasdfhaklsdhfkahsflkahsdflkahsdfkahsdflkhasdlkfhaksdfhkalsdhfklashflahsflashdflahsdfljkashdflkashdfjkashdfkjashdfklhasdfklhaifuaehnviibvsjdknasdvanvi"
@@ -18,19 +27,19 @@ struct VideoAssetView: View {
     var body: some View {
         VStack(){
             HStack(){
-                Text(asset.title)
+                Text(videoThumbnailInfo.title)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(15)
-            VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(asset.id).m3u8")!)
+            VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(videoThumbnailInfo.id).m3u8")!)
                 .aspectRatio(1920/1080, contentMode: .fit)
             VStack(){
                 ScrollView(){
                     Spacer()
                         .frame(height: 15)
-                    ProfileBarView()
-                    ActionBar()
+                    ProfileBarView(isFollowing: $isFollowing, accountData: $ownerAccountData)
+                    ActionBar(vote: $vote, voteNum: $voteNum, isSaved: $isSaved)
                     DescriptionView(description: testDesc)
                     
                     VStack(){
@@ -58,9 +67,25 @@ struct VideoAssetView: View {
                     .presentationCompactAdaptation(.popover)
             }
             .onAppear(){
-                getAllComments(videoID: "vqzU9C6NOUuu21lJYOeG"){comment in
-                    print("TEST")
+                
+                videoDataUseCase.isUserFollowing(userID: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1"){ isFollowingUser in
+                    isFollowing = isFollowingUser ? true : false
                 }
+                
+//                videoDataUseCase.getOwnerProfile(videoID: ""){ result in
+//                    switch result {
+//                    case .success(let fetchedAccount):
+//                        DispatchQueue.main.async {
+//                            self.ownerAccountData = fetchedAccount
+//                        }
+//                    case .failure(let error):
+//                        DispatchQueue.main.async {
+//                            print("Error: \(error)")
+//                            // Handle error
+//                            // For example, you could set a default value for ownerAccountData or show an error message to the user.
+//                        }
+//                    }
+//                }
             }
         }
     }

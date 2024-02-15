@@ -16,6 +16,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        let currentUser = Auth.auth().currentUser
+        if(currentUser != nil && UserDefaults.standard.string(forKey: "uid") == nil){
+            FirebaseAuthManager().signOut()
+        }
         return true
     }
 }

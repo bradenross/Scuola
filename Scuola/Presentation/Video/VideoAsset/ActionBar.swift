@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ActionBar: View {
-    @State private var vote = 0
-    @State private var voteNum = 8435
-    @State private var isSaved = false
+    @Binding var vote: Int
+    @Binding var voteNum: Int
+    @Binding var isSaved: Bool
     let interactionUseCase = UserInteractionUseCaseImpl()
+    let videoDataUseCase = FetchVideoDataUseCaseImpl()
     
     private func onDislikedTapped(){
         var voteDiff = 0
@@ -22,11 +23,12 @@ struct ActionBar: View {
         } else {
             if(vote == 0){
                 voteDiff = -1
+                voteNum -= 1
             } else {
                 voteDiff = -2
+                voteNum -= 2
             }
             vote = -1
-            voteNum -= 1
         }
         interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
@@ -40,18 +42,23 @@ struct ActionBar: View {
         } else {
             if(vote == 0){
                 voteDiff = 1
+                voteNum += 1
             } else {
                 voteDiff = 2
+                voteNum += 2
             }
             vote = 1
-            voteNum += 1
         }
         interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
     
     private func onSaveTapped(){
+        if(isSaved){
+            interactionUseCase.removeSavedVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
+        } else {
+            interactionUseCase.saveVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
+        }
         isSaved.toggle()
-        interactionUseCase.saveVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
     }
     
     var body: some View {
@@ -94,5 +101,14 @@ struct ActionBar: View {
             .padding(.horizontal, 20)
         }
         .scrollIndicators(.hidden)
+        .onAppear(){
+            videoDataUseCase.isSaved(videoID: "vqzU9C6NOUuu21lJYOeG") { isVideoSaved in
+                isSaved = isVideoSaved ? true : false
+            }
+            
+            videoDataUseCase.getVotes(videoID: "vqzU9C6NOUuu21lJYOeG"){ numberOfVotes in
+                voteNum = numberOfVotes
+            }
+        }
     }
 }

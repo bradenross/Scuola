@@ -105,7 +105,7 @@ struct HomeItemLarge: View {
             isSheetShowing = true
         }
         .sheet(isPresented: $isSheetShowing){
-            VideoAssetView(asset: VideoAsset(title: "What Am I Doing With My Life??", user: "Braden Ross", id: videoThumbnail.id))
+            VideoAssetView(videoThumbnailInfo: videoThumbnail)
         }
         .frame(width: 290, height: 210)
         .padding(15)

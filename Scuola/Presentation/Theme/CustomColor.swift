@@ -19,6 +19,7 @@ struct BrandedColor {
     static let text = Color("Text")
     static let secondaryText = Color("SecondaryText")
     static let liveRed = Color("LiveRed")
+    static let white = Color("white")
     static let testBack = Color("TestBack")
     
     static let backgroundGradientColors = [BrandedColor.color4, BrandedColor.color3, BrandedColor.color2]

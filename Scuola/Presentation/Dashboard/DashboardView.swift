@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DashboardView: View {
+    init(){
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "RadikalTrial-Medium", size: 20)!]
+    }
     var body: some View {
         TabView(){
             HomeScreen()
@@ -21,6 +24,8 @@ struct DashboardView: View {
                     Text("Explore")
                 }
             LiveStreamView()
+            
+            
                 .tabItem {
                     Image(systemName: "web.camera")
                     Text("Stream")
@@ -36,7 +41,10 @@ struct DashboardView: View {
                     Text("Settings")
                 }
         }
-        .rotationEffect(.degrees(0))
+        .navigationTitle("Facto")
+        .navigationBarTitleDisplayMode(.inline)
+        
+        
     }
 }
 

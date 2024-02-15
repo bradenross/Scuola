@@ -17,7 +17,7 @@ struct Account: Identifiable, Codable {
     var birthdate: Date
     var userType: String
     var verified: Bool
-    var live: Bool
+    var live: Bool = false
     var picture: String
     
     enum CodingKeys: String, CodingKey {

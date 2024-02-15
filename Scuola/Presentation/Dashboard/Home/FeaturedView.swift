@@ -14,7 +14,6 @@ struct FeaturedView: View {
                 Text("Featured")
                     .font(Font.custom("RadikalTrial-Medium", size: 20))
                     .multilineTextAlignment(.leading)
-                    .padding(.leading, 10)
                 Spacer()
                     .frame(maxWidth: .infinity)
             }

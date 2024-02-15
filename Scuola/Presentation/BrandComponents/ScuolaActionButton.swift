@@ -19,10 +19,14 @@ struct ScuolaActionButton: View {
     var body: some View {
         Button(action: action){
             HStack(){
-                Text(title)
-                    .tint(textColor)
-                Image(systemName: symbol)
-                    .tint(symbolColor)
+                if(title != ""){
+                    Text(title)
+                        .tint(textColor)
+                }
+                if(symbol != ""){
+                    Image(systemName: symbol)
+                        .tint(symbolColor)
+                }
             }
             .padding(10)
             .background(){

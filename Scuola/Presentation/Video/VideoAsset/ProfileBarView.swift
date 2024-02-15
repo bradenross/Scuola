@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct ProfileBarView: View {
+    @Binding var isFollowing: Bool
+    @Binding var accountData: Account?
+    
+    let interactionUseCase = UserInteractionUseCaseImpl()
+    let videoDataUseCase = FetchVideoDataUseCaseImpl()
+    
+    private func onFollowTapped(){
+        if(isFollowing){
+            interactionUseCase.userUnsubscribeToUser(userID: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1")
+        } else {
+            interactionUseCase.userSubscribeToUser(userID: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1")
+        }
+        isFollowing.toggle()
+    }
+    
     var body: some View {
         HStack(){
             Circle()
-                .frame(maxWidth: 75)
+                .frame(maxWidth: 50)
             VStack(alignment: .leading){
-                Text("Braden Ross")
-                    .fontWeight(.bold)
-                Text("49.3K Subscribers")
-                    .fontWeight(.light)
+                Text("accountData!.name")
+                Text("49.3K Followers")
                     .foregroundColor(BrandedColor.secondaryText)
             }
             Spacer()
                 .frame(maxWidth: .infinity)
                 .layoutPriority(-1)
-            ScuolaActionButton(title: "Subscribe", symbol: "star", symbolColor: BrandedColor.dynamicAccentColor, action: {})
+            ScuolaActionButton(title: isFollowing ? "Following" : "Follow", symbol: isFollowing ? "heart.fill" : "heart", symbolColor: isFollowing ? .red : BrandedColor.dynamicAccentColor, action: {
+                onFollowTapped()
+            })
         }
         .padding(.horizontal, 20)
-    }
-}
-
-struct ProfileBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileBarView()
     }
 }

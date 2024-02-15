@@ -36,7 +36,6 @@ final class SessionServiceImpl: SessionService, ObservableObject {
 private extension SessionServiceImpl {
     
     func setupObservations() {
-        
         handler = Auth
             .auth()
             .addStateDidChangeListener { [weak self] _,_ in
