@@ -12,40 +12,25 @@ struct ProfileHeaderView: View {
     var body: some View {
         VStack(alignment: .leading){
             VStack(){
-                HStack(){
-                    Spacer()
-                    VStack(alignment: .center){
-                        Text("\(suffixNumber(num: account.following))")
-                            .bold()
-                        Text("Following")
-                    }
-                    Spacer()
-                    ZStack(){
-                        Circle()
-                            .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 8)
-                            .frame(width: 100, height: 100)
-                        Circle()
-                            .stroke(BrandedColor.background, lineWidth: 4)
-                            .frame(width: 100, height: 100)
-                            .overlay(
-                                AsyncImage(url: URL(string: account.picture)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                } placeholder: {
-                                    
-                                }
-                            )
-                    }
-                    Spacer()
-                    VStack(alignment: .center){
-                        Text("\(suffixNumber(num: account.followers))")
-                            .bold()
-                        Text("Followers")
-                    }
-                    Spacer()
+                ZStack(){
+                    Circle()
+                        .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 8)
+                        .frame(width: 100, height: 100)
+                    Circle()
+                        .stroke(BrandedColor.background, lineWidth: 4)
+                        .frame(width: 100, height: 100)
+                        .overlay(
+                            AsyncImage(url: URL(string: account.picture)) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            } placeholder: {
+                                
+                            }
+                        )
                 }
+                
                 VStack(){
                     HStack(){
                         Text("\(account.name)")
@@ -58,11 +43,65 @@ struct ProfileHeaderView: View {
                     Text("@\(account.username)")
                         .foregroundColor(BrandedColor.secondaryText)
                 }
-                Text("\(account.bio)")
-                    .padding(.vertical, 10)
-                    .multilineTextAlignment(.center)
+                VStack(){
+                    Text("\(account.bio)")
+                        .font(.callout)
+                        .lineLimit(3)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
+                    Text("(bradenross.me)[bradenross.me]")
+                        .font(.callout)
+                        .lineLimit(1)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.vertical, 10)
+                HStack(spacing: 0) {
+                    Spacer()
+                    
+                    VStack {
+                        Text("\(suffixNumber(num: account.following))")
+                            .bold()
+                        Text("Posts")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    VStack {
+                        Text("\(suffixNumber(num: account.following))")
+                            .bold()
+                        Text("Following")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    VStack {
+                        Text("\(suffixNumber(num: account.followers))")
+                            .bold()
+                        Text("Followers")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
                 
-                ScuolaButton(title: "edit", type: "secondary", action: {})
+                if(true){
+                    HStack(){
+                        ScuolaNavButton(title: "Share Profile", navigateTo: SignupScreen())
+                        ScuolaCircleNavButton(symbol: "pencil", navigateTo: ProfileEditView(username: account.username, name: account.name, bio: account.bio))
+                    }
+                } else {
+                    HStack(){
+                        ScuolaButton(title: "Follow", action: {})
+                        ScuolaCircleNavButton(symbol: "ellipsis.message", symbolSize: 25, navigateTo: SignupScreen())
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
             .padding(15)

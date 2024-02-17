@@ -10,14 +10,23 @@ import SwiftUI
 struct ProfileContentView: View {
     @Binding var account: Account
     var body: some View {
-        TabView {
-            LoginPage()
-            SignupScreen()
-            LoginPage()
-            SignupScreen()
+        ScrollView(.horizontal){
+            LazyHStack(alignment: .top){
+                VideoPostsView()
+                    .containerRelativeFrame(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
+                SignupScreen()
+                    .containerRelativeFrame(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
+                LoginPage()
+                    .containerRelativeFrame(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
+                SignupScreen()
+                    .containerRelativeFrame(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .scrollTargetLayout()
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .frame(maxHeight: .infinity)
-        .ignoresSafeArea()
+        .scrollTargetBehavior(.viewAligned)
     }
 }

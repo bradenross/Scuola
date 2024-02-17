@@ -16,11 +16,12 @@ struct ProfileView: View {
                 VStack(){
                     ProfileHeaderView(account: $acc)
                     ProfileContentView(account: $acc)
-                        .frame(maxHeight: .infinity)
                 }
-                .frame(maxWidth: .infinity, minHeight: geometry.size.height, maxHeight: .infinity)
+                .frame(maxWidth: .infinity)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .navigationBarHidden(true)
         .onAppear(){
             getAccountFromFB(id: accId) { account in
                 if let account = account {

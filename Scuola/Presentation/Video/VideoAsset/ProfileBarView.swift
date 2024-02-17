@@ -25,12 +25,17 @@ struct ProfileBarView: View {
     
     var body: some View {
         HStack(){
-            Circle()
-                .frame(maxWidth: 50)
-            VStack(alignment: .leading){
-                Text("accountData!.name")
-                Text("49.3K Followers")
-                    .foregroundColor(BrandedColor.secondaryText)
+            Button(action: {}){
+                NavigationLink(destination: ProfileView(accId: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1")){
+                    Circle()
+                        .frame(maxWidth: 50)
+                    VStack(alignment: .leading){
+                        Text("accountData!.name")
+                            .foregroundColor(BrandedColor.text)
+                        Text("49.3K Followers")
+                            .foregroundColor(BrandedColor.secondaryText)
+                    }
+                }
             }
             Spacer()
                 .frame(maxWidth: .infinity)
