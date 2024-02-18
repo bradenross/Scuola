@@ -10,6 +10,7 @@ import Foundation
 struct Thumbnail: Hashable {
     var title: String
     var user: String
+    var userId: String
     var channelLogo: String
     var views: Int
     var live: Bool

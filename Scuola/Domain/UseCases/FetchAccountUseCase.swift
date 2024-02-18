@@ -37,7 +37,6 @@ func getAccountFromFB(id: String, completion: @escaping (Account?) -> Void) {
                         let birthdateDate = birthdate.dateValue()
                     
                         let account = Account(id: id, username: username, name: name, bio: bio, followers: followers, following: following, birthdate: birthdateDate, userType: userType, verified: verified, live: live, picture: picture)
-                        AppState.shared.isLoading = false
                         completion(account)
                 } else {
                     completion(nil)
@@ -47,4 +46,5 @@ func getAccountFromFB(id: String, completion: @escaping (Account?) -> Void) {
             }
         }
     }
+    AppState.shared.isLoading = false
 }

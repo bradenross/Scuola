@@ -50,6 +50,7 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
     }
 
     func isSaved(videoID: String, completion: @escaping (Bool) -> Void){
+        AppState.shared.isLoading = true
         guard let userID = Auth.auth().currentUser?.uid else {
             print("Current user not available")
             completion(false)
@@ -68,9 +69,12 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             }
         }
         completion(false)
+        
+        AppState.shared.isLoading = false
     }
     
     func isUserFollowing(userID: String, completion: @escaping (Bool) -> Void){
+        AppState.shared.isLoading = true
         guard let currentUserID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
             completion(false)
@@ -92,13 +96,16 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
                 completion(false)
             }
         }
+        
+        AppState.shared.isLoading = false
     }
     
     func getUserVote(videoID: String) {
-        
+        AppState.shared.isLoading = true
     }
 
     func getVotes(videoID: String, completion: @escaping (Int) -> Void) {
+        AppState.shared.isLoading = true
         let videoRef = db.collection("videos").document(videoID)
         
         videoRef.getDocument { (document, error) in
@@ -120,13 +127,16 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
                 completion(0)
             }
         }
+        
+        AppState.shared.isLoading = false
     }
     
     func getTimestamp(videoID: String) {
-        
+        AppState.shared.isLoading = true
     }
     
     func getOwnerProfile(videoID: String, completion: @escaping (Result<Account, Error>) -> Void){
+        AppState.shared.isLoading = true
         let videoRef = db.collection("videos").document(videoID)
             
         // Fetch the video document
@@ -162,10 +172,14 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
                 }
             }
         }
+        
+        AppState.shared.isLoading = false
+        
     }
     
     func getComments(videoID: String, by: Int, completion: @escaping ([Comment]) -> Void){
-        
+        AppState.shared.isLoading = true
+        AppState.shared.isLoading = false
     }
 }
 

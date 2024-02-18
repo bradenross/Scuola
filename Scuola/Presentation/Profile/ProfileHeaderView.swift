@@ -46,7 +46,7 @@ struct ProfileHeaderView: View {
                 VStack(){
                     Text("\(account.bio)")
                         .font(.callout)
-                        .lineLimit(3)
+                        .lineLimit(5)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
                     Text("(bradenross.me)[bradenross.me]")
@@ -91,7 +91,7 @@ struct ProfileHeaderView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
                 
-                if(true){
+                if(account.id == UserDefaults.standard.string(forKey: "uid")!){
                     HStack(){
                         ScuolaNavButton(title: "Share Profile", navigateTo: SignupScreen())
                         ScuolaCircleNavButton(symbol: "pencil", navigateTo: ProfileEditView(username: account.username, name: account.name, bio: account.bio))

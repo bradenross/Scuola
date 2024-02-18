@@ -113,5 +113,5 @@ struct HomeItemLarge: View {
 }
 
 #Preview {
-    HomeItemLarge(videoThumbnail: Thumbnail(title: "This is a test video", user: "ESPN+", channelLogo: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/ESPN_logos.png?alt=media&token=38f7fd4e-1584-40a2-8065-b5f5bc23c793", views: 72700227, live: true, id: "ygmhdz5X01bhNaN3QzPf00TC1MfZ1JdYwBQ3xtgxuFZKE"))
+    HomeItemLarge(videoThumbnail: Thumbnail(title: "This is a test video", user: "ESPN+", userId: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1", channelLogo: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/ESPN_logos.png?alt=media&token=38f7fd4e-1584-40a2-8065-b5f5bc23c793", views: 72700227, live: true, id: "ygmhdz5X01bhNaN3QzPf00TC1MfZ1JdYwBQ3xtgxuFZKE"))
 }
