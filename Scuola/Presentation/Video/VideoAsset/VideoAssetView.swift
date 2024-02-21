@@ -18,7 +18,7 @@ struct VideoAssetView: View {
     @State private var vote = 0
     @State private var voteNum = 0
     @State private var isSaved = false
-    @State private var ownerAccountData: Account?
+    @State private var ownerAccountData: Account = Account(id: "", username: "", name: "", bio: "", followers: 0, following: 0, birthdate: Date(), userType: "default", verified: false, live: false, picture: "")
     
     @State private var isCommentSectionOpen = false
     
@@ -73,20 +73,14 @@ struct VideoAssetView: View {
                         isFollowing = isFollowingUser ? true : false
                     }
                     
-    //                videoDataUseCase.getOwnerProfile(videoID: ""){ result in
-    //                    switch result {
-    //                    case .success(let fetchedAccount):
-    //                        DispatchQueue.main.async {
-    //                            self.ownerAccountData = fetchedAccount
-    //                        }
-    //                    case .failure(let error):
-    //                        DispatchQueue.main.async {
-    //                            print("Error: \(error)")
-    //                            // Handle error
-    //                            // For example, you could set a default value for ownerAccountData or show an error message to the user.
-    //                        }
-    //                    }
-    //                }
+                    getAccountFromFB(id: videoThumbnailInfo.userId) { account in
+                        if let account = account {
+                            print("Retrieved account: \(account)")
+                            ownerAccountData = account
+                        } else {
+                            print("Account not found or error occurred")
+                        }
+                    }
                 }
             }
         }

@@ -116,6 +116,7 @@
 		9CF7041C2A514C3900E96A5D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041B2A514C3900E96A5D /* CameraManager.swift */; };
 		9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041D2A52224900E96A5D /* BroadcastManager.swift */; };
 		9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxCredentials.swift */; };
+		9CFE1FD32B83F4EF0067600A /* EditAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		9CF7041B2A514C3900E96A5D /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		9CF7041D2A52224900E96A5D /* BroadcastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastManager.swift; sourceTree = "<group>"; };
 		9CF704222A527BCB00E96A5D /* MuxCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxCredentials.swift; sourceTree = "<group>"; };
+		9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 				9C8C43862B70910400280963 /* AuthenticationUseCase.swift */,
 				9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */,
 				9CA9C0F92B76D5F300FF7605 /* FetchVideoDataUseCase.swift */,
+				9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				9C8C43952B74896700280963 /* SubscriptionsView.swift in Sources */,
 				9C7CA8142A52888C0083EADC /* VideoView.swift in Sources */,
 				9CF704192A5146AF00E96A5D /* CameraStreamView.swift in Sources */,
+				9CFE1FD32B83F4EF0067600A /* EditAccountUseCase.swift in Sources */,
 				9C7CA8392A66599E0083EADC /* Comment.swift in Sources */,
 				9C8C43772B6ECD7000280963 /* NumberFormatterService.swift in Sources */,
 				9C7CA83D2A79F2460083EADC /* ActionBar.swift in Sources */,

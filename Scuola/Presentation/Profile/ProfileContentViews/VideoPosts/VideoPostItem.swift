@@ -8,38 +8,59 @@
 import SwiftUI
 
 struct VideoPostItem: View {
-    var id: String
+    @State private var isSheetShowing = false
+    var videoThumbnail: Thumbnail
     var body: some View {
-        VStack(alignment: .leading){
-            HStack(){
-                AsyncImage(url: URL(string: "https://image.mux.com/ToSV6oyN00kQoT1VixiYNfW5OvgW4X1M6q6UjrSrC5nc/thumbnail.png?width=214&height=121&time=10")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxHeight: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                } placeholder: {
-                    
+        Button(action: {
+            isSheetShowing = true
+        }) {
+            VStack(alignment: .leading){
+                HStack(alignment: .top){
+                    AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.id)/thumbnail.png?width=1080&height=720&time=3")) { image in
+                        ZStack(){
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 192, height: 108)
+                                .overlay(){
+                                    Color.black.opacity(0.3)
+                                }
+                                .blur(radius: 2)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 192, height: 108)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                    } placeholder: {
+                        ZStack(){
+                            ProgressView()
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 192, height: 108)
+                        }
+                    }
+                    VStack(alignment: .leading){
+                        Text(videoThumbnail.title)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                            .foregroundStyle(BrandedColor.text)
+                        Text(videoThumbnail.user)
+                            .font(.subheadline)
+                            .foregroundStyle(BrandedColor.secondaryText)
+                        Text("\(suffixNumber(num: videoThumbnail.views)) Views")
+                            .font(.subheadline)
+                            .foregroundStyle(BrandedColor.secondaryText)
+                    }
+                    Spacer()
                 }
-                VStack(alignment: .leading){
-                    Text("I CAN'T BELIEVE I AHVE THIS AS A TEST TITLE\nfff\nasfasdf")
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(2)
-                    Text("Video Creator")
-                        .font(.subheadline)
-                        .foregroundStyle(BrandedColor.secondaryText)
-                    Text("123.3k Views")
-                        .font(.subheadline)
-                        .foregroundStyle(BrandedColor.secondaryText)
-                }
-                Spacer()
+                .padding(10)
             }
-            .padding(10)
+            .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
+        .sheet(isPresented: $isSheetShowing){
+            VideoAssetView(videoThumbnailInfo: videoThumbnail)
+        }
     }
-}
-
-#Preview {
-    VideoPostItem(id: "")
 }

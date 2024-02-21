@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ProfileEditView: View {
     @Environment(\.presentationMode) var presentationMode
+    let editProfileUseCase = EditAccountUseCaseImpl()
     @State var username: String
     @State var name: String
     @State var bio: String
+    @State var link: String
     @State var imageUrl: String = "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77"
     
     var body: some View {
@@ -57,6 +59,7 @@ struct ProfileEditView: View {
                 TextField("Username", text: $username)
                 TextEditor(text: $bio)
                     .frame(height: 125)
+                TextField("Link", text: $link)
             }
         }
         .navigationBarHidden(false)
@@ -73,6 +76,10 @@ struct ProfileEditView: View {
         .onTapGesture {
             // Dismiss keyboard when tapped outside of text fields
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+        .onDisappear(){
+            var newData: Account = Account(id: "", username: username, name: name, bio: bio, followers: 0, following: 0, birthdate: Date(), userType: "", verified: false, picture: imageUrl)
+            editProfileUseCase.updateAccount(uid: UserDefaults.standard.string(forKey: "uid")!, newAccountInfo: newData)
         }
     }
 }

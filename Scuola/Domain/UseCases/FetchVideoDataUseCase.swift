@@ -54,6 +54,7 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
         guard let userID = Auth.auth().currentUser?.uid else {
             print("Current user not available")
             completion(false)
+            AppState.shared.isLoading = false
             return
         }
         
@@ -87,6 +88,7 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             if let error = error {
                 print("Error retrieving follower document: \(error)")
                 completion(false)
+                AppState.shared.isLoading = false
                 return
             }
             
@@ -95,9 +97,9 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             } else {
                 completion(false)
             }
+            
+            AppState.shared.isLoading = false
         }
-        
-        AppState.shared.isLoading = false
     }
     
     func getUserVote(videoID: String) {

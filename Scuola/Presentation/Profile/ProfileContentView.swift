@@ -12,7 +12,7 @@ struct ProfileContentView: View {
     var body: some View {
         ScrollView(.horizontal){
             LazyHStack(alignment: .top){
-                VideoPostsView()
+                VideoPostsView(account: $account)
                     .containerRelativeFrame(.horizontal)
                     .fixedSize(horizontal: false, vertical: true)
                 SignupScreen()

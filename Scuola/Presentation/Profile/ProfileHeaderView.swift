@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     @Binding var account: Account
+    @Binding var isLoading: Bool
     var body: some View {
         VStack(alignment: .leading){
             VStack(){
@@ -49,7 +50,8 @@ struct ProfileHeaderView: View {
                         .lineLimit(5)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
-                    Text("(bradenross.me)[bradenross.me]")
+                    Text(.init("[bradenross.me](https://www.bradenross.me)"))
+                        .foregroundStyle(BrandedColor.dynamicAccentColor)
                         .font(.callout)
                         .lineLimit(1)
                         .multilineTextAlignment(.center)
@@ -98,7 +100,7 @@ struct ProfileHeaderView: View {
                     }
                 } else {
                     HStack(){
-                        ScuolaButton(title: "Follow", action: {})
+                        ScuolaButton(title: "Follow", action: {}, isLoading: isLoading)
                         ScuolaCircleNavButton(symbol: "ellipsis.message", symbolSize: 25, navigateTo: SignupScreen())
                     }
                 }

@@ -44,13 +44,13 @@ struct ScuolaApp: App {
                         }
                     
                 }
-                if(appState.isLoading){
-                    ZStack(){
-                        BrandedColor.backgroundGradient.opacity(0.5).ignoresSafeArea()
-                        ProgressView()
-                        LoadingIndicator()
-                    }
-                }
+//                if(appState.isLoading){
+//                    ZStack(){
+//                        BrandedColor.backgroundGradient.opacity(0.5).ignoresSafeArea()
+//                        ProgressView()
+//                        LoadingIndicator()
+//                    }
+//                }
             }
         }
     }

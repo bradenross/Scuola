@@ -40,7 +40,7 @@ final class FirebaseAuthManager: AuthenticationUseCase {
                     return
                 }
                 
-                db.collection("customObjects").document(user.id).setData(dictionary) { error in
+                db.collection("users").document(user.id).setData(dictionary) { error in
                     if let error = error {
                         print("Error writing document: \(error)")
                     } else {

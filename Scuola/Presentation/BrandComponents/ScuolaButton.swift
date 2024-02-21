@@ -11,28 +11,53 @@ struct ScuolaButton: View {
     var title: String
     var type: String = "primary"
     var action: () -> Void
+    var isLoading: Bool = false
     
     var body: some View {
-        if(type.lowercased() == "secondary"){
-            Button(action: action) {
-                Text(title)
-                    .bold()
-                    .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
-                    .foregroundColor(.white)
-                    .cornerRadius(100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.white, lineWidth: 3)
-                    )
+        if(!isLoading){
+            if(type.lowercased() == "secondary"){
+                Button(action: action) {
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                        .foregroundColor(.white)
+                        .cornerRadius(100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.white, lineWidth: 3)
+                        )
+                }
+            } else if(type.lowercased() == "primary"){
+                Button(action: action){
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                        .background(.white)
+                        .foregroundColor(BrandedColor.dynamicAccentColor)
+                        .cornerRadius(100)
+                }
             }
-        } else if(type.lowercased() == "primary"){
-            Button(action: action){
-                Text(title)
-                    .bold()
-                    .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
-                    .background(.white)
-                    .foregroundColor(BrandedColor.dynamicAccentColor)
-                    .cornerRadius(100)
+        } else {
+            if(type.lowercased() == "secondary"){
+                Button(action: action) {
+                    ProgressView()
+                        
+                }
+                .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                .foregroundColor(.white)
+                .cornerRadius(100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.white, lineWidth: 3)
+                )
+            } else if(type.lowercased() == "primary"){
+                Button(action: action){
+                    ProgressView()
+                }
+                .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                .background(.white)
+                .foregroundColor(BrandedColor.dynamicAccentColor)
+                .cornerRadius(100)
             }
         }
     }
