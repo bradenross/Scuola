@@ -13,7 +13,7 @@ struct ProfileEditView: View {
     @State var username: String
     @State var name: String
     @State var bio: String
-    @State var link: String
+    @State var link: String = ""
     @State var imageUrl: String = "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77"
     
     var body: some View {

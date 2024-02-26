@@ -1,0 +1,231 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "@%@" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ Followers" : {
+
+    },
+    "%@ Views" : {
+
+    },
+    "💬 Messages from your friends instantly" : {
+
+    },
+    "📨 Interactions on your posts" : {
+
+    },
+    "🔔 Creators go live" : {
+
+    },
+    "Account" : {
+
+    },
+    "AD SPACE" : {
+
+    },
+    "Are you sure you want to stop your live stream?" : {
+
+    },
+    "Are you sure?" : {
+
+    },
+    "Back" : {
+
+    },
+    "Bio" : {
+
+    },
+    "Birthdate" : {
+
+    },
+    "Blocked" : {
+
+    },
+    "Braden Ross" : {
+
+    },
+    "Branded Content" : {
+
+    },
+    "By pressing 'Finish' you accept to our terms and conditions and privacy policy." : {
+
+    },
+    "Camera access is required for this feature. Please enable camera access in the Settings app." : {
+
+    },
+    "Camera Permission" : {
+
+    },
+    "Camera Permission Granted" : {
+
+    },
+    "Camera Stream" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Comment" : {
+
+    },
+    "Comments" : {
+
+    },
+    "Confirm Password" : {
+
+    },
+    "Content Warning" : {
+
+    },
+    "Description" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Email" : {
+
+    },
+    "Explore" : {
+
+    },
+    "Facto" : {
+
+    },
+    "Favorites" : {
+
+    },
+    "Featured" : {
+
+    },
+    "Followers" : {
+
+    },
+    "Following" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Home" : {
+
+    },
+    "Language" : {
+
+    },
+    "Let users know if your content contains sensitive or mature content such as, but not limited to, drugs, weapons, gambling, etc." : {
+
+    },
+    "Let users know if your content has branded content (Ads ran by you) inside your stream." : {
+
+    },
+    "Let users know if your content is going to have branded content (Ads ran by you) inside your stream." : {
+
+    },
+    "Link" : {
+
+    },
+    "Live" : {
+
+    },
+    "Live stream from your camera" : {
+
+    },
+    "Live stream showing your screen" : {
+
+    },
+    "Name" : {
+
+    },
+    "NOT NIL" : {
+
+    },
+    "Password" : {
+
+    },
+    "Posts" : {
+
+    },
+    "Private" : {
+
+    },
+    "Profile" : {
+
+    },
+    "Profile Picture" : {
+
+    },
+    "Public Info" : {
+
+    },
+    "Sample Privacy Policy\nIntroduction\nThis Privacy Policy outlines the types of personal information that [Your Company Name] (\"we,\" \"us,\" or \"our\") may collect, how we use it, and the choices you have regarding your information. Please read this policy carefully.\nInformation We Collect\nPersonal Information: We may collect personally identifiable information, such as your name, email address, and other contact details, when you voluntarily provide it to us.\nUsage Data: We may collect information about how you interact with our website or application, such as your IP address, browser type, and device information.\nHow We Use Your Information\nProviding Services: We use your information to provide and improve our services, respond to your inquiries, and personalize your experience.\nAnalytics: We may use analytics tools to analyze user behavior and improve our services.\nMarketing: With your consent, we may send you promotional materials or information about our products and services.\nSharing Your Information\nThird-Party Service Providers: We may share your information with third-party service providers who help us deliver our services.\nLegal Compliance: We may disclose your information if required by law or in response to a valid legal request.\nYour Choices\nOpt-Out: You can opt-out of receiving promotional communications from us by following the instructions provided in the communication.\nAccess and Correction: You have the right to access and correct your personal information. Contact us for assistance.\nSecurity\nWe take reasonable measures to protect your information from unauthorized access or disclosure.\nChildren's Privacy\nOur services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children.\nChanges to This Policy\nWe may update this Privacy Policy periodically. Please review this policy regularly for any changes.\nContact Us\nIf you have any questions or concerns about this Privacy Policy, please contact us at [your contact email].\nDate of Last Update: [Insert Date]" : {
+
+    },
+    "Screen Stream" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Share Profile" : {
+
+    },
+    "Sign Out" : {
+
+    },
+    "Statistics" : {
+
+    },
+    "Stop" : {
+
+    },
+    "Stream" : {
+
+    },
+    "Stream Bigger" : {
+
+    },
+    "Stream Info" : {
+
+    },
+    "This video kinda sucks lmao. I wish I could write a bigger comment because this is way too small for all the thoughts I have on my mind duhhhh. Oh my gosh this wasnt even big enough for the multiline shit" : {
+
+    },
+    "Time" : {
+
+    },
+    "Title" : {
+
+    },
+    "Upload" : {
+
+    },
+    "Upload a pre-recorded video" : {
+
+    },
+    "User has not posted yet!" : {
+
+    },
+    "User Management" : {
+
+    },
+    "Username" : {
+
+    },
+    "Welcome Back!" : {
+
+    },
+    "Why turn on notifications?" : {
+
+    }
+  },
+  "version" : "1.0"
+}

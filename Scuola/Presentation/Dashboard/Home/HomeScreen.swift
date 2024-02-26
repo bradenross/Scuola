@@ -21,6 +21,7 @@ struct HomeScreen: View {
                 .frame(maxHeight: .infinity)
             
         }
+        .toolbar(.visible)
     }
 }
 

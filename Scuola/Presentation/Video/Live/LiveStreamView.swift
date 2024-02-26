@@ -9,62 +9,38 @@ import SwiftUI
 import AVKit
 
 struct LiveStreamView: View {
-    @State private var player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/pexels-anna-shvets-12691871%20(1440p).mp4?alt=media&token=e035b47f-e991-40f3-b21a-3ee8bca34965")!)
     @State var permissionsGranted = false
     @State private var permissionsManager = PermissionsManager()
     @State private var showingAlert = false
+    @State private var title: String = ""
+    @State private var language: String = ""
+    @State private var brandedContent: Bool = false
 
     var body: some View {
-        ZStack(){
-            VideoPlayer(player: player)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.top)
-                .onAppear {
-                    player.play()
-                    player.allowsExternalPlayback = false
-                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { _ in
-                        player.seek(to: .zero)
-                        player.play()
-                    }
-
+        VStack(){
+            
+            Form {
+                Section(header: Text("Stream Info")) {
+                    TextField("Title", text: $title)
+                    TextField("Language", text: $language)
                 }
-                .onDisappear(){
-                    player.pause()
-                }
-            VStack(){
-                Spacer()
-                Button(action: { print("Stream Screen") }) {
-                    Text("Stream Screen")
-                        .bold()
-                        .frame(maxWidth: 300, maxHeight: 50)
-                        .background(BrandedColor.primaryButtonGradient)
-                        .foregroundColor(.white)
-                        .cornerRadius(100)
-                }
-                .padding(15)
-                .shadow(radius: 3)
                 
-                Button(action: {
-                    permissionsManager.requestCameraPermission { granted in
-                        if granted {
-                            permissionsGranted = true
-                        } else {
-                            showingAlert = true
-                        }
-                    }
-                }) {
-                    Text("Stream Camera")
-                        .bold()
-                        .frame(maxWidth: 300, maxHeight: 50)
-                        .background(BrandedColor.primaryButtonGradient)
-                        .foregroundColor(.white)
-                        .cornerRadius(100)
-                        .shadow(radius: 3)
-                        .padding(15)
-                    }
+                Section(header: Text("Branded Content"), footer: Text("Let users know if your content is going to have branded content (Ads ran by you) inside your stream.")) {
+                    FactoToggle(title: "Branded Content", isOn: brandedContent)
+                }
             }
+            
+            ScuolaButton(title: "Start Streaming!", action: {
+                permissionsManager.requestCameraPermission { granted in
+                    if granted {
+                        permissionsGranted = true
+                    } else {
+                        showingAlert = true
+                    }
+                }
+            })
         }
+        .toolbar(.visible)
         .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Camera Permission"),
@@ -74,9 +50,6 @@ struct LiveStreamView: View {
                 }),
                 secondaryButton: .cancel()
             )
-        }
-        .sheet(isPresented: $permissionsGranted) {
-            CameraStreamView()
         }
             
     }

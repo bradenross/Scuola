@@ -15,7 +15,7 @@ struct ProfileHeaderView: View {
             VStack(){
                 ZStack(){
                     Circle()
-                        .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 8)
+                        .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 10)
                         .frame(width: 100, height: 100)
                     Circle()
                         .stroke(BrandedColor.background, lineWidth: 4)
@@ -95,7 +95,15 @@ struct ProfileHeaderView: View {
                 
                 if(account.id == UserDefaults.standard.string(forKey: "uid")!){
                     HStack(){
-                        ScuolaNavButton(title: "Share Profile", navigateTo: SignupScreen())
+                        ShareLink(item: URL(string: "https://www.bradenross.me")!) {
+                            Text("Share Profile")
+                                .bold()
+                                .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
+                                .background(.white)
+                                .foregroundColor(BrandedColor.dynamicAccentColor)
+                                .cornerRadius(100)
+                        }
+                        
                         ScuolaCircleNavButton(symbol: "pencil", navigateTo: ProfileEditView(username: account.username, name: account.name, bio: account.bio))
                     }
                 } else {

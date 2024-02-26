@@ -39,7 +39,7 @@ struct ProfileView: View {
 //                loadData()
 //            }
         }
-        .navigationBarHidden(true)
+        .toolbar(.hidden)
         .onAppear(){
             loadData()
         }

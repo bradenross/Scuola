@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C23D4FA2B8C23710098EDB3 /* FactoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23D4F92B8C23710098EDB3 /* FactoToggle.swift */; };
+		9C23D4FD2B8C35650098EDB3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9C23D4FC2B8C35650098EDB3 /* Localizable.xcstrings */; };
+		9C23D5002B8C5ACB0098EDB3 /* VideoUploadInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23D4FF2B8C5ACB0098EDB3 /* VideoUploadInfoView.swift */; };
 		9C3DD3822B7F38F9006C09B8 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DD3812B7F38F9006C09B8 /* ProfileEditView.swift */; };
 		9C3DD3842B7FBDAD006C09B8 /* ScuolaCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DD3832B7FBDAD006C09B8 /* ScuolaCircleButton.swift */; };
 		9C3DD38C2B7FFDAA006C09B8 /* VideoPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DD38B2B7FFDAA006C09B8 /* VideoPostsView.swift */; };
@@ -117,6 +120,7 @@
 		9CF7041E2A52224900E96A5D /* BroadcastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7041D2A52224900E96A5D /* BroadcastManager.swift */; };
 		9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxCredentials.swift */; };
 		9CFE1FD32B83F4EF0067600A /* EditAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */; };
+		9CFE1FD52B86C65A0067600A /* MediaUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFE1FD42B86C65A0067600A /* MediaUploadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +141,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C23D4F92B8C23710098EDB3 /* FactoToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoToggle.swift; sourceTree = "<group>"; };
+		9C23D4FC2B8C35650098EDB3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9C23D4FF2B8C5ACB0098EDB3 /* VideoUploadInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadInfoView.swift; sourceTree = "<group>"; };
 		9C3DD3812B7F38F9006C09B8 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		9C3DD3832B7FBDAD006C09B8 /* ScuolaCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaCircleButton.swift; sourceTree = "<group>"; };
 		9C3DD38B2B7FFDAA006C09B8 /* VideoPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostsView.swift; sourceTree = "<group>"; };
@@ -222,6 +229,7 @@
 		9CF7041D2A52224900E96A5D /* BroadcastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastManager.swift; sourceTree = "<group>"; };
 		9CF704222A527BCB00E96A5D /* MuxCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxCredentials.swift; sourceTree = "<group>"; };
 		9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountUseCase.swift; sourceTree = "<group>"; };
+		9CFE1FD42B86C65A0067600A /* MediaUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +287,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C23D4FB2B8C349E0098EDB3 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				9C23D4FC2B8C35650098EDB3 /* Localizable.xcstrings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		9C23D4FE2B8C5A8B0098EDB3 /* UploadVideo */ = {
+			isa = PBXGroup;
+			children = (
+				9C23D4FF2B8C5ACB0098EDB3 /* VideoUploadInfoView.swift */,
+			);
+			path = UploadVideo;
+			sourceTree = "<group>";
+		};
 		9C3DD3802B7F38D6006C09B8 /* ProfileEditPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +475,7 @@
 				9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */,
 				9C3DD3832B7FBDAD006C09B8 /* ScuolaCircleButton.swift */,
 				9C87F2112B800AB4002B78DC /* ScuolaCircleNavButton.swift */,
+				9C23D4F92B8C23710098EDB3 /* FactoToggle.swift */,
 			);
 			path = BrandComponents;
 			sourceTree = "<group>";
@@ -501,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				9CA9C0BC2B75969F00FF7605 /* Fonts */,
+				9C23D4FB2B8C349E0098EDB3 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -508,8 +534,10 @@
 		9C8C43902B74439300280963 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				9CFE1FD42B86C65A0067600A /* MediaUploadView.swift */,
 				9CF704102A4F4CE700E96A5D /* Live */,
 				9C7CA8122A5286250083EADC /* OnDemand */,
+				9C23D4FE2B8C5A8B0098EDB3 /* UploadVideo */,
 				9C7CA82E2A6641DD0083EADC /* VideoAsset */,
 			);
 			path = Video;
@@ -829,6 +857,7 @@
 				9CA9C0ED2B759A0F00FF7605 /* RadikalTrial-BoldItalic.otf in Resources */,
 				9CA9C0EE2B759A0F00FF7605 /* Radikal-Medium.otf in Resources */,
 				9CA9C0EF2B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf in Resources */,
+				9C23D4FD2B8C35650098EDB3 /* Localizable.xcstrings in Resources */,
 				9CA9C0EC2B759A0F00FF7605 /* RadikalTrial-Light.otf in Resources */,
 				9CF703A82A4E8D5A00E96A5D /* GoogleService-Info.plist in Resources */,
 				9CA9C0F12B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf in Resources */,
@@ -877,6 +906,7 @@
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
 				9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */,
 				9C8C436D2B6EBAFE00280963 /* TermsAndConditionsPage.swift in Sources */,
+				9C23D5002B8C5ACB0098EDB3 /* VideoUploadInfoView.swift in Sources */,
 				9C8C43702B6EC88300280963 /* Account.swift in Sources */,
 				9CD336EC2ACBDB3200312187 /* ProfileContentView.swift in Sources */,
 				9C7CA8322A6642410083EADC /* CommentSectionPreview.swift in Sources */,
@@ -884,6 +914,7 @@
 				9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */,
 				9C87F2122B800AB4002B78DC /* ScuolaCircleNavButton.swift in Sources */,
 				9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */,
+				9CFE1FD52B86C65A0067600A /* MediaUploadView.swift in Sources */,
 				9C3DD38E2B7FFEED006C09B8 /* VideoPostItem.swift in Sources */,
 				9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */,
 				9C8C43872B70910400280963 /* AuthenticationUseCase.swift in Sources */,
@@ -901,6 +932,7 @@
 				9CF704122A4F4D0300E96A5D /* LiveStreamView.swift in Sources */,
 				9C7CA8302A6641FB0083EADC /* CommentSection.swift in Sources */,
 				9C8C43992B748A0800280963 /* HomeItemLarge.swift in Sources */,
+				9C23D4FA2B8C23710098EDB3 /* FactoToggle.swift in Sources */,
 				9CF7040F2A4E9E5300E96A5D /* DashboardView.swift in Sources */,
 				9CF7040D2A4E98FA00E96A5D /* SessionService.swift in Sources */,
 				9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */,

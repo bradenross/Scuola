@@ -38,8 +38,10 @@ struct VideoPostItem: View {
                         ZStack(){
                             ProgressView()
                             RoundedRectangle(cornerRadius: 10)
+                                .fill(BrandedColor.backgroundGradient)
                                 .frame(width: 192, height: 108)
                         }
+                        .padding(3)
                     }
                     VStack(alignment: .leading){
                         Text(videoThumbnail.title)
