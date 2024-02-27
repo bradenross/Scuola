@@ -27,80 +27,82 @@ struct MediaUploadView: View {
     }
     
     var body: some View {
-        NavigationStack(){
-            VStack(){
+        VStack(){
+            VStack(alignment: .center){
                 Text("Facto")
                     .font(.custom("RadikalTrial-Medium", size: 50))
-                    .padding(15)
-                Spacer()
-                VStack(spacing: 15){
-                    HStack(){
-                        PhotosPicker(selection: $selectedVideo, matching: .videos){
-                            Image(systemName: "square.and.arrow.up.fill")
-                            VStack(alignment: .leading){
-                                Text("Upload")
-                                    .fontWeight(.semibold)
-                                Text("Upload a pre-recorded video")
-                                    .font(.callout)
-                                    .fontWeight(.light)
-                            }
+                Text("CREATE")
+                    .font(.custom("RadikalTrial-Thin", size: 25))
+                    .tracking(7)
+            }
+            .padding(15)
+            Spacer()
+            VStack(spacing: 15){
+                HStack(){
+                    PhotosPicker(selection: $selectedVideo, matching: .videos){
+                        Image(systemName: "square.and.arrow.up.fill")
+                        VStack(alignment: .leading){
+                            Text("Upload")
+                                .fontWeight(.semibold)
+                            Text("Upload a pre-recorded video")
+                                .font(.callout)
+                                .fontWeight(.light)
                         }
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(BrandedColor.foreground)
-                    )
-                    .padding(.horizontal, 30)
-                    
-                    HStack(){
-                        NavigationLink(destination: LiveStreamView()){
-                            Image(systemName: "video.fill")
-                            VStack(alignment: .leading){
-                                Text("Camera Stream")
-                                    .fontWeight(.semibold)
-                                Text("Live stream from your camera")
-                                    .font(.callout)
-                                    .fontWeight(.light)
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(BrandedColor.foreground)
-                    )
-                    .padding(.horizontal, 30)
-                    
-                    HStack(){
-                        NavigationLink(destination: LiveStreamView()){
-                            Image(systemName: "iphone.smartbatterycase.gen2")
-                            VStack(alignment: .leading){
-                                Text("Screen Stream")
-                                    .fontWeight(.semibold)
-                                Text("Live stream showing your screen")
-                                    .font(.callout)
-                                    .fontWeight(.light)
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(BrandedColor.foreground)
-                    )
-                    .padding(.horizontal, 30)
                 }
-                .toolbar(.hidden)
-                .fixedSize(horizontal: true, vertical: false)
-                Spacer()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(BrandedColor.foreground)
+                )
+                .padding(.horizontal, 30)
+                
+                HStack(){
+                    NavigationLink(destination: LiveStreamView()){
+                        Image(systemName: "video.fill")
+                        VStack(alignment: .leading){
+                            Text("Camera Stream")
+                                .fontWeight(.semibold)
+                            Text("Live stream from your camera")
+                                .font(.callout)
+                                .fontWeight(.light)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(BrandedColor.foreground)
+                )
+                .padding(.horizontal, 30)
+                
+                HStack(){
+                    NavigationLink(destination: LiveStreamView()){
+                        Image(systemName: "iphone.smartbatterycase.gen2")
+                        VStack(alignment: .leading){
+                            Text("Screen Stream")
+                                .fontWeight(.semibold)
+                            Text("Live stream showing your screen")
+                                .font(.callout)
+                                .fontWeight(.light)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(BrandedColor.foreground)
+                )
+                .padding(.horizontal, 30)
             }
-            .navigationDestination(isPresented: selectedVideoPresentedBinding){
-                VideoUploadInfoView()
-            }
+            .fixedSize(horizontal: true, vertical: false)
+            Spacer()
+        }
+        .navigationDestination(isPresented: selectedVideoPresentedBinding){
+            VideoUploadInfoView(selectedVideo: $selectedVideo)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileEditView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -15,32 +16,27 @@ struct ProfileEditView: View {
     @State var bio: String
     @State var link: String = ""
     @State var imageUrl: String = "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77"
+    @State var selectedPhoto: PhotosPickerItem?
     
     var body: some View {
         Form {
-            Section(header: Text("Profile Picture")){
-                HStack(){
-                    Circle()
-                        .stroke(BrandedColor.background, lineWidth: 4)
-                        .frame(width: 100, height: 100)
-                        .overlay(
-                            AsyncImage(url: URL(string: imageUrl)) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            } placeholder: {
-                                
-                            }
-                        )
-                    
-                    Spacer()
-                        .frame(width: 25)
-                    
-                    Button(action: {
-                        
-                    }){
-                        Image(systemName: "camera")
+            Section(header: Text("Profile Picture"), footer:
+                PhotosPicker(selection: $selectedPhoto, matching: .images){
+                    ZStack(){
+                        Circle()
+                            .stroke(BrandedColor.background, lineWidth: 4)
+                            .frame(width: 100, height: 100)
+                            .overlay(
+                                AsyncImage(url: URL(string: imageUrl)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                } placeholder: {
+                                    
+                                }
+                            )
+                        Image(systemName: "plus")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50, height: 50)
@@ -52,11 +48,18 @@ struct ProfileEditView: View {
                             )
                     }
                 }
+            ){
+                
             }
+            
+            
             
             Section(header: Text("Public Info")){
                 TextField("Name", text: $name)
                 TextField("Username", text: $username)
+                    .keyboardType(.namePhonePad)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
                 TextEditor(text: $bio)
                     .frame(height: 125)
                 TextField("Link", text: $link)
@@ -64,21 +67,11 @@ struct ProfileEditView: View {
         }
         .navigationBarHidden(false)
         .navigationBarTitle("Edit Profile", displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Back")
-                }
-            }
-        )
         .onTapGesture {
-            // Dismiss keyboard when tapped outside of text fields
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .onDisappear(){
-            var newData: Account = Account(id: "", username: username, name: name, bio: bio, followers: 0, following: 0, birthdate: Date(), userType: "", verified: false, picture: imageUrl)
+            let newData: Account = Account(id: "", username: username.lowercased(), name: name, bio: bio, followers: 0, following: 0, birthdate: Date(), userType: "", verified: false, picture: imageUrl)
             editProfileUseCase.updateAccount(uid: UserDefaults.standard.string(forKey: "uid")!, newAccountInfo: newData)
         }
     }

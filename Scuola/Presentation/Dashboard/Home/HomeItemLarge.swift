@@ -93,10 +93,11 @@ struct HomeItemLarge: View {
                 }
             }
             Text(videoThumbnail.title)
-                .bold()
+                .fontWeight(.regular)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
             Text(videoThumbnail.user)
+                .fontWeight(.light)
                 .foregroundColor(.gray)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)

@@ -39,7 +39,6 @@ struct ProfileView: View {
 //                loadData()
 //            }
         }
-        .toolbar(.hidden)
         .onAppear(){
             loadData()
         }

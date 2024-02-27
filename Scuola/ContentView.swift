@@ -11,13 +11,11 @@ import Firebase
 struct ContentView: View {
     
     var body: some View {
-        NavigationView(){
-            VStack(){
-                if(Auth.auth().currentUser != nil){
-                    HomeScreen()
-                } else {
-                    LandingPage()
-                }
+        VStack(){
+            if(Auth.auth().currentUser != nil){
+                HomeScreen()
+            } else {
+                LandingPage()
             }
         }
     }
