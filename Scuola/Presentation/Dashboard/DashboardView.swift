@@ -11,10 +11,6 @@ struct DashboardView: View {
     
     @State private var tabSelection = 0
     
-    init(){
-        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "RadikalTrial-Medium", size: 20)!]
-    }
-    
     var body: some View {
         NavigationStack(){
             TabView(selection: $tabSelection){
@@ -60,11 +56,6 @@ struct DashboardView: View {
                         Text("Explore")
                             .font(.custom("RadikalTrial-Medium", size: 20))
                     }
-                case 2:
-                    ToolbarItem(placement: .principal){
-                        Text("")
-                            .font(.custom("RadikalTrial-Medium", size: 20))
-                    }
                 case 3:
                     ToolbarItem(placement: .principal){
                         Text("Inbox")
@@ -85,11 +76,5 @@ struct DashboardView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-}
-
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashboardView()
     }
 }
