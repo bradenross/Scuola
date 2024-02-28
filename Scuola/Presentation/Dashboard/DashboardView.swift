@@ -25,7 +25,7 @@ struct DashboardView: View {
                     }
                     .tag(0)
                 
-                MediaUploadView()
+                ExploreView()
                     .tabItem {
                         Image(systemName: tabSelection == 1 ? "safari.fill" : "safari")
                         Text("Explore")
@@ -55,6 +55,11 @@ struct DashboardView: View {
             }
             .toolbar {
                 switch tabSelection {
+                case 1:
+                    ToolbarItem(placement: .principal){
+                        Text("Explore")
+                            .font(.custom("RadikalTrial-Medium", size: 20))
+                    }
                 case 2:
                     ToolbarItem(placement: .principal){
                         Text("")

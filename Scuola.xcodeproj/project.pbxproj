@@ -72,6 +72,7 @@
 		9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */; };
 		9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */; };
 		9CD336EC2ACBDB3200312187 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */; };
+		9CD943A32B8EC89E004000E2 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD943A22B8EC89E004000E2 /* ExploreView.swift */; };
 		9CEC38B52B609BA300192619 /* BubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC38B42B609BA300192619 /* BubbleBackground.swift */; };
 		9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
@@ -210,6 +211,7 @@
 		9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		9CD336EB2ACBDB3200312187 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
+		9CD943A22B8EC89E004000E2 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		9CEC38B42B609BA300192619 /* BubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleBackground.swift; sourceTree = "<group>"; };
 		9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,11 +362,12 @@
 		9C8C435E2B6EB44F00280963 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9C985F762B8D85140030542F /* Inbox */,
 				9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */,
 				9C8C43792B6F5CC000280963 /* Authentication */,
 				9C8C437F2B6F628E00280963 /* BrandComponents */,
 				9CF703EC2A4E906800E96A5D /* Dashboard */,
+				9CD943A12B8EC870004000E2 /* Explore */,
+				9C985F762B8D85140030542F /* Inbox */,
 				9C8C43782B6F5C0300280963 /* Landing */,
 				9C8C43912B7443B900280963 /* Profile */,
 				9C8C438C2B7096EE00280963 /* Settings */,
@@ -606,6 +609,14 @@
 			children = (
 			);
 			path = Interactions;
+			sourceTree = "<group>";
+		};
+		9CD943A12B8EC870004000E2 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				9CD943A22B8EC89E004000E2 /* ExploreView.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 		9CF703712A4E890200E96A5D = {
@@ -924,6 +935,7 @@
 				9C7CA81B2A5A66A60083EADC /* SettingsView.swift in Sources */,
 				9CA9C0FA2B76D5F300FF7605 /* FetchVideoDataUseCase.swift in Sources */,
 				9CF7040A2A4E93BB00E96A5D /* HomeScreen.swift in Sources */,
+				9CD943A32B8EC89E004000E2 /* ExploreView.swift in Sources */,
 				9C7CA8222A5FC31D0083EADC /* FeaturedView.swift in Sources */,
 				9C8C436D2B6EBAFE00280963 /* TermsAndConditionsPage.swift in Sources */,
 				9C23D5002B8C5ACB0098EDB3 /* VideoUploadInfoView.swift in Sources */,

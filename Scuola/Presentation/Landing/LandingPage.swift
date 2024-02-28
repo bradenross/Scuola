@@ -12,7 +12,7 @@ struct LandingPage: View {
         NavigationView(){
             VStack {
                 Spacer()
-                Image("ScuolaLogoMock")
+                Image("FactoWhite")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(.horizontal, 50)

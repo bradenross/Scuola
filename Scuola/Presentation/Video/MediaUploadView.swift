@@ -29,11 +29,11 @@ struct MediaUploadView: View {
     var body: some View {
         VStack(){
             VStack(alignment: .center){
-                Text("Facto")
-                    .font(.custom("RadikalTrial-Medium", size: 50))
-                Text("CREATE")
-                    .font(.custom("RadikalTrial-Thin", size: 25))
-                    .tracking(7)
+                Image("FactoCreateWhite")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.horizontal, 50)
+                    .padding(.top, 50)
             }
             .padding(15)
             Spacer()

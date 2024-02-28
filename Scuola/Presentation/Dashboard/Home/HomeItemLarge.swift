@@ -41,9 +41,6 @@ struct HomeItemLarge: View {
                             HStack(){
                                 Text("Live")
                                     .foregroundStyle(.white)
-                                Image(systemName: "shareplay")
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 3)
                             }
                             .padding(5)
                             .background {
