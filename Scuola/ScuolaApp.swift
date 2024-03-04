@@ -10,16 +10,28 @@ import FirebaseCore
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import Amplify
+import AWSCognitoAuthPlugin
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        let authenticationUseCase = AuthenticationUseCaseImpl()
         FirebaseApp.configure()
         let currentUser = Auth.auth().currentUser
         if(currentUser != nil && UserDefaults.standard.string(forKey: "uid") == nil){
-            FirebaseAuthManager().signOut()
+            authenticationUseCase.signOut()
         }
+        
+        do {
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            try Amplify.configure()
+            print("Amplify configured with auth plugin")
+        } catch {
+            print("Amplify failed to initialize: \(error)")
+        }
+        
         return true
     }
 }
@@ -31,17 +43,22 @@ struct ScuolaApp: App {
     @StateObject var sessionService = SessionServiceImpl()
     @ObservedObject var appState = AppState.shared
     
+    @StateObject private var viewModel = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ZStack(){
                 NavigationView {
-                    switch sessionService.state {
-                        case .loggedIn:
-                            DashboardView()
-                                .environmentObject(sessionService)
-                        case .loggedOut:
-                            LandingPage()
-                        }
+                    if viewModel.isAuthenticated {
+                        // User is authenticated, show the main content
+                        DashboardView()
+                    } else if viewModel.needsConfirmation {
+                        // User needs to confirm sign-up
+                        VerifyPage(viewModel: viewModel)
+                    } else {
+                        // Show login view
+                        LandingPage(viewModel: viewModel)
+                    }
                     
                 }
 //                if(appState.isLoading){

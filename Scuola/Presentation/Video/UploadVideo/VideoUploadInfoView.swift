@@ -10,6 +10,8 @@ import PhotosUI
 import AVKit
 
 struct VideoUploadInfoView: View {
+    let mediaUploadUseCase = MediaUploadUseCaseImpl()
+    
     @Binding var selectedVideo: PhotosPickerItem?
     @State private var title: String = ""
     @State private var description: String = ""
@@ -56,7 +58,7 @@ struct VideoUploadInfoView: View {
                 Section(footer: VStack(){
                     HStack(){
                         Spacer()
-                        ScuolaButton(title: "Upload Video", action: {})
+                        ScuolaButton(title: "Upload Video", action: {mediaUploadUseCase.uploadVideo(item: selectedVideo!)})
                         Spacer()
                     }
                     Text("By clicking upload, you are agreeing to our terms and policy on uploading media to the Facto servers and database.")

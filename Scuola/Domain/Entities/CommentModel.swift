@@ -35,7 +35,6 @@ func getComment(videoID: String, id: String, completion: @escaping (Account?) ->
             completion(nil)
         } else {
             if let document = document, document.exists {
-                let test = document.data()
                 if let accountData = document.data(),
                    let id = accountData["id"] as? String,
                    let username = accountData["username"] as? String,
