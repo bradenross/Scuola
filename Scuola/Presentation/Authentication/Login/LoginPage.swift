@@ -9,7 +9,7 @@ import SwiftUI
 import Amplify
 
 struct LoginPage: View {
-    @ObservedObject var viewModel: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     let authenticationUseCase = AuthenticationUseCaseImpl()
     @State var emailInput: String = ""
@@ -65,7 +65,7 @@ struct LoginPage: View {
                 
                 ScuolaButton(title: "Login", action: {
                     Task{
-                        await viewModel.login(email: emailInput, password: passwordInput)
+                        await authViewModel.login(email: emailInput, password: passwordInput)
                     }
                 })
                 

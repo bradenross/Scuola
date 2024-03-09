@@ -9,6 +9,8 @@ import Foundation
 import MuxUploadSDK
 import PhotosUI
 import _PhotosUI_SwiftUI
+import Amplify
+import AWSS3StoragePlugin
 
 protocol MediaUploadUseCase {
     func uploadVideo(item: PhotosPickerItem)
@@ -21,20 +23,42 @@ final class MediaUploadUseCaseImpl: MediaUploadUseCase {
             switch result {
             case .success(let url):
                 print(url)
-                let uniqueVideoKey = "tempVideos/\(UUID().uuidString).mov"
-                self.uploadVideoToS3(bucketName: "muxintermediatestorage", videoKey: "\(uniqueVideoKey)", videoURL: url)
+                Task {
+                    do {
+                        let resultMessage = try await self.uploadToS3(videoUrl: url)
+                        print("Video has this result: \(resultMessage)")
+                        // Update UI accordingly on success
+                    } catch {
+                        print("Error during upload: \(error)")
+                        // Handle error, update UI as needed
+                    }
+                }
             case .failure(let error):
                 print("Error getting video URL: \(error)")
             }
         }
     }
     
-    private func uploadVideoToS3(bucketName: String, videoKey: String, videoURL: URL) {
+    private func uploadToS3(videoUrl: URL) async throws -> String {
+        let videoFileName = "protected/tempVideos/\(UUID().uuidString).mov"
 
-    }
-    
-    private func testAWSCredentials() {
+        let uploadTask = Amplify.Storage.uploadFile(
+            key: videoFileName,
+            local: videoUrl
+        )
 
+        for await progress in await uploadTask.progress {
+            print("Progress: \(progress)")
+        }
+
+        do {
+            let value = try await uploadTask.value
+            print("Completed: \(value)")
+            return "Upload successful for \(videoFileName)"
+        } catch {
+            print("Upload failed with error: \(error)")
+            throw error
+        }
     }
 
 }

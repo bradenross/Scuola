@@ -30,19 +30,13 @@ struct CommentView: View {
     var body: some View {
         VStack(){
             HStack(){
-                Text("\(commentInfo.user)")
+                Text("\(commentInfo.userID)")
                     .bold()
                 Spacer()
-                Text("\(getTimeFromDate(commentDate:commentInfo.date))")
+                Text("\(getTimeFromDate(commentDate: Date()))")
             }
-            Text("\(commentInfo.comment)")
+            Text("\(commentInfo.body ?? "")")
         }
         .padding(15)
-    }
-}
-
-struct CommentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentView(commentInfo: Comment(user: "Billy Bob", comment: "This video kinda sucks lmao. I wish I could write a bigger comment because this is way too small for all the thoughts I have on my mind duhhhh. Oh my gosh this wasnt even big enough for the multiline shit", date: Date(timeIntervalSince1970: 169193909009)))
     }
 }

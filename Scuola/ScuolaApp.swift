@@ -12,6 +12,8 @@ import FirebaseFirestore
 import FirebaseAuth
 import Amplify
 import AWSCognitoAuthPlugin
+import AWSAPIPlugin
+import AWSS3StoragePlugin
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -21,11 +23,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         let currentUser = Auth.auth().currentUser
         if(currentUser != nil && UserDefaults.standard.string(forKey: "uid") == nil){
-            authenticationUseCase.signOut()
+            Task {
+                await authenticationUseCase.signOut()
+            }
         }
         
         do {
+            try Amplify.add(plugin: AWSS3StoragePlugin())
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            try Amplify.add(plugin: AWSAPIPlugin())
             try Amplify.configure()
             print("Amplify configured with auth plugin")
         } catch {
@@ -43,32 +49,39 @@ struct ScuolaApp: App {
     @StateObject var sessionService = SessionServiceImpl()
     @ObservedObject var appState = AppState.shared
     
-    @StateObject private var viewModel = AuthViewModel()
+    @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var bannerManager = BannerManager()
     
     var body: some Scene {
         WindowGroup {
-            ZStack(){
-                NavigationView {
-                    if viewModel.isAuthenticated {
-                        // User is authenticated, show the main content
-                        DashboardView()
-                    } else if viewModel.needsConfirmation {
-                        // User needs to confirm sign-up
-                        VerifyPage(viewModel: viewModel)
-                    } else {
-                        // Show login view
-                        LandingPage(viewModel: viewModel)
-                    }
-                    
+            ZStack(alignment: .top){
+                if bannerManager.showBanner {
+                    NotificationBanner(title: bannerManager.title, message: bannerManager.message, imageName: "Image(systemName: bannerManager.imageName)")
+                        .transition(.move(edge: .top))
+                        .onTapGesture {
+                            withAnimation(.easeIn(duration: 0.25)) {
+                                bannerManager.showBanner = false
+                                bannerManager.bannerOffset = -100 // Ensure it moves off-screen
+                            }
+                        }
+                        .zIndex(1)
                 }
-//                if(appState.isLoading){
-//                    ZStack(){
-//                        BrandedColor.backgroundGradient.opacity(0.5).ignoresSafeArea()
-//                        ProgressView()
-//                        LoadingIndicator()
-//                    }
-//                }
+                
+                NavigationView {
+                    if authViewModel.isAuthenticated {
+                        DashboardView()
+                    } else if authViewModel.needsConfirmation {
+                        VerifyPage()
+                    } else {
+                        LandingPage()
+                    }
+                }
             }
+            .environmentObject(authViewModel)
+            .environmentObject(bannerManager)
         }
     }
 }
+
+
+

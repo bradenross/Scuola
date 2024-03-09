@@ -1,0 +1,56 @@
+type StreamKey @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  streamKey: String
+}
+
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  body: String
+  timestamp: AWSDateTime
+  responses: [String]
+  videoID: ID! @index(name: "byVideo")
+  userID: ID! @index(name: "byUser")
+}
+
+type Follower @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  timestamp: AWSDateTime
+  userID: ID! @index(name: "byUser")
+}
+
+type Video @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  description: String
+  title: String
+  views: Int
+  votes: Int
+  userID: ID! @index(name: "byUser")
+  Comments: [Comment] @hasMany(indexName: "byVideo", fields: ["id"])
+}
+
+type Following @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  timestamp: AWSDateTime
+  userID: ID! @index(name: "byUser")
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  bio: String
+  birthdate: AWSDateTime
+  live: Boolean
+  picture: AWSURL
+  userType: String
+  username: String
+  verified: Boolean
+  following: [String]
+  followers: [String]
+  savedVideos: [String]
+  FollowingUsers: [Following] @hasMany(indexName: "byUser", fields: ["id"])
+  Videos: [Following] @hasMany(indexName: "byUser", fields: ["id"])
+  Followers: [Follower] @hasMany(indexName: "byUser", fields: ["id"])
+  Comments: [Comment] @hasMany(indexName: "byUser", fields: ["id"])
+  StreamKey: StreamKey @hasOne
+}
+ 

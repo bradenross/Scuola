@@ -20,12 +20,6 @@ struct VideoUploadInfoView: View {
     @State private var contentWarning: Bool = false
     @State private var category: String = ""
     
-    enum LoadState {
-        case unknown, loading, loaded(Movie), failed
-    }
-    
-    @State private var loadState = LoadState.unknown
-    
     var body: some View {
         VStack(){
             Form {
@@ -66,25 +60,6 @@ struct VideoUploadInfoView: View {
             }
             
             
-        }
-    }
-}
-
-struct Movie: Transferable {
-    let url: URL
-
-    static var transferRepresentation: some TransferRepresentation {
-        FileRepresentation(contentType: .movie) { movie in
-            SentTransferredFile(movie.url)
-        } importing: { received in
-            let copy = URL.documentsDirectory.appending(path: "movie.mp4")
-
-            if FileManager.default.fileExists(atPath: copy.path()) {
-                try FileManager.default.removeItem(at: copy)
-            }
-
-            try FileManager.default.copyItem(at: received.file, to: copy)
-            return Self.init(url: copy)
         }
     }
 }

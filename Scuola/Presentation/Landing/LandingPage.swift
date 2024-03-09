@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LandingPage: View {
-    @ObservedObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView(){
             VStack {
@@ -22,7 +21,7 @@ struct LandingPage: View {
                     .font(.subheadline)
                 Spacer()
                 VStack {
-                    ScuolaNavButton(title: "Login", navigateTo: LoginPage(viewModel: viewModel))
+                    ScuolaNavButton(title: "Login", navigateTo: LoginPage())
                     ScuolaNavButton(title: "Sign Up", type: "secondary", navigateTo: SignupScreen())
                         
                 }

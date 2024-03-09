@@ -24,6 +24,8 @@ struct SignupInfo {
 
 struct SignupScreen: View {
     let authenticationUseCase = AuthenticationUseCaseImpl()
+    @EnvironmentObject var bannerManager: BannerManager
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     @State var screenIndex = 0
     @State var progressIndex = 0
@@ -105,10 +107,17 @@ struct SignupScreen: View {
                     if screenIndex < signupScreens.count - 1 {
                         screenIncrement()
                     } else {
-                        // Call the async function in a background task
                         Task {
-                            await authenticationUseCase.submitAccount(isAnyFieldEmpty: isAnyFieldEmpty, signupInfo: signupInfo)
+                            let success = await authViewModel.submitAccount(isAnyFieldEmpty: isAnyFieldEmpty, signupInfo: signupInfo)
+                            if success != "" {
+                                DispatchQueue.main.async {
+                                    bannerManager.showBanner(title: "Error Signing Up", message: "\(success)", imageName: "star")
+                                }
+                            } else {
+                                authViewModel.needsConfirmation = true
+                            }
                         }
+                        
                     }
                 })
                 ScuolaButton(title: "Back", type: "secondary", action: {screenDecrement()})

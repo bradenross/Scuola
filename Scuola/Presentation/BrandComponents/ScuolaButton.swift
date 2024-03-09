@@ -12,6 +12,7 @@ struct ScuolaButton: View {
     var type: String = "primary"
     var action: () -> Void
     var isLoading: Bool = false
+    var disabled: Bool = false
     
     var body: some View {
         if(!isLoading){
@@ -27,6 +28,7 @@ struct ScuolaButton: View {
                                 .stroke(Color.white, lineWidth: 3)
                         )
                 }
+                .disabled(disabled)
             } else if(type.lowercased() == "primary"){
                 Button(action: action){
                     Text(title)
@@ -36,6 +38,17 @@ struct ScuolaButton: View {
                         .foregroundColor(BrandedColor.dynamicAccentColor)
                         .cornerRadius(100)
                 }
+                .disabled(disabled)
+            } else if(type.lowercased() == "tertiary"){
+                Button(action: action){
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 25, maxHeight: 25)
+                        .background(.white)
+                        .foregroundColor(BrandedColor.dynamicAccentColor)
+                        .cornerRadius(5)
+                }
+                .disabled(disabled)
             }
         } else {
             if(type.lowercased() == "secondary"){
@@ -50,6 +63,7 @@ struct ScuolaButton: View {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(Color.white, lineWidth: 3)
                 )
+                .disabled(disabled)
             } else if(type.lowercased() == "primary"){
                 Button(action: action){
                     ProgressView()
@@ -58,6 +72,17 @@ struct ScuolaButton: View {
                 .background(.white)
                 .foregroundColor(BrandedColor.dynamicAccentColor)
                 .cornerRadius(100)
+                .disabled(disabled)
+            } else if(type.lowercased() == "tertiary"){
+                Button(action: action){
+                    Text(title)
+                        .bold()
+                        .frame(maxWidth: 300, minHeight: 25, maxHeight: 25)
+                        .background(.white)
+                        .foregroundColor(BrandedColor.dynamicAccentColor)
+                        .cornerRadius(5)
+                }
+                .disabled(disabled)
             }
         }
     }

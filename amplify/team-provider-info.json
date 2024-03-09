@@ -1,0 +1,26 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-facto-staging-73913-authRole",
+      "UnauthRoleArn": "arn:aws:iam::654654355799:role/amplify-facto-staging-73913-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::654654355799:role/amplify-facto-staging-73913-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-facto-staging-73913-deployment",
+      "UnauthRoleName": "amplify-facto-staging-73913-unauthRole",
+      "StackName": "amplify-facto-staging-73913",
+      "StackId": "arn:aws:cloudformation:us-east-2:654654355799:stack/amplify-facto-staging-73913/219e9550-d931-11ee-a8f7-02b2006504a9",
+      "AmplifyAppId": "d2zjztn4mkdb2c"
+    },
+    "categories": {
+      "auth": {
+        "Facto": {}
+      },
+      "storage": {
+        "s3factostorage80b4ecd8": {}
+      },
+      "api": {
+        "facto": {}
+      }
+    }
+  }
+}
