@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct LoginPage: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    let authenticationUseCase = AuthenticationUseCaseImpl()
     @State var emailInput: String = ""
     @State var passwordInput: String = ""
     @State var errorPopup: Bool = false
@@ -61,7 +65,7 @@ struct LoginPage: View {
                 
                 ScuolaButton(title: "Login", action: {
                     Task{
-                        FirebaseAuthManager().login(email: emailInput, password: passwordInput)
+                        await authViewModel.login(email: emailInput, password: passwordInput)
                     }
                 })
                 

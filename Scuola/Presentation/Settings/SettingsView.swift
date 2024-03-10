@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("accountPrivate") private var isAccountPrivate: Bool = false
+    let authenticationUseCase = AuthenticationUseCaseImpl()
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         Form(){
@@ -44,7 +46,9 @@ struct SettingsView: View {
             
             Section(){
                 Button("Sign Out"){
-                    FirebaseAuthManager().signOut()
+                    Task {
+                        await authViewModel.signOut()
+                    }
                 }
             }
         }

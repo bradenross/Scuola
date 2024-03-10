@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import SwiftUI
 import UserNotifications
+import Amplify
 
 struct SignupInfo {
     var name: String = ""
@@ -22,6 +23,10 @@ struct SignupInfo {
 }
 
 struct SignupScreen: View {
+    let authenticationUseCase = AuthenticationUseCaseImpl()
+    @EnvironmentObject var bannerManager: BannerManager
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     @State var screenIndex = 0
     @State var progressIndex = 0
     
@@ -77,31 +82,6 @@ struct SignupScreen: View {
         }
     }
     
-    private func submitAccount(){
-        if(!isAnyFieldEmpty){
-            Auth.auth().createUser(withEmail: signupInfo.email, password: signupInfo.password) { authResult, error in
-                if let error = error {
-                    print("Error signing up: \(error.localizedDescription)")
-                } else {
-                    print("User signed up successfully")
-                    let uid = authResult!.user.uid
-                    let account = Account(id: uid, username: signupInfo.username, name: signupInfo.name, bio: signupInfo.bio, followers: 0, following: 0, birthdate: signupInfo.birthdate, userType: "default", verified: false, live: false, picture: picture)
-                    do {
-                        UserDefaults.standard.set(uid, forKey: "uid")
-                        UserDefaults.standard.set(signupInfo.username, forKey: "username")
-                        let db = Firestore.firestore()
-                        try db.collection("users").document(account.id).setData(from: account)
-                        screenIncrement()
-                    } catch let error {
-                        print("Error encoding or storing data: \(error)")
-                    }
-                }
-            }
-        } else {
-            print("MISSING INFO OR UNDERAGE")
-        }
-    }
-    
     var body: some View {
         VStack(){
             HStack(){
@@ -124,7 +104,21 @@ struct SignupScreen: View {
                 signupScreens[screenIndex]
                 Spacer()
                 ScuolaButton(title: screenIndex < signupScreens.count - 1 ? "Continue" : "Finish", action: {
-                    screenIndex < signupScreens.count - 1 ? screenIncrement() : submitAccount()
+                    if screenIndex < signupScreens.count - 1 {
+                        screenIncrement()
+                    } else {
+                        Task {
+                            let success = await authViewModel.submitAccount(isAnyFieldEmpty: isAnyFieldEmpty, signupInfo: signupInfo)
+                            if success != "" {
+                                DispatchQueue.main.async {
+                                    bannerManager.showBanner(title: "Error Signing Up", message: "\(success)", imageName: "star")
+                                }
+                            } else {
+                                authViewModel.needsConfirmation = true
+                            }
+                        }
+                        
+                    }
                 })
                 ScuolaButton(title: "Back", type: "secondary", action: {screenDecrement()})
             }
@@ -134,8 +128,4 @@ struct SignupScreen: View {
         .background(BrandedColor.backgroundGradient)
         .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    SignupScreen()
 }

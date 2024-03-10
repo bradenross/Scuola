@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import Amplify
 
 struct ProfileEditView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -71,8 +72,10 @@ struct ProfileEditView: View {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .onDisappear(){
-            let newData: Account = Account(id: "", username: username.lowercased(), name: name, bio: bio, followers: 0, following: 0, birthdate: Date(), userType: "", verified: false, picture: imageUrl)
-            editProfileUseCase.updateAccount(uid: UserDefaults.standard.string(forKey: "uid")!, newAccountInfo: newData)
+            let newData: User = User(name: name, bio: bio, birthdate: Temporal.DateTime(Date()), live: false, picture: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77", userType: "", username: "", verified: false)
+            Task {
+                await editProfileUseCase.createTodo()
+            }
         }
     }
 }

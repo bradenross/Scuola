@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct CommentSection: View {
     @State private var commentInput: String = ""
@@ -36,7 +37,8 @@ struct CommentSection: View {
                 LazyVStack {
                     ForEach(1...15, id: \.self) { value in
                         VStack(){
-                            CommentView(commentInfo: Comment(user: "Billy Bob", comment: "This video kinda sucks lmao. I wish I could write a bigger comment because this is way too small for all the thoughts I have on my mind duhhhh. Oh my gosh this wasnt even big enough for the multiline shit", date: Date(timeIntervalSince1970: 169193909009)))
+                            CommentView(commentInfo: Comment(body: "This video kinda sucks lmao. I wish I could write a bigger comment because this is way too small for all the thoughts I have on my mind duhhhh. Oh my gosh this wasnt even big enough for the multiline shit", timestamp: Temporal.DateTime(Date(timeIntervalSince1970: 169193909009)), videoID: "", userID: ""))
+//                            CommentView(commentInfo: Comment(id: "Billy Bob", body: "This video kinda sucks lmao. I wish I could write a bigger comment because this is way too small for all the thoughts I have on my mind duhhhh. Oh my gosh this wasnt even big enough for the multiline shit", timestamp: Date(timeIntervalSince1970: 169193909009)))
                             Divider()
                         }
                     }
@@ -55,11 +57,5 @@ struct CommentSection: View {
             .shadow(radius: 10)
             .padding(10)
         }
-    }
-}
-
-struct CommentSection_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentSection()
     }
 }

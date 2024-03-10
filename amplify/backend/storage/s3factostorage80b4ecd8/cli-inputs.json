@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3factostorage80b4ecd8",
+  "bucketName": "facto-storage-80b4ecd8",
+  "policyUUID": "8ca81cbc",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}
