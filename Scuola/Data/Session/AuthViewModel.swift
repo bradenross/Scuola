@@ -12,6 +12,7 @@ import AWSPluginsCore
 class AuthViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var needsConfirmation = false
+    @Published var isLoading = true
     @Published var errorMessage: String?
     
     @Published var uniqueIdentifier: String = ""
@@ -150,14 +151,17 @@ class AuthViewModel: ObservableObject {
         Task {
             do {
                 let session = try await Amplify.Auth.fetchAuthSession()
-                DispatchQueue.main.async {
-                    self.isAuthenticated = session.isSignedIn
-                }
+                self.isAuthenticated = session.isSignedIn
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                self.isLoading = false
             } catch {
                 print("Error checking Amplify auth session: \(error)")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                self.isLoading = false
             }
         }
     }
+
     
     
     

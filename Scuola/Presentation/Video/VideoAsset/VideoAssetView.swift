@@ -73,14 +73,14 @@ struct VideoAssetView: View {
                         isFollowing = isFollowingUser ? true : false
                     }
                     
-                    getAccountFromFB(id: videoThumbnailInfo.userId) { account in
-                        if let account = account {
-                            print("Retrieved account: \(account)")
-                            ownerAccountData = account
-                        } else {
-                            print("Account not found or error occurred")
-                        }
-                    }
+//                    getAccountFromFB(id: videoThumbnailInfo.userId) { account in
+//                        if let account = account {
+//                            print("Retrieved account: \(account)")
+//                            ownerAccountData = account
+//                        } else {
+//                            print("Account not found or error occurred")
+//                        }
+//                    }
                 }
             }
         }

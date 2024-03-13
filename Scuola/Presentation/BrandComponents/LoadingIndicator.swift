@@ -6,32 +6,20 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct LoadingIndicator: View {
     @State private var isAnimating = false
     var body: some View {
-        VStack(){
-            ZStack(){
-                Circle()
-                    .stroke(BrandedColor.backgroundGradient, lineWidth: 5)
-                    .frame(width: 70, height: 70)
-                    .rotationEffect(.degrees(isAnimating ? 0 : 360), anchor: .center)
-                
-                Circle()
-                    .fill(BrandedColor.backgroundGradient)
-                    .frame(width: 20, height: 20)
-                    .offset(y: -25)
-                    .rotationEffect(.degrees(isAnimating ? 0 : 360), anchor: .center)
-                    .onAppear() {
-                        withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)){
-                            self.isAnimating.toggle()
-                        }
-                    }
-                
+        LottieView(animation: .named("LoadingAnimation"))
+            .playbackMode(.playing(.fromProgress(0, toProgress: 1, loopMode: .loop)))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(){
+                BrandedColor.background
+                    .ignoresSafeArea()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
     }
 }
 

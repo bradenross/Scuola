@@ -5,9 +5,6 @@
 //  Created by Braden Ross on 2/3/24.
 //
 
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 import SwiftUI
 import UserNotifications
 import Amplify

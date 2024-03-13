@@ -163,16 +163,16 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             }
             
             // Use the retrieved userID to fetch the account data
-            getAccountFromFB(id: userID) { account in
-                if let account = account {
-                    // If account data is successfully fetched, pass it to the completion handler
-                    completion(.success(account))
-                } else {
-                    // If there's an error or account data is nil, create and pass an error object
-                    let customError = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch account data"])
-                    completion(.failure(customError))
-                }
-            }
+//            getAccountFromFB(id: userID) { account in
+//                if let account = account {
+//                    // If account data is successfully fetched, pass it to the completion handler
+//                    completion(.success(account))
+//                } else {
+//                    // If there's an error or account data is nil, create and pass an error object
+//                    let customError = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch account data"])
+//                    completion(.failure(customError))
+//                }
+//            }
         }
         
         AppState.shared.isLoading = false

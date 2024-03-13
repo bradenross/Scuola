@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 import Amplify
 
 protocol AuthenticationUseCase {
@@ -39,15 +36,6 @@ final class AuthenticationUseCaseImpl: AuthenticationUseCase {
         } catch {
             print("Error: \(error)")
         }
-//        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-//            if error != nil {
-//                print("BRADEN ROSS")
-//                print(error?.localizedDescription ?? "")
-//            } else {
-//                guard let uid = Auth.auth().currentUser?.uid else { return }
-//                UserDefaults.standard.set(uid, forKey: "uid")
-//            }
-//        }
     }
     
     func submitAccount(isAnyFieldEmpty: Bool, signupInfo: SignupInfo) async -> String{

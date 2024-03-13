@@ -1,5 +1,5 @@
 {
-  "originHash" : "929c88f485295245ccf1b2e7881cc4b8a010d707c47e9a2c3d72afa3c83bb754",
+  "originHash" : "d33c0dbc45f09a5d890568e3fea4859b9dbb0bb5121183b63c4991a105068b48",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aws-amplify/amplify-swift",
       "state" : {
-        "revision" : "30728eb1fa3af4721d70ae5717ccc22ba11c4195",
-        "version" : "2.27.1"
+        "revision" : "7d9640a5b7416f02f03463972dc2c6d87b295545",
+        "version" : "2.27.2"
       }
     },
     {
@@ -134,6 +134,15 @@
       "state" : {
         "revision" : "43aaef65e0c665daadf848761d560e446d350d3d",
         "version" : "1.22.4"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "7fe8b6f697ae7db4bf0df270119592cb5d502848",
+        "version" : "4.4.1"
       }
     },
     {

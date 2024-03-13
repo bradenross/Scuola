@@ -6,141 +6,129 @@
 //
 
 import Foundation
-import FirebaseFirestore
-import FirebaseAuth
+import Amplify
+import AWSPluginsCore
 
 protocol UserInteractionUseCase {
-    func updateVideoVoteCount(videoID: String, voteDiff: Int)
-    func saveVideo(videoID: String)
-    func removeSavedVideo(videoID: String)
+    func updateVideoVoteCount(videoID: String, voteDiff: Int) async
+    func saveVideo(videoID: String) async
+    func removeSavedVideo(videoID: String) async
     func userSubscribeToUser(userID: String)
-    func userUnsubscribeToUser(userID: String)
-    func addCommentToVideo(videoID: String, comment: String)
-    func likeComment(videoID: String, commentID: String)
-    func dislikeComment(videoID: String, commentID: String)
+    func userUnsubscribeToUser(userID: String) 
+    func addCommentToVideo(videoID: String, comment: String) async
+    // Note: Liking or disliking comments is not directly supported by the schema. Needs additional fields or models.
 }
 
 final class UserInteractionUseCaseImpl: UserInteractionUseCase {
-    private let db = Firestore.firestore()
     
-    func updateVideoVoteCount(videoID: String, voteDiff: Int) {
-        let videoRef = db.collection("videos").document(videoID)
-        videoRef.updateData(["votes": FieldValue.increment(Int64(voteDiff))])
-    }
-    
-    func saveVideo(videoID: String) {
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("Current user not available")
-            return
-        }
-        print("User was found and we are adding \(videoID) to user \(userID)")
-        db.collection("users").document(userID).updateData(["savedVideos": FieldValue.arrayUnion([videoID])]) {
-            error in
-            if let error = error {
-                print("Error updating savedVideos: \(error)")
-            } else {
-                print("Saved videos update successfully! \(videoID)")
+    func updateVideoVoteCount(videoID: String, voteDiff: Int) async {
+        do {
+            if let video = try await Amplify.DataStore.query(Video.self, byId: videoID) {
+                var updatedVideo = video
+                updatedVideo.votes! += voteDiff
+                try await Amplify.DataStore.save(updatedVideo)
+                print("Video vote count updated")
             }
+        } catch {
+            print("Error updating video vote count: \(error)")
         }
     }
     
-    func removeSavedVideo(videoID: String){
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("Current user not available")
-            return
-        }
-        print("User was found and we are adding \(videoID) to user \(userID)")
-        db.collection("users").document(userID).updateData(["savedVideos": FieldValue.arrayRemove([videoID])]) {
-            error in
-            if let error = error {
-                print("Error updating savedVideos: \(error)")
-            } else {
-                print("Saved videos update successfully! \(videoID)")
+    func saveVideo(videoID: String) async {
+        do {
+            let user = try await Amplify.Auth.getCurrentUser()
+            let userID = user.userId
+            print("USERID: \(userID)")
+            let queryResult = try await Amplify.API.query(request: .get(User.self, byId: userID))
+            
+            switch queryResult {
+            case .success(let user):
+                guard let user = user else {
+                    print("Could not find User")
+                    return
+                }
+                print("Successfully got User: \(user)")
+                var updatedUser = user
+                if(updatedUser.savedVideos == nil){
+                    updatedUser.savedVideos = [videoID]
+                } else {
+                    updatedUser.savedVideos?.append(videoID)
+                }
+                let userResult = try await Amplify.API.mutate(request: .update(updatedUser))
+                
+                switch userResult {
+                case .success(let user):
+                    print("Successfully updated User: \(user)")
+                case .failure(let error):
+                    print("Got failed result with \(error.errorDescription)")
+                }
+            case .failure(let error):
+                print("Got failed result with \(error.errorDescription)")
             }
+        } catch let error as AuthError {
+            print("AuthError: \(error)")
+        } catch {
+            print("Unexpected Error: \(error)")
         }
     }
+    
+    func removeSavedVideo(videoID: String) async {
+        do {
+            let user = try await Amplify.Auth.getCurrentUser()
+            let userID = user.userId
+
+            // Query for the current user to get the existing list of saved videos
+            let queryResult = try await Amplify.API.query(request: .get(User.self, byId: userID))
+            
+            switch queryResult {
+            case .success(let user):
+                guard var user = user else {
+                    print("Could not find User")
+                    return
+                }
+                print("Successfully got User: \(user)")
+
+                // Remove the videoID from savedVideos if it exists
+                if let index = user.savedVideos?.firstIndex(of: videoID) {
+                    user.savedVideos?.remove(at: index)
+                } else {
+                    print("Video ID not found in savedVideos")
+                    return
+                }
+                
+                // Update the user with the modified list of saved videos
+                let userResult = try await Amplify.API.mutate(request: .update(user))
+                
+                switch userResult {
+                case .success(let updatedUser):
+                    print("Successfully updated User: \(updatedUser)")
+                case .failure(let error):
+                    print("Got failed result with \(error.errorDescription)")
+                }
+            case .failure(let error):
+                print("Got failed result with \(error.errorDescription)")
+            }
+        } catch let error as AuthError {
+            print("AuthError: \(error)")
+        } catch {
+            print("Unexpected Error: \(error)")
+        }
+    }
+
     
     func userSubscribeToUser(userID: String) {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {
-            print("Current user not available")
-            return
-        }
-        
-        let followersRef = db.collection("users").document(userID).collection("followers")
-        let followingRef = db.collection("users").document(currentUserID).collection("following")
-        
-        followersRef.document(userID).setData([
-            "timestamp": Timestamp()
-        ]) { err in
-            if let err = err {
-                print("Error adding follower: \(err)")
-            } else {
-                print("Follower added successfully")
-            }
-        }
-        
-        followingRef.document(userID).setData([
-            "timestamp": Timestamp() // Add timestamp if needed
-        ]) { err in
-            if let err = err {
-                print("Error adding following: \(err)")
-            } else {
-                print("Following added successfully")
-            }
-        }
+        // This example assumes you manage the followers/following relationship manually as your schema does not directly support it
+        print("User subscribing functionality requires schema adjustments for proper many-to-many relationships.")
     }
     
     func userUnsubscribeToUser(userID: String) {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {
-            print("Current user not available")
-            return
-        }
-        // Reference to the followers collection under the specific user's document
-        let followersRef = db.collection("users").document(userID).collection("followers")
-        let followingRef = db.collection("users").document(currentUserID).collection("following")
-        
-        // Delete the document corresponding to the follower's ID
-        followersRef.document(userID).delete { err in
-            if let err = err {
-                print("Error removing follower: \(err)")
-            } else {
-                print("Follower removed successfully")
-            }
-        }
-        
-        followingRef.document(userID).delete { err in
-            if let err = err {
-                print("Error removing follower: \(err)")
-            } else {
-                print("Follower removed successfully")
-            }
-        }
+        // Similar to subscribing, this would also require schema adjustments or manual relationship management
+        print("User unsubscribing functionality requires schema adjustments for proper many-to-many relationships.")
     }
     
-    func addCommentToVideo(videoID: String, comment: String) {
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("Current user not available")
-            return
-        }
+    func addCommentToVideo(videoID: String, comment: String) async {
         
-        let commentsRef = db.collection("videos").document(videoID).collection("comments")
-        
-        commentsRef.document(userID).setData([
-            "timestamp": Timestamp() // Add timestamp if needed
-        ]) { err in
-            if let err = err {
-                print("Error adding following: \(err)")
-            } else {
-                print("Comment added successfully")
-            }
-        }
     }
     
-    func likeComment(videoID: String, commentID: String) {
-        // Implementation for liking a comment
-    }
-    
-    func dislikeComment(videoID: String, commentID: String) {
-        // Implementation for disliking a comment
-    }
+    // Note: Implementing like/dislike functionality for comments would require additional schema design.
 }

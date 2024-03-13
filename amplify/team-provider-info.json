@@ -17,9 +17,6 @@
       },
       "storage": {
         "s3factostorage80b4ecd8": {}
-      },
-      "api": {
-        "facto": {}
       }
     }
   }

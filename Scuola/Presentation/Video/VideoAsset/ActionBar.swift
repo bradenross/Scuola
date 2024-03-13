@@ -14,7 +14,7 @@ struct ActionBar: View {
     let interactionUseCase = UserInteractionUseCaseImpl()
     let videoDataUseCase = FetchVideoDataUseCaseImpl()
     
-    private func onDislikedTapped(){
+    private func onDislikedTapped() async{
         var voteDiff = 0
         if(vote == -1){
             voteDiff = 1
@@ -30,10 +30,10 @@ struct ActionBar: View {
             }
             vote = -1
         }
-        interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
+        await interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
     
-    private func onLikedTapped(){
+    private func onLikedTapped() async{
         var voteDiff = 0
         if(vote == 1){
             voteDiff = -1
@@ -49,14 +49,14 @@ struct ActionBar: View {
             }
             vote = 1
         }
-        interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
+        await interactionUseCase.updateVideoVoteCount(videoID: "vqzU9C6NOUuu21lJYOeG", voteDiff: voteDiff)
     }
     
-    private func onSaveTapped(){
+    private func onSaveTapped() async{
         if(isSaved){
-            interactionUseCase.removeSavedVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
+            await interactionUseCase.removeSavedVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
         } else {
-            interactionUseCase.saveVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
+            await interactionUseCase.saveVideo(videoID: "vqzU9C6NOUuu21lJYOeG")
         }
         isSaved.toggle()
     }
@@ -70,7 +70,9 @@ struct ActionBar: View {
                             .foregroundColor(vote == 1 ? .green : .white)
                     }
                     .onTapGesture {
-                        onLikedTapped()
+                        Task{
+                            await onLikedTapped()
+                        }
                     }
                     Divider()
                     Text("\(voteNum)" as String)
@@ -80,7 +82,9 @@ struct ActionBar: View {
                             .foregroundColor(vote == -1 ? .red : .white)
                     }
                     .onTapGesture {
-                        onDislikedTapped()
+                        Task{
+                            await onDislikedTapped()
+                        }
                     }
                 }
                 .fixedSize()
@@ -93,7 +97,7 @@ struct ActionBar: View {
                     .frame(maxWidth: .infinity)
                 
                 ScuolaActionButton(title: "Share", symbol: "arrowshape.turn.up.forward", action: {})
-                ScuolaActionButton(title: "Save", symbol: isSaved ? "bookmark.fill" : "bookmark", symbolColor: isSaved ? BrandedColor.dynamicAccentColor : BrandedColor.text, action: {onSaveTapped()})
+                ScuolaActionButton(title: "Save", symbol: isSaved ? "bookmark.fill" : "bookmark", symbolColor: isSaved ? BrandedColor.dynamicAccentColor : BrandedColor.text, action: {Task{await onSaveTapped()}})
                 ScuolaActionButton(title: "Remove Ads", symbol: "sparkles.tv", action: {})
                 ScuolaActionButton(title: "Download", symbol: "square.and.arrow.down", action: {})
                 
