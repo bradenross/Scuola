@@ -14,6 +14,8 @@ import Amplify
 import AWSCognitoAuthPlugin
 import AWSAPIPlugin
 import AWSS3StoragePlugin
+import AWSDataStorePlugin
+import Lottie
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -29,6 +31,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         }
         
         do {
+            try Amplify.add(plugin: AWSDataStorePlugin(modelRegistration: AmplifyModels()))
             try Amplify.add(plugin: AWSS3StoragePlugin())
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.add(plugin: AWSAPIPlugin())
@@ -68,12 +71,18 @@ struct ScuolaApp: App {
                 }
                 
                 NavigationView {
-                    if authViewModel.isAuthenticated {
-                        DashboardView()
-                    } else if authViewModel.needsConfirmation {
-                        VerifyPage()
-                    } else {
-                        LandingPage()
+                    ZStack(){
+                        if authViewModel.isAuthenticated {
+                            DashboardView()
+                        } else if authViewModel.needsConfirmation {
+                            VerifyPage()
+                        } else {
+                            LandingPage()
+                        }
+                        
+                        if authViewModel.isLoading {
+                            LoadingIndicator()
+                        }
                     }
                 }
             }

@@ -51,6 +51,6 @@ type User @model @auth(rules: [{allow: public}]) {
   Videos: [Following] @hasMany(indexName: "byUser", fields: ["id"])
   Followers: [Follower] @hasMany(indexName: "byUser", fields: ["id"])
   Comments: [Comment] @hasMany(indexName: "byUser", fields: ["id"])
-  StreamKey: StreamKey @hasOne
+  UserStreamKey: StreamKey @hasOne
 }
  

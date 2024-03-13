@@ -13,15 +13,15 @@ struct ProfileView: View {
     @State var isHeaderLoading: Bool = true
     
     private func loadData(){
-        getAccountFromFB(id: accId) { account in
-            if let account = account {
-                print("Retrieved account: \(account)")
-                acc = account
-                isHeaderLoading = false
-            } else {
-                print("Account not found or error occurred")
-            }
-        }
+//        getAccountFromFB(id: accId) { account in
+//            if let account = account {
+//                print("Retrieved account: \(account)")
+//                acc = account
+//                isHeaderLoading = false
+//            } else {
+//                print("Account not found or error occurred")
+//            }
+//        }
     }
     
     var body: some View {

@@ -48,7 +48,6 @@
 		9C8C436B2B6EBAC100280963 /* NotificationsPermissionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C436A2B6EBAC100280963 /* NotificationsPermissionPage.swift */; };
 		9C8C436D2B6EBAFE00280963 /* TermsAndConditionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C436C2B6EBAFE00280963 /* TermsAndConditionsPage.swift */; };
 		9C8C43702B6EC88300280963 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C436F2B6EC88300280963 /* Account.swift */; };
-		9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */; };
 		9C8C43772B6ECD7000280963 /* NumberFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43762B6ECD7000280963 /* NumberFormatterService.swift */; };
 		9C8C437C2B6F5DD900280963 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C437B2B6F5DD900280963 /* LoginPage.swift */; };
 		9C8C43812B6F62C900280963 /* ScuolaNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */; };
@@ -79,6 +78,8 @@
 		9CA9C0F82B75EB4A00FF7605 /* UserInteractionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */; };
 		9CA9C0FA2B76D5F300FF7605 /* FetchVideoDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9C0F92B76D5F300FF7605 /* FetchVideoDataUseCase.swift */; };
 		9CAF490C2B8EFE2200A9111D /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF490B2B8EFE2200A9111D /* MessagesView.swift */; };
+		9CB654292B9E84AE00575D40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CB654282B9E84AE00575D40 /* GoogleService-Info.plist */; };
+		9CB98C172B9EC5A900419B98 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9CB98C162B9EC5A900419B98 /* Lottie */; };
 		9CBF2A2E2A8F1EB300D1FDC4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */; };
 		9CBF2A312A8F21D700D1FDC4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */; };
 		9CBF2A342A930F4A00D1FDC4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */; };
@@ -101,7 +102,6 @@
 		9CE7F5022B95571300C764FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE7F5012B95571300C764FD /* AuthViewModel.swift */; };
 		9CE7F5042B9564CB00C764FD /* VerifyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE7F5032B9564CB00C764FD /* VerifyPage.swift */; };
 		9CEC38B52B609BA300192619 /* BubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC38B42B609BA300192619 /* BubbleBackground.swift */; };
-		9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */; };
 		9CF7037E2A4E890200E96A5D /* ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */; };
 		9CF703822A4E890400E96A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703812A4E890400E96A5D /* Assets.xcassets */; };
 		9CF703852A4E890400E96A5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF703842A4E890400E96A5D /* Preview Assets.xcassets */; };
@@ -150,9 +150,11 @@
 		9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF704222A527BCB00E96A5D /* MuxCredentials.swift */; };
 		9CFE1FD32B83F4EF0067600A /* EditAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */; };
 		9CFE1FD52B86C65A0067600A /* MediaUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFE1FD42B86C65A0067600A /* MediaUploadView.swift */; };
+		D3B455402C9B0C2E46827925 /* StreamKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3685C16A57D14570C30C6 /* StreamKey.swift */; };
 		D8A1EB8D5E7AA4A68BF00EE7 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0127073FEF51604A78BD9FB5 /* awsconfiguration.json */; };
 		DFEB44B4606C0C64CDF66EE3 /* Comment+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FA8802722D38F634A27ED /* Comment+Schema.swift */; };
 		E776C1CED71EA8B97D2FB404 /* Video+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B5FB4AD458CCE2676DB50D /* Video+Schema.swift */; };
+		F42B7EEA4C11D4027E24EE74 /* StreamKey+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEBCB0D20EC322E3ECD68BC /* StreamKey+Schema.swift */; };
 		FCC787FB549974A592858997 /* User+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125484B1DFDE3178344CCA64 /* User+Schema.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,15 +177,16 @@
 
 /* Begin PBXFileReference section */
 		0127073FEF51604A78BD9FB5 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
-		0817B73D5F53CEB93A2CE200 /* Following.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Following.swift; path = amplify/generated/models/Following.swift; sourceTree = "<group>"; };
-		0E82D416A38086F7FDA0AEEB /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
-		125484B1DFDE3178344CCA64 /* User+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "User+Schema.swift"; path = "amplify/generated/models/User+Schema.swift"; sourceTree = "<group>"; };
-		1D44CB058574F1B6AA408BB7 /* Comment.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Comment.swift; path = amplify/generated/models/Comment.swift; sourceTree = "<group>"; };
-		4E6A7805169294806D956C1C /* Follower+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Follower+Schema.swift"; path = "amplify/generated/models/Follower+Schema.swift"; sourceTree = "<group>"; };
-		6869124A311EE8321A8A6C8E /* User.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = User.swift; path = amplify/generated/models/User.swift; sourceTree = "<group>"; };
+		0817B73D5F53CEB93A2CE200 /* Following.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Following.swift; path = amplify/generated/models/Following.swift; sourceTree = "<group>"; };
+		0E82D416A38086F7FDA0AEEB /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		125484B1DFDE3178344CCA64 /* User+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "User+Schema.swift"; path = "amplify/generated/models/User+Schema.swift"; sourceTree = "<group>"; };
+		1D44CB058574F1B6AA408BB7 /* Comment.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = amplify/generated/models/Comment.swift; sourceTree = "<group>"; };
+		4E6A7805169294806D956C1C /* Follower+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Follower+Schema.swift"; path = "amplify/generated/models/Follower+Schema.swift"; sourceTree = "<group>"; };
+		5DEBCB0D20EC322E3ECD68BC /* StreamKey+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "StreamKey+Schema.swift"; path = "amplify/generated/models/StreamKey+Schema.swift"; sourceTree = "<group>"; };
+		6869124A311EE8321A8A6C8E /* User.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = User.swift; path = amplify/generated/models/User.swift; sourceTree = "<group>"; };
 		6D62A9E086A1FA7E7BD05F09 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
-		76E993346082A0DAD4D25C7D /* Follower.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Follower.swift; path = amplify/generated/models/Follower.swift; sourceTree = "<group>"; };
-		8D6555769AD59E73B9756270 /* Following+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Following+Schema.swift"; path = "amplify/generated/models/Following+Schema.swift"; sourceTree = "<group>"; };
+		76E993346082A0DAD4D25C7D /* Follower.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Follower.swift; path = amplify/generated/models/Follower.swift; sourceTree = "<group>"; };
+		8D6555769AD59E73B9756270 /* Following+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Following+Schema.swift"; path = "amplify/generated/models/Following+Schema.swift"; sourceTree = "<group>"; };
 		9C23D4F92B8C23710098EDB3 /* FactoToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoToggle.swift; sourceTree = "<group>"; };
 		9C23D4FC2B8C35650098EDB3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9C23D4FF2B8C5ACB0098EDB3 /* VideoUploadInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadInfoView.swift; sourceTree = "<group>"; };
@@ -217,7 +220,6 @@
 		9C8C436A2B6EBAC100280963 /* NotificationsPermissionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionPage.swift; sourceTree = "<group>"; };
 		9C8C436C2B6EBAFE00280963 /* TermsAndConditionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsPage.swift; sourceTree = "<group>"; };
 		9C8C436F2B6EC88300280963 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountUseCase.swift; sourceTree = "<group>"; };
 		9C8C43762B6ECD7000280963 /* NumberFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterService.swift; sourceTree = "<group>"; };
 		9C8C437B2B6F5DD900280963 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		9C8C43802B6F62C900280963 /* ScuolaNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaNavButton.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionUseCase.swift; sourceTree = "<group>"; };
 		9CA9C0F92B76D5F300FF7605 /* FetchVideoDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchVideoDataUseCase.swift; sourceTree = "<group>"; };
 		9CAF490B2B8EFE2200A9111D /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		9CB654282B9E84AE00575D40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CBF2A2D2A8F1EB300D1FDC4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9CBF2A302A8F21D700D1FDC4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9CBF2A332A930F4A00D1FDC4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
@@ -257,7 +260,6 @@
 		9CE7F5012B95571300C764FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		9CE7F5032B9564CB00C764FD /* VerifyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPage.swift; sourceTree = "<group>"; };
 		9CEC38B42B609BA300192619 /* BubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleBackground.swift; sourceTree = "<group>"; };
-		9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF7037A2A4E890200E96A5D /* Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scuola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7037D2A4E890200E96A5D /* ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScuolaApp.swift; sourceTree = "<group>"; };
 		9CF703812A4E890400E96A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,9 +283,10 @@
 		9CF704222A527BCB00E96A5D /* MuxCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuxCredentials.swift; sourceTree = "<group>"; };
 		9CFE1FD22B83F4EF0067600A /* EditAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountUseCase.swift; sourceTree = "<group>"; };
 		9CFE1FD42B86C65A0067600A /* MediaUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadView.swift; sourceTree = "<group>"; };
-		C67FA8802722D38F634A27ED /* Comment+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Comment+Schema.swift"; path = "amplify/generated/models/Comment+Schema.swift"; sourceTree = "<group>"; };
-		C8B5FB4AD458CCE2676DB50D /* Video+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Video+Schema.swift"; path = "amplify/generated/models/Video+Schema.swift"; sourceTree = "<group>"; };
-		D97ADDCEB69172D67198597E /* Video.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Video.swift; path = amplify/generated/models/Video.swift; sourceTree = "<group>"; };
+		C67FA8802722D38F634A27ED /* Comment+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Comment+Schema.swift"; path = "amplify/generated/models/Comment+Schema.swift"; sourceTree = "<group>"; };
+		C8B5FB4AD458CCE2676DB50D /* Video+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Video+Schema.swift"; path = "amplify/generated/models/Video+Schema.swift"; sourceTree = "<group>"; };
+		D97ADDCEB69172D67198597E /* Video.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Video.swift; path = amplify/generated/models/Video.swift; sourceTree = "<group>"; };
+		F9D3685C16A57D14570C30C6 /* StreamKey.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = StreamKey.swift; path = amplify/generated/models/StreamKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +333,7 @@
 				9CF703DE2A4E8D9A00E96A5D /* FirebaseStorage in Frameworks */,
 				9C94D22E2B93D3B2001E3622 /* MuxUploadSDK in Frameworks */,
 				9CF703C22A4E8D9A00E96A5D /* FirebaseDynamicLinks in Frameworks */,
+				9CB98C172B9EC5A900419B98 /* Lottie in Frameworks */,
 				9CF703C62A4E8D9A00E96A5D /* FirebaseFirestoreCombine-Community in Frameworks */,
 				9CF703D62A4E8D9A00E96A5D /* FirebaseMessaging in Frameworks */,
 				9CE7F4F82B9534DC00C764FD /* AWSPinpointPushNotificationsPlugin in Frameworks */,
@@ -364,6 +368,8 @@
 				76E993346082A0DAD4D25C7D /* Follower.swift */,
 				8D6555769AD59E73B9756270 /* Following+Schema.swift */,
 				0817B73D5F53CEB93A2CE200 /* Following.swift */,
+				5DEBCB0D20EC322E3ECD68BC /* StreamKey+Schema.swift */,
+				F9D3685C16A57D14570C30C6 /* StreamKey.swift */,
 				125484B1DFDE3178344CCA64 /* User+Schema.swift */,
 				6869124A311EE8321A8A6C8E /* User.swift */,
 				C8B5FB4AD458CCE2676DB50D /* Video+Schema.swift */,
@@ -480,6 +486,7 @@
 				9CF7041A2A514BE100E96A5D /* Devices */,
 				9C8C43742B6ECD5100280963 /* Frameworks */,
 				9C8C43822B708ED100280963 /* Session */,
+				9C8CD86C2B9E95D90030072C /* Services */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -512,7 +519,6 @@
 		9C8C43712B6EC9A700280963 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				9C8C43722B6EC9F900280963 /* FetchAccountUseCase.swift */,
 				9C8C43862B70910400280963 /* AuthenticationUseCase.swift */,
 				9CA9C0F72B75EB4A00FF7605 /* UserInteractionUseCase.swift */,
 				9CA9C0F92B76D5F300FF7605 /* FetchVideoDataUseCase.swift */,
@@ -663,6 +669,13 @@
 			path = Permissions;
 			sourceTree = "<group>";
 		};
+		9C8CD86C2B9E95D90030072C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9C985F762B8D85140030542F /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,7 +741,7 @@
 			isa = PBXGroup;
 			children = (
 				9C7CA8112A527C7B0083EADC /* mux-ScuolaiOSDev.env */,
-				9CEC38B62B621C7C00192619 /* GoogleService-Info.plist */,
+				9CB654282B9E84AE00575D40 /* GoogleService-Info.plist */,
 				9CF7037C2A4E890200E96A5D /* Scuola */,
 				9CF7038D2A4E890400E96A5D /* ScuolaTests */,
 				9CF703972A4E890400E96A5D /* ScuolaUITests */,
@@ -906,6 +919,7 @@
 				9CE7F4FB2B9534DC00C764FD /* AWSPredictionsPlugin */,
 				9CE7F4FD2B9534DC00C764FD /* AWSS3StoragePlugin */,
 				9CE7F4FF2B9534DD00C764FD /* CoreMLPredictionsPlugin */,
+				9CB98C162B9EC5A900419B98 /* Lottie */,
 			);
 			productName = Scuola;
 			productReference = 9CF7037A2A4E890200E96A5D /* Scuola.app */;
@@ -984,6 +998,7 @@
 				9CF703E12A4E8EAB00E96A5D /* XCRemoteSwiftPackageReference "mux-spaces-sdk-swift-distribution" */,
 				9C94D22C2B93D3B1001E3622 /* XCRemoteSwiftPackageReference "swift-upload-sdk" */,
 				9CE7F4E82B9534AC00C764FD /* XCRemoteSwiftPackageReference "amplify-swift" */,
+				9CB98C132B9EC57700419B98 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 9CF7037B2A4E890200E96A5D /* Products */;
 			projectDirPath = "";
@@ -1012,7 +1027,6 @@
 				9CA9C0F32B759A0F00FF7605 /* RadikalTrial-ThinItalic.otf in Resources */,
 				9CA9C0E82B759A0F00FF7605 /* RadikalTrial-Regular.otf in Resources */,
 				9CA9C0E72B759A0F00FF7605 /* RadikalTrial-RegularItalic.otf in Resources */,
-				9CEC38B72B621C7C00192619 /* GoogleService-Info.plist in Resources */,
 				9CA9C0ED2B759A0F00FF7605 /* RadikalTrial-BoldItalic.otf in Resources */,
 				9CA9C0EE2B759A0F00FF7605 /* Radikal-Medium.otf in Resources */,
 				9CA9C0EF2B759A0F00FF7605 /* RadikalTrial-MediumItalic.otf in Resources */,
@@ -1021,6 +1035,7 @@
 				9CA9C0F12B759A0F00FF7605 /* RadikalTrial-BlackItalic.otf in Resources */,
 				D8A1EB8D5E7AA4A68BF00EE7 /* awsconfiguration.json in Resources */,
 				23D9B31BD9B96F9A9838B001 /* amplifyconfiguration.json in Resources */,
+				9CB654292B9E84AE00575D40 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,7 +1095,6 @@
 				9C3DD3842B7FBDAD006C09B8 /* ScuolaCircleButton.swift in Sources */,
 				9CF704232A527BCB00E96A5D /* MuxCredentials.swift in Sources */,
 				9C87F2122B800AB4002B78DC /* ScuolaCircleNavButton.swift in Sources */,
-				9C8C43732B6EC9F900280963 /* FetchAccountUseCase.swift in Sources */,
 				9CFE1FD52B86C65A0067600A /* MediaUploadView.swift in Sources */,
 				9C3DD38E2B7FFEED006C09B8 /* VideoPostItem.swift in Sources */,
 				9C7CA82D2A64E7670083EADC /* VideoAssetView.swift in Sources */,
@@ -1122,6 +1136,8 @@
 				7D4EB8EAB1A0FE8C835D202F /* Follower.swift in Sources */,
 				4157E40567B26119AEFFDF73 /* Following+Schema.swift in Sources */,
 				78B5B41E5067B60133C5EB16 /* Following.swift in Sources */,
+				F42B7EEA4C11D4027E24EE74 /* StreamKey+Schema.swift in Sources */,
+				D3B455402C9B0C2E46827925 /* StreamKey.swift in Sources */,
 				FCC787FB549974A592858997 /* User+Schema.swift in Sources */,
 				90252B2046BFF58D598101A8 /* User.swift in Sources */,
 				E776C1CED71EA8B97D2FB404 /* Video+Schema.swift in Sources */,
@@ -1472,6 +1488,14 @@
 				kind = branch;
 			};
 		};
+		9CB98C132B9EC57700419B98 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
 		9CE7F4E82B9534AC00C764FD /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
@@ -1503,6 +1527,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9C94D22C2B93D3B1001E3622 /* XCRemoteSwiftPackageReference "swift-upload-sdk" */;
 			productName = MuxUploadSDK;
+		};
+		9CB98C162B9EC5A900419B98 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CB98C132B9EC57700419B98 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		9CE7F4E92B9534AC00C764FD /* Amplify */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -19,8 +19,10 @@ public struct User: Model {
   public var Videos: List<Following>?
   public var Followers: List<Follower>?
   public var Comments: List<Comment>?
+  public var UserStreamKey: StreamKey?
   public var createdAt: Temporal.DateTime?
   public var updatedAt: Temporal.DateTime?
+  public var userUserStreamKeyId: String?
   
   public init(id: String = UUID().uuidString,
       name: String,
@@ -37,7 +39,9 @@ public struct User: Model {
       FollowingUsers: List<Following>? = [],
       Videos: List<Following>? = [],
       Followers: List<Follower>? = [],
-      Comments: List<Comment>? = []) {
+      Comments: List<Comment>? = [],
+      UserStreamKey: StreamKey? = nil,
+      userUserStreamKeyId: String? = nil) {
     self.init(id: id,
       name: name,
       bio: bio,
@@ -54,8 +58,10 @@ public struct User: Model {
       Videos: Videos,
       Followers: Followers,
       Comments: Comments,
+      UserStreamKey: UserStreamKey,
       createdAt: nil,
-      updatedAt: nil)
+      updatedAt: nil,
+      userUserStreamKeyId: userUserStreamKeyId)
   }
   internal init(id: String = UUID().uuidString,
       name: String,
@@ -73,8 +79,10 @@ public struct User: Model {
       Videos: List<Following>? = [],
       Followers: List<Follower>? = [],
       Comments: List<Comment>? = [],
+      UserStreamKey: StreamKey? = nil,
       createdAt: Temporal.DateTime? = nil,
-      updatedAt: Temporal.DateTime? = nil) {
+      updatedAt: Temporal.DateTime? = nil,
+      userUserStreamKeyId: String? = nil) {
       self.id = id
       self.name = name
       self.bio = bio
@@ -91,7 +99,9 @@ public struct User: Model {
       self.Videos = Videos
       self.Followers = Followers
       self.Comments = Comments
+      self.UserStreamKey = UserStreamKey
       self.createdAt = createdAt
       self.updatedAt = updatedAt
+      self.userUserStreamKeyId = userUserStreamKeyId
   }
 }

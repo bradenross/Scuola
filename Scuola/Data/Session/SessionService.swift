@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
-import FirebaseDatabase
 import Combine
 
 enum SessionState {
@@ -24,7 +22,5 @@ struct UserSessionDetails {
 
 protocol SessionService {
     var state: SessionState { get }
-    var userDetails: UserSessionDetails? { get }
     init()
-    func logout()
 }

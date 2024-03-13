@@ -20,6 +20,7 @@ final class MediaUploadUseCaseImpl: MediaUploadUseCase {
     func uploadVideo(item: PhotosPickerItem){
         
         getURL(item: item) { result in
+            print("Result: \(result)")
             switch result {
             case .success(let url):
                 print(url)

@@ -21,8 +21,10 @@ extension User {
     case Videos
     case Followers
     case Comments
+    case UserStreamKey
     case createdAt
     case updatedAt
+    case userUserStreamKeyId
   }
   
   public static let keys = CodingKeys.self
@@ -59,8 +61,10 @@ extension User {
       .hasMany(user.Videos, is: .optional, ofType: Following.self, associatedWith: Following.keys.userID),
       .hasMany(user.Followers, is: .optional, ofType: Follower.self, associatedWith: Follower.keys.userID),
       .hasMany(user.Comments, is: .optional, ofType: Comment.self, associatedWith: Comment.keys.userID),
+      .hasOne(user.UserStreamKey, is: .optional, ofType: StreamKey.self, associatedWith: StreamKey.keys.id, targetNames: ["userUserStreamKeyId"]),
       .field(user.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
-      .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
+      .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime),
+      .field(user.userUserStreamKeyId, is: .optional, ofType: .string)
     )
     }
 }
