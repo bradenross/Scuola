@@ -10,7 +10,7 @@ import Amplify
 import AWSPluginsCore
 
 protocol UserInteractionUseCase {
-    func updateVideoVoteCount(videoID: String, voteDiff: Int) async
+    func updateVideoVoteCount(videoID: String, voteDiff: Int, vote: ReactionType?) async
     func saveVideo(videoID: String) async
     func removeSavedVideo(videoID: String) async
     func userSubscribeToUser(userID: String)
@@ -21,18 +21,79 @@ protocol UserInteractionUseCase {
 
 final class UserInteractionUseCaseImpl: UserInteractionUseCase {
     
-    func updateVideoVoteCount(videoID: String, voteDiff: Int) async {
+    func updateVideoVoteCount(videoID: String, voteDiff: Int, vote: ReactionType?) async {
         do {
-            if let video = try await Amplify.DataStore.query(Video.self, byId: videoID) {
+            let user = try await Amplify.Auth.getCurrentUser()
+            let userID = user.userId
+            
+            let queryResult = try await Amplify.API.query(request: .get(Video.self, byId: videoID))
+            
+            switch queryResult {
+            case .success(let video):
+                guard let video = video else {
+                    print("Could not find Video")
+                    return
+                }
+                print("Successfully got Video: \(video)")
                 var updatedVideo = video
-                updatedVideo.votes! += voteDiff
-                try await Amplify.DataStore.save(updatedVideo)
-                print("Video vote count updated")
+                updatedVideo.votes += voteDiff
+                let userResult = try await Amplify.API.mutate(request: .update(updatedVideo))
+                
+                switch userResult {
+                case .success(let reactionSuccess):
+                    await updateVideoReaction(videoID: videoID, userID: userID, voteDiff: voteDiff, vote: vote)
+                    
+                    print("Successfully updated Video: \(updatedVideo)")
+                case .failure(let error):
+                    print("Got failed result with \(error.errorDescription)")
+                }
+            case .failure(let error):
+                print("Got failed result with \(error.errorDescription)")
             }
+            print("Video vote count updated")
         } catch {
             print("Error updating video vote count: \(error)")
         }
     }
+    
+    func updateVideoReaction(videoID: String, userID: String, voteDiff: Int, vote: ReactionType?) async {
+        let reaction = Reaction.keys
+        let predicate = reaction.userID == userID && reaction.videoID == videoID
+        let request = GraphQLRequest<Reaction>.list(Reaction.self, where: predicate, limit: 1)
+        
+        do {
+            let result = try await Amplify.API.query(request: request)
+            
+            switch result {
+            case .success(let reaction):
+                if(!reaction.isEmpty){
+                    if vote == nil {
+                        // User is removing their reaction
+                        let userResult = try await Amplify.API.mutate(request: .delete(reaction[0]))
+                        print("Reaction removed successfully: \(userResult)")
+                    } else {
+                        // Update existing reaction if the new action is different
+                        var updatedReaction = reaction[0]
+                        updatedReaction.action = vote!
+                        let userResult = try await Amplify.API.mutate(request: .update(updatedReaction))
+                        print("Reaction updated successfully: \(userResult)")
+                    }
+                } else {
+                    if vote != nil {
+                        let newReaction = Reaction(action: vote!, videoID: videoID, userID: userID)
+                        let createResult = try await Amplify.API.mutate(request: .create(newReaction))
+                        print("New reaction created successfully: \(createResult)")
+                    }
+                }
+            case .failure(let error):
+                print("Error fetching reactions: \(error)")
+            }
+            
+        } catch {
+            print("Error processing reaction: \(error)")
+        }
+    }
+
     
     func saveVideo(videoID: String) async {
         do {

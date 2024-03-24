@@ -11,36 +11,34 @@ import AVKit
 
 struct VideoAssetView: View {
     var videoThumbnailInfo: Thumbnail
+    @StateObject private var viewModel: VideoAssetViewModel
     
-    let videoDataUseCase = FetchVideoDataUseCaseImpl()
-    
-    @State private var isFollowing: Bool = false
-    @State private var vote = 0
-    @State private var voteNum = 0
-    @State private var isSaved = false
-    @State private var ownerAccountData: Account = Account(id: "", username: "", name: "", bio: "", followers: 0, following: 0, birthdate: Date(), userType: "default", verified: false, live: false, picture: "")
+    init(videoThumbnailInfo: Thumbnail) {
+        _viewModel = StateObject(wrappedValue: VideoAssetViewModel(videoThumbnailInfo: videoThumbnailInfo, videoDataUseCase: FetchVideoDataUseCaseImpl()))
+        self.videoThumbnailInfo = videoThumbnailInfo
+    }
     
     @State private var isCommentSectionOpen = false
     
-    @State private var testDesc = "gfhjkljlhgfklhgfklhgfklhgfasfjaksdhfkjashdfkjahsdfkasdfjkhaksjfhajkshfkjashfkjahsfdjkhasjkfhaljkfhakjhfjkahskjfhakjlfhakjlhfjkahfkjahskjfhajfhakjdhfkajhsdfkahsdfjkhasdkjfhakjsdhfkajshdfkahsdfkhakjsfhaksdhfkjasdhfjkashdfakljsdhfjakshfajksfhakjshfalksdfhaksjfhakjsfhaklshfakljshfakjsfhaksdhfaksjdfhakjlsdfhaskljfhaskjdfhajksfhajksdhfkajlshfklajshfjkalshfkjalsfhaksjldfhakjsfhakjsfhaklshfkjashfajkshfdaklsjdfhaskjl[bradenross.me](https://www.bradenross.me)dfhasflkjashfakljsfhaklsjdfhkashfalsjkdhfaklsjdhfjahsdklhasdfhaklsdhfkahsflkahsdflkahsdfkahsdflkhasdlkfhaksdfhkalsdhfklashflahsflashdflahsdfljkashdflkashdfjkashdfkjashdfklhasdfklhaifuaehnviibvsjdknasdvanvi"
+    private var testDesc = "gfhjkljlhgfklhgfklhgfklhgfasfjaksdhfkjashdfkjahsdfkasdfjkhaksjfhajkshfkjashfkjahsfdjkhasjkfhaljkfhakjhfjkahskjfhakjlfhakjlhfjkahfkjahskjfhajfhakjdhfkajhsdfkahsdfjkhasdkjfhakjsdhfkajshdfkahsdfkhakjsfhaksdhfkjasdhfjkashdfakljsdhfjakshfajksfhakjshfalksdfhaksjfhakjsfhaklshfakljshfakjsfhaksdhfaksjdfhakjlsdfhaskljfhaskjdfhajksfhajksdhfkajlshfklajshfjkalshfkjalsfhaksjldfhakjsfhakjsfhaklshfkjashfajkshfdaklsjdfhaskjl[bradenross.me](https://www.bradenross.me)dfhasflkjashfakljsfhaklsjdfhkashfalsjkdhfaklsjdhfjahsdklhasdfhaklsdhfkahsflkahsdflkahsdfkahsdflkhasdlkfhaksdfhkalsdhfklashflahsflashdflahsdfljkashdflkashdfjkashdfkjashdfklhasdfklhaifuaehnviibvsjdknasdvanvi"
     
     var body: some View {
         NavigationView(){
             VStack(){
                 HStack(){
-                    Text(videoThumbnailInfo.title)
+                    Text(viewModel.videoInfo.title)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(15)
-                VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(videoThumbnailInfo.id).m3u8")!)
+                VideoPlayerView(videoURL: URL(string: "https://stream.mux.com/\(videoThumbnailInfo.muxID).m3u8")!)
                     .aspectRatio(1920/1080, contentMode: .fit)
                 VStack(){
                     ScrollView(){
                         Spacer()
                             .frame(height: 15)
-                        ProfileBarView(isFollowing: $isFollowing, accountData: $ownerAccountData)
-                        ActionBar(vote: $vote, voteNum: $voteNum, isSaved: $isSaved)
+                        ProfileBarView(isFollowing: $viewModel.isFollowing, accountData: $viewModel.ownerAccountData)
+                        ActionBar(viewModel: viewModel)
                         DescriptionView(description: testDesc)
                         
                         VStack(){
@@ -66,21 +64,6 @@ struct VideoAssetView: View {
                     CommentSection()
                         .presentationDetents([.medium, .large])
                         .presentationCompactAdaptation(.popover)
-                }
-                .onAppear(){
-                    
-                    videoDataUseCase.isUserFollowing(userID: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1"){ isFollowingUser in
-                        isFollowing = isFollowingUser ? true : false
-                    }
-                    
-//                    getAccountFromFB(id: videoThumbnailInfo.userId) { account in
-//                        if let account = account {
-//                            print("Retrieved account: \(account)")
-//                            ownerAccountData = account
-//                        } else {
-//                            print("Account not found or error occurred")
-//                        }
-//                    }
                 }
             }
         }

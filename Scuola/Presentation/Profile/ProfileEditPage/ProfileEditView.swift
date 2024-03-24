@@ -72,9 +72,9 @@ struct ProfileEditView: View {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .onDisappear(){
-            let newData: User = User(name: name, bio: bio, birthdate: Temporal.DateTime(Date()), live: false, picture: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77", userType: "", username: "", verified: false)
+            let updatedUser: User = User(name: name, bio: bio, birthdate: Temporal.DateTime(Date()), live: false, picture: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/apple-ceo-steve-jobs-speaks-during-an-apple-special-event-news-photo-1683661736.jpg?alt=media&token=3a8f817b-b582-417f-ab29-c269b3fdbc77", userType: "", username: "", verified: false)
             Task {
-                await editProfileUseCase.createTodo()
+                await editProfileUseCase.createUser(updatedUser: updatedUser)
             }
         }
     }

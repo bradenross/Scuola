@@ -12,6 +12,7 @@ extension Video {
     case votes
     case userID
     case Comments
+    case Reactions
     case createdAt
     case updatedAt
   }
@@ -36,12 +37,13 @@ extension Video {
     
     model.fields(
       .field(video.id, is: .required, ofType: .string),
-      .field(video.description, is: .optional, ofType: .string),
-      .field(video.title, is: .optional, ofType: .string),
-      .field(video.views, is: .optional, ofType: .int),
-      .field(video.votes, is: .optional, ofType: .int),
+      .field(video.description, is: .required, ofType: .string),
+      .field(video.title, is: .required, ofType: .string),
+      .field(video.views, is: .required, ofType: .int),
+      .field(video.votes, is: .required, ofType: .int),
       .field(video.userID, is: .required, ofType: .string),
       .hasMany(video.Comments, is: .optional, ofType: Comment.self, associatedWith: Comment.keys.videoID),
+      .hasMany(video.Reactions, is: .optional, ofType: Reaction.self, associatedWith: Reaction.keys.videoID),
       .field(video.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(video.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )
