@@ -69,7 +69,8 @@ class AuthViewModel: ObservableObject {
                 if let userID = signUpResult.userID {
                     let user = User(id: userID, // Use the userID directly from the signUpResult
                                     name: signupInfo.name,
-                                    bio: signupInfo.bio,
+                                    bio: signupInfo.bio, 
+                                    birthdate: Temporal.DateTime(signupInfo.birthdate),
                                     live: false,
                                     picture: "https://example.com/default-avatar.jpg",
                                     userType: "default",

@@ -14,7 +14,7 @@ struct HomeItemLarge: View {
     var body: some View {
         VStack(){
             ZStack(){
-                AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.id)/thumbnail.png?width=1080&height=720&time=3")) { image in
+                AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.muxID)/thumbnail.png?width=1080&height=720&time=3")) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -25,7 +25,7 @@ struct HomeItemLarge: View {
                 }
                 .opacity(0.5)
                 
-                AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.id)/thumbnail.png?width=1080&height=720&time=3")) { image in
+                AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.muxID)/thumbnail.png?width=1080&height=720&time=3")) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -111,5 +111,5 @@ struct HomeItemLarge: View {
 }
 
 #Preview {
-    HomeItemLarge(videoThumbnail: Thumbnail(title: "This is a test video", user: "ESPN+", userId: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1", channelLogo: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/ESPN_logos.png?alt=media&token=38f7fd4e-1584-40a2-8065-b5f5bc23c793", views: 72700227, live: true, id: "ygmhdz5X01bhNaN3QzPf00TC1MfZ1JdYwBQ3xtgxuFZKE"))
+    HomeItemLarge(videoThumbnail: Thumbnail(title: "This is a test video", user: "ESPN+", userId: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1", channelLogo: "https://firebasestorage.googleapis.com/v0/b/scuola-2d84c.appspot.com/o/ESPN_logos.png?alt=media&token=38f7fd4e-1584-40a2-8065-b5f5bc23c793", views: 72700227, live: true, muxID: "ygmhdz5X01bhNaN3QzPf00TC1MfZ1JdYwBQ3xtgxuFZKE", videoID: "c212b33b-fe16-477d-9f4c-eb12f2a720d8"))
 }

@@ -16,7 +16,7 @@ struct VideoPostItem: View {
         }) {
             VStack(alignment: .leading){
                 HStack(alignment: .top){
-                    AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.id)/thumbnail.png?width=1080&height=720&time=3")) { image in
+                    AsyncImage(url: URL(string: "https://image.mux.com/\(videoThumbnail.muxID)/thumbnail.png?width=1080&height=720&time=3")) { image in
                         ZStack(){
                             image
                                 .resizable()

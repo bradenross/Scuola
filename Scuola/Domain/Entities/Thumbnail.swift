@@ -14,5 +14,6 @@ struct Thumbnail: Hashable {
     var channelLogo: String
     var views: Int
     var live: Bool
-    var id: String
+    var muxID: String
+    var videoID: String
 }

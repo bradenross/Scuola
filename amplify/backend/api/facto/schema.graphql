@@ -1,3 +1,16 @@
+enum ReactionType {
+  LIKE
+  DISLIKE
+}
+
+type Reaction @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  action: ReactionType
+  createdAt: AWSDateTime
+  videoID: ID! @index(name: "byVideo")
+  userID: ID! @index(name: "byUser")
+}
+
 type StreamKey @model @auth(rules: [{allow: public}]) {
   id: ID!
   streamKey: String
@@ -20,12 +33,13 @@ type Follower @model @auth(rules: [{allow: public}]) {
 
 type Video @model @auth(rules: [{allow: public}]) {
   id: ID!
-  description: String
-  title: String
-  views: Int
-  votes: Int
+  description: String!
+  title: String!
+  views: Int!
+  votes: Int!
   userID: ID! @index(name: "byUser")
   Comments: [Comment] @hasMany(indexName: "byVideo", fields: ["id"])
+  Reactions: [Reaction] @hasMany(indexName: "byVideo", fields: ["id"])
 }
 
 type Following @model @auth(rules: [{allow: public}]) {
@@ -37,13 +51,13 @@ type Following @model @auth(rules: [{allow: public}]) {
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
-  bio: String
-  birthdate: AWSDateTime
+  bio: String!
+  birthdate: AWSDateTime!
   live: Boolean
   picture: AWSURL
-  userType: String
-  username: String
-  verified: Boolean
+  userType: String!
+  username: String!
+  verified: Boolean!
   following: [String]
   followers: [String]
   savedVideos: [String]
@@ -52,5 +66,6 @@ type User @model @auth(rules: [{allow: public}]) {
   Followers: [Follower] @hasMany(indexName: "byUser", fields: ["id"])
   Comments: [Comment] @hasMany(indexName: "byUser", fields: ["id"])
   UserStreamKey: StreamKey @hasOne
+  Reactions: [Reaction] @hasMany(indexName: "byUser", fields: ["id"])
 }
  

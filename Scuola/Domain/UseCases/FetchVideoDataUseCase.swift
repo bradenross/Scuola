@@ -8,12 +8,15 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import Amplify
+import AWSPluginsCore
 
 protocol FetchVideoDataUseCase {
-    func getAllData(videoID: String)
+    func getAllData(videoID: String) async
+    func getVideoData(videoID: String) async throws -> Video
     func isSaved(videoID: String, completion: @escaping (Bool) -> Void)
     func isUserFollowing(userID: String, completion: @escaping (Bool) -> Void)
-    func getUserVote(videoID: String)
+    func getUserVote(videoID: String) async -> Reaction?
     func getVotes(videoID: String, completion: @escaping (Int) -> Void)
     func getTimestamp(videoID: String)
     func getOwnerProfile(videoID: String, completion: @escaping (Result<Account, Error>) -> Void)
@@ -23,7 +26,7 @@ protocol FetchVideoDataUseCase {
 final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
     private let db = Firestore.firestore()
     
-    func getAllData(videoID: String){
+    func getAllData(videoID: String) async{
         isSaved(videoID: videoID) { isSaved in
             if isSaved {
                 print("Video is saved.")
@@ -31,7 +34,7 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
                 print("Video is not saved.")
             }
         }
-        getUserVote(videoID: videoID)
+        await getUserVote(videoID: videoID)
         getVotes(videoID: videoID){ isSaved in
             if isSaved == 0 {
                 print("Video is saved.")
@@ -48,6 +51,23 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             }
         }
     }
+    
+    func getVideoData(videoID: String) async throws -> Video {
+        let queryResult = try await Amplify.API.query(request: .get(Video.self, byId: videoID))
+        
+        switch queryResult {
+        case .success(let video):
+            guard let video = video else {
+                let error = NSError(domain: "com.yourapp", code: 404, userInfo: [NSLocalizedDescriptionKey: "Video not found"])
+                throw error
+            }
+            return video
+        case .failure(let apiError):
+            // Directly throw the API error if it conforms to the Error protocol
+            throw apiError
+        }
+    }
+
 
     func isSaved(videoID: String, completion: @escaping (Bool) -> Void){
         AppState.shared.isLoading = true
@@ -102,8 +122,29 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
         }
     }
     
-    func getUserVote(videoID: String) {
-        AppState.shared.isLoading = true
+    func getUserVote(videoID: String) async -> Reaction? {
+        do {
+            let user = try await Amplify.Auth.getCurrentUser()
+            let userID = user.userId
+            
+            let reaction = Reaction.keys
+            let predicate = reaction.userID.eq(userID) && reaction.videoID.eq(videoID) // Ensure correct syntax for predicates
+            let request = GraphQLRequest<Reaction>.list(Reaction.self, where: predicate, limit: 1)
+            
+            let result = try await Amplify.API.query(request: request)
+            
+            switch result {
+            case .success(let reactions):
+                if let firstReaction = reactions.first {
+                    return firstReaction
+                }
+            case .failure(let error):
+                print("Error fetching reactions: \(error)")
+            }
+        } catch {
+            print("Unexpected error: \(error)")
+        }
+        return nil // Return nil if no reaction is found or an error occurs
     }
 
     func getVotes(videoID: String, completion: @escaping (Int) -> Void) {
@@ -161,18 +202,6 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
                 completion(.failure(customError))
                 return
             }
-            
-            // Use the retrieved userID to fetch the account data
-//            getAccountFromFB(id: userID) { account in
-//                if let account = account {
-//                    // If account data is successfully fetched, pass it to the completion handler
-//                    completion(.success(account))
-//                } else {
-//                    // If there's an error or account data is nil, create and pass an error object
-//                    let customError = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch account data"])
-//                    completion(.failure(customError))
-//                }
-//            }
         }
         
         AppState.shared.isLoading = false

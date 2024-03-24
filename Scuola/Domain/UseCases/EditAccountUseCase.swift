@@ -53,9 +53,8 @@ final class EditAccountUseCaseImpl: EditAccountUseCase {
         }
     }
     
-    func createTodo() async {
-        // Retrieve your Todo using Amplify.API.query
-        var updatedUser = User(id: "30681961-ea76-4bd4-9b32-a820518e8142", name: "Braden Ross", bio: "Suck my balls hoe", birthdate: Temporal.DateTime(Date()), picture: "https://us-east-2.admin.amplifyapp.com/admin/d2zjztn4mkdb2c/staging/data-manager#", username: "braden")
+    func createUser(updatedUser: User) async {
+        
         do {
             let result = try await Amplify.API.mutate(request: .create(updatedUser))
             switch result {
