@@ -1,3 +1,18 @@
+type Conversation @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  messages: [Message] @hasMany(indexName: "byConversation", fields: ["id"])
+  participants: [String]
+  lastMessageID: String
+}
+
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  content: String!
+  createdAt: AWSDateTime
+  sender: String
+  conversationID: ID! @index(name: "byConversation")
+}
+
 enum ReactionType {
   LIKE
   DISLIKE
@@ -67,5 +82,5 @@ type User @model @auth(rules: [{allow: public}]) {
   Comments: [Comment] @hasMany(indexName: "byUser", fields: ["id"])
   UserStreamKey: StreamKey @hasOne
   Reactions: [Reaction] @hasMany(indexName: "byUser", fields: ["id"])
+  bioLink: AWSURL
 }
- 

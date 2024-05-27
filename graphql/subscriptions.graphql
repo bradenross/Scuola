@@ -1,109 +1,154 @@
 # this is an auto generated file. This will be overwritten
 
-subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onCreateBlog(filter: $filter) {
+subscription OnCreateConversation(
+  $filter: ModelSubscriptionConversationFilterInput
+) {
+  onCreateConversation(filter: $filter) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onUpdateBlog(filter: $filter) {
+subscription OnUpdateConversation(
+  $filter: ModelSubscriptionConversationFilterInput
+) {
+  onUpdateConversation(filter: $filter) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onDeleteBlog(filter: $filter) {
+subscription OnDeleteConversation(
+  $filter: ModelSubscriptionConversationFilterInput
+) {
+  onDeleteConversation(filter: $filter) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-  onCreatePost(filter: $filter) {
+subscription OnCreateMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onCreateMessage(filter: $filter) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
     createdAt
+    sender
+    conversationID
     updatedAt
-    blogPostsId
     __typename
   }
 }
 
-subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-  onUpdatePost(filter: $filter) {
+subscription OnUpdateMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onUpdateMessage(filter: $filter) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
     createdAt
+    sender
+    conversationID
     updatedAt
-    blogPostsId
     __typename
   }
 }
 
-subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-  onDeletePost(filter: $filter) {
+subscription OnDeleteMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onDeleteMessage(filter: $filter) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
+    createdAt
+    sender
+    conversationID
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateReaction($filter: ModelSubscriptionReactionFilterInput) {
+  onCreateReaction(filter: $filter) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateReaction($filter: ModelSubscriptionReactionFilterInput) {
+  onUpdateReaction(filter: $filter) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteReaction($filter: ModelSubscriptionReactionFilterInput) {
+  onDeleteReaction(filter: $filter) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateStreamKey($filter: ModelSubscriptionStreamKeyFilterInput) {
+  onCreateStreamKey(filter: $filter) {
+    id
+    streamKey
     createdAt
     updatedAt
-    blogPostsId
+    __typename
+  }
+}
+
+subscription OnUpdateStreamKey($filter: ModelSubscriptionStreamKeyFilterInput) {
+  onUpdateStreamKey(filter: $filter) {
+    id
+    streamKey
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteStreamKey($filter: ModelSubscriptionStreamKeyFilterInput) {
+  onDeleteStreamKey(filter: $filter) {
+    id
+    streamKey
+    createdAt
+    updatedAt
     __typename
   }
 }
@@ -111,18 +156,13 @@ subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
 subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
   onCreateComment(filter: $filter) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
     __typename
   }
 }
@@ -130,18 +170,13 @@ subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
 subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
   onUpdateComment(filter: $filter) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
     __typename
   }
 }
@@ -149,18 +184,292 @@ subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
 subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
   onDeleteComment(filter: $filter) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
+    __typename
+  }
+}
+
+subscription OnCreateFollower($filter: ModelSubscriptionFollowerFilterInput) {
+  onCreateFollower(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateFollower($filter: ModelSubscriptionFollowerFilterInput) {
+  onUpdateFollower(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteFollower($filter: ModelSubscriptionFollowerFilterInput) {
+  onDeleteFollower(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateVideo($filter: ModelSubscriptionVideoFilterInput) {
+  onCreateVideo(filter: $filter) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateVideo($filter: ModelSubscriptionVideoFilterInput) {
+  onUpdateVideo(filter: $filter) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteVideo($filter: ModelSubscriptionVideoFilterInput) {
+  onDeleteVideo(filter: $filter) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateFollowing($filter: ModelSubscriptionFollowingFilterInput) {
+  onCreateFollowing(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateFollowing($filter: ModelSubscriptionFollowingFilterInput) {
+  onUpdateFollowing(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteFollowing($filter: ModelSubscriptionFollowingFilterInput) {
+  onDeleteFollowing(filter: $filter) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+  onCreateUser(filter: $filter) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
+    __typename
+  }
+}
+
+subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+  onUpdateUser(filter: $filter) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
+    __typename
+  }
+}
+
+subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+  onDeleteUser(filter: $filter) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
     __typename
   }
 }

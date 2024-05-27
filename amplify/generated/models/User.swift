@@ -21,6 +21,7 @@ public struct User: Model {
   public var Comments: List<Comment>?
   public var UserStreamKey: StreamKey?
   public var Reactions: List<Reaction>?
+  public var bioLink: String?
   public var createdAt: Temporal.DateTime?
   public var updatedAt: Temporal.DateTime?
   public var userUserStreamKeyId: String?
@@ -43,6 +44,7 @@ public struct User: Model {
       Comments: List<Comment>? = [],
       UserStreamKey: StreamKey? = nil,
       Reactions: List<Reaction>? = [],
+      bioLink: String? = nil,
       userUserStreamKeyId: String? = nil) {
     self.init(id: id,
       name: name,
@@ -62,6 +64,7 @@ public struct User: Model {
       Comments: Comments,
       UserStreamKey: UserStreamKey,
       Reactions: Reactions,
+      bioLink: bioLink,
       createdAt: nil,
       updatedAt: nil,
       userUserStreamKeyId: userUserStreamKeyId)
@@ -84,6 +87,7 @@ public struct User: Model {
       Comments: List<Comment>? = [],
       UserStreamKey: StreamKey? = nil,
       Reactions: List<Reaction>? = [],
+      bioLink: String? = nil,
       createdAt: Temporal.DateTime? = nil,
       updatedAt: Temporal.DateTime? = nil,
       userUserStreamKeyId: String? = nil) {
@@ -105,6 +109,7 @@ public struct User: Model {
       self.Comments = Comments
       self.UserStreamKey = UserStreamKey
       self.Reactions = Reactions
+      self.bioLink = bioLink
       self.createdAt = createdAt
       self.updatedAt = updatedAt
       self.userUserStreamKeyId = userUserStreamKeyId

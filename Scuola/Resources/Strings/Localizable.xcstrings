@@ -175,6 +175,9 @@
     "New Messages" : {
 
     },
+    "No prior messages!" : {
+
+    },
     "Older" : {
 
     },
@@ -212,6 +215,9 @@
 
     },
     "Select" : {
+
+    },
+    "Send a message..." : {
 
     },
     "Settings" : {

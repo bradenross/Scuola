@@ -42,7 +42,7 @@ struct DashboardView: View {
                     }
                     .tag(3)
                 
-                ProfileView(accId: UserDefaults.standard.string(forKey: "uid")!)
+                ProfileView(accID: UserDefaults.standard.string(forKey: "uid") ?? "")
                     .tabItem {
                         Image(systemName: tabSelection == 4 ? "person.fill" : "person")
                         Text("Profile")

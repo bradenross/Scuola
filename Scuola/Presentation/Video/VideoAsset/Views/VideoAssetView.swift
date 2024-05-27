@@ -37,7 +37,7 @@ struct VideoAssetView: View {
                     ScrollView(){
                         Spacer()
                             .frame(height: 15)
-                        ProfileBarView(isFollowing: $viewModel.isFollowing, accountData: $viewModel.ownerAccountData)
+                        ProfileBarView(viewModel: viewModel)
                         ActionBar(viewModel: viewModel)
                         DescriptionView(description: testDesc)
                         

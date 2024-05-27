@@ -23,6 +23,7 @@ extension User {
     case Comments
     case UserStreamKey
     case Reactions
+    case bioLink
     case createdAt
     case updatedAt
     case userUserStreamKeyId
@@ -64,6 +65,7 @@ extension User {
       .hasMany(user.Comments, is: .optional, ofType: Comment.self, associatedWith: Comment.keys.userID),
       .hasOne(user.UserStreamKey, is: .optional, ofType: StreamKey.self, associatedWith: StreamKey.keys.id, targetNames: ["userUserStreamKeyId"]),
       .hasMany(user.Reactions, is: .optional, ofType: Reaction.self, associatedWith: Reaction.keys.userID),
+      .field(user.bioLink, is: .optional, ofType: .string),
       .field(user.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(user.userUserStreamKeyId, is: .optional, ofType: .string)

@@ -1,127 +1,184 @@
 # this is an auto generated file. This will be overwritten
 
-mutation CreateBlog(
-  $input: CreateBlogInput!
-  $condition: ModelBlogConditionInput
+mutation CreateConversation(
+  $input: CreateConversationInput!
+  $condition: ModelConversationConditionInput
 ) {
-  createBlog(input: $input, condition: $condition) {
+  createConversation(input: $input, condition: $condition) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-mutation UpdateBlog(
-  $input: UpdateBlogInput!
-  $condition: ModelBlogConditionInput
+mutation UpdateConversation(
+  $input: UpdateConversationInput!
+  $condition: ModelConversationConditionInput
 ) {
-  updateBlog(input: $input, condition: $condition) {
+  updateConversation(input: $input, condition: $condition) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-mutation DeleteBlog(
-  $input: DeleteBlogInput!
-  $condition: ModelBlogConditionInput
+mutation DeleteConversation(
+  $input: DeleteConversationInput!
+  $condition: ModelConversationConditionInput
 ) {
-  deleteBlog(input: $input, condition: $condition) {
+  deleteConversation(input: $input, condition: $condition) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
+mutation CreateMessage(
+  $input: CreateMessageInput!
+  $condition: ModelMessageConditionInput
 ) {
-  createPost(input: $input, condition: $condition) {
+  createMessage(input: $input, condition: $condition) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
     createdAt
+    sender
+    conversationID
     updatedAt
-    blogPostsId
     __typename
   }
 }
 
-mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
+mutation UpdateMessage(
+  $input: UpdateMessageInput!
+  $condition: ModelMessageConditionInput
 ) {
-  updatePost(input: $input, condition: $condition) {
+  updateMessage(input: $input, condition: $condition) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
     createdAt
+    sender
+    conversationID
     updatedAt
-    blogPostsId
     __typename
   }
 }
 
-mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
+mutation DeleteMessage(
+  $input: DeleteMessageInput!
+  $condition: ModelMessageConditionInput
 ) {
-  deletePost(input: $input, condition: $condition) {
+  deleteMessage(input: $input, condition: $condition) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
+    createdAt
+    sender
+    conversationID
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateReaction(
+  $input: CreateReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  createReaction(input: $input, condition: $condition) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateReaction(
+  $input: UpdateReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  updateReaction(input: $input, condition: $condition) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteReaction(
+  $input: DeleteReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  deleteReaction(input: $input, condition: $condition) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateStreamKey(
+  $input: CreateStreamKeyInput!
+  $condition: ModelStreamKeyConditionInput
+) {
+  createStreamKey(input: $input, condition: $condition) {
+    id
+    streamKey
     createdAt
     updatedAt
-    blogPostsId
+    __typename
+  }
+}
+
+mutation UpdateStreamKey(
+  $input: UpdateStreamKeyInput!
+  $condition: ModelStreamKeyConditionInput
+) {
+  updateStreamKey(input: $input, condition: $condition) {
+    id
+    streamKey
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteStreamKey(
+  $input: DeleteStreamKeyInput!
+  $condition: ModelStreamKeyConditionInput
+) {
+  deleteStreamKey(input: $input, condition: $condition) {
+    id
+    streamKey
+    createdAt
+    updatedAt
     __typename
   }
 }
@@ -132,18 +189,13 @@ mutation CreateComment(
 ) {
   createComment(input: $input, condition: $condition) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
     __typename
   }
 }
@@ -154,18 +206,13 @@ mutation UpdateComment(
 ) {
   updateComment(input: $input, condition: $condition) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
     __typename
   }
 }
@@ -176,18 +223,328 @@ mutation DeleteComment(
 ) {
   deleteComment(input: $input, condition: $condition) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
+    __typename
+  }
+}
+
+mutation CreateFollower(
+  $input: CreateFollowerInput!
+  $condition: ModelFollowerConditionInput
+) {
+  createFollower(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateFollower(
+  $input: UpdateFollowerInput!
+  $condition: ModelFollowerConditionInput
+) {
+  updateFollower(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteFollower(
+  $input: DeleteFollowerInput!
+  $condition: ModelFollowerConditionInput
+) {
+  deleteFollower(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateVideo(
+  $input: CreateVideoInput!
+  $condition: ModelVideoConditionInput
+) {
+  createVideo(input: $input, condition: $condition) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateVideo(
+  $input: UpdateVideoInput!
+  $condition: ModelVideoConditionInput
+) {
+  updateVideo(input: $input, condition: $condition) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteVideo(
+  $input: DeleteVideoInput!
+  $condition: ModelVideoConditionInput
+) {
+  deleteVideo(input: $input, condition: $condition) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateFollowing(
+  $input: CreateFollowingInput!
+  $condition: ModelFollowingConditionInput
+) {
+  createFollowing(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateFollowing(
+  $input: UpdateFollowingInput!
+  $condition: ModelFollowingConditionInput
+) {
+  updateFollowing(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteFollowing(
+  $input: DeleteFollowingInput!
+  $condition: ModelFollowingConditionInput
+) {
+  deleteFollowing(input: $input, condition: $condition) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
+    __typename
+  }
+}
+
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
+    __typename
+  }
+}
+
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
     __typename
   }
 }

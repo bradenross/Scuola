@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct ProfileBarView: View {
-    @Binding var isFollowing: Bool
-    @Binding var accountData: Account
+    @ObservedObject var viewModel: VideoAssetViewModel
     
     let interactionUseCase = UserInteractionUseCaseImpl()
     let videoDataUseCase = FetchVideoDataUseCaseImpl()
     
     private func onFollowTapped(){
-        if(isFollowing){
-            interactionUseCase.userUnsubscribeToUser(userID: accountData.id)
+        if(viewModel.isFollowing){
+            interactionUseCase.userUnsubscribeToUser(userID: viewModel.videoInfo.userID)
         } else {
-            interactionUseCase.userSubscribeToUser(userID: accountData.id)
+            interactionUseCase.userSubscribeToUser(userID: viewModel.videoInfo.userID)
         }
-        isFollowing.toggle()
+        viewModel.isFollowing.toggle()
     }
     
     var body: some View {
         HStack(){
             Button(action: {}){
-                NavigationLink(destination: ProfileView(accId: accountData.id)){
+                NavigationLink(destination: ProfileView(accID: viewModel.videoInfo.userID)){
                     Circle()
                         .stroke(BrandedColor.background, lineWidth: 4)
                         .frame(width: 50, height: 50)
                         .overlay(
-                            AsyncImage(url: URL(string: accountData.picture)) { image in
+                            AsyncImage(url: URL(string: viewModel.ownerAccountData.picture ?? "")) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -41,9 +40,9 @@ struct ProfileBarView: View {
                             }
                         )
                     VStack(alignment: .leading){
-                        Text(accountData.name)
+                        Text(viewModel.ownerAccountData.name)
                             .foregroundColor(BrandedColor.text)
-                        Text("\(suffixNumber(num: accountData.followers)) Followers")
+                        Text("\(suffixNumber(num: viewModel.ownerAccountData.followers?.count ?? 0)) Followers")
                             .foregroundColor(BrandedColor.secondaryText)
                     }
                 }
@@ -51,7 +50,7 @@ struct ProfileBarView: View {
             Spacer()
                 .frame(maxWidth: .infinity)
                 .layoutPriority(-1)
-            ScuolaActionButton(title: isFollowing ? "Following" : "Follow", symbol: isFollowing ? "heart.fill" : "heart", symbolColor: isFollowing ? .red : BrandedColor.dynamicAccentColor, action: {
+            ScuolaActionButton(title: viewModel.isFollowing ? "Following" : "Follow", symbol: viewModel.isFollowing ? "heart.fill" : "heart", symbolColor: viewModel.isFollowing ? .red : BrandedColor.dynamicAccentColor, action: {
                 onFollowTapped()
             })
         }

@@ -1,28 +1,30 @@
 # this is an auto generated file. This will be overwritten
 
-query GetBlog($id: ID!) {
-  getBlog(id: $id) {
+query GetConversation($id: ID!) {
+  getConversation(id: $id) {
     id
-    name
-    posts {
+    messages {
       nextToken
       __typename
     }
+    participants
+    lastMessageID
     createdAt
     updatedAt
     __typename
   }
 }
 
-query ListBlogs(
-  $filter: ModelBlogFilterInput
+query ListConversations(
+  $filter: ModelConversationFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listConversations(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      participants
+      lastMessageID
       createdAt
       updatedAt
       __typename
@@ -32,40 +34,175 @@ query ListBlogs(
   }
 }
 
-query GetPost($id: ID!) {
-  getPost(id: $id) {
+query GetMessage($id: ID!) {
+  getMessage(id: $id) {
     id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    comments {
-      nextToken
-      __typename
-    }
+    content
     createdAt
+    sender
+    conversationID
     updatedAt
-    blogPostsId
     __typename
   }
 }
 
-query ListPosts(
-  $filter: ModelPostFilterInput
+query ListMessages(
+  $filter: ModelMessageFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      title
+      content
+      createdAt
+      sender
+      conversationID
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query MessagesByConversationID(
+  $conversationID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  messagesByConversationID(
+    conversationID: $conversationID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      content
+      createdAt
+      sender
+      conversationID
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetReaction($id: ID!) {
+  getReaction(id: $id) {
+    id
+    action
+    createdAt
+    videoID
+    userID
+    updatedAt
+    __typename
+  }
+}
+
+query ListReactions(
+  $filter: ModelReactionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listReactions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      action
+      createdAt
+      videoID
+      userID
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query ReactionsByVideoID(
+  $videoID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelReactionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  reactionsByVideoID(
+    videoID: $videoID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      action
+      createdAt
+      videoID
+      userID
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query ReactionsByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelReactionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  reactionsByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      action
+      createdAt
+      videoID
+      userID
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetStreamKey($id: ID!) {
+  getStreamKey(id: $id) {
+    id
+    streamKey
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListStreamKeys(
+  $filter: ModelStreamKeyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listStreamKeys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      streamKey
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
     nextToken
@@ -76,18 +213,13 @@ query ListPosts(
 query GetComment($id: ID!) {
   getComment(id: $id) {
     id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
-    content
+    body
+    timestamp
+    responses
+    videoID
+    userID
     createdAt
     updatedAt
-    postCommentsId
     __typename
   }
 }
@@ -100,10 +232,340 @@ query ListComments(
   listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      content
+      body
+      timestamp
+      responses
+      videoID
+      userID
       createdAt
       updatedAt
-      postCommentsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query CommentsByVideoID(
+  $videoID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  commentsByVideoID(
+    videoID: $videoID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      body
+      timestamp
+      responses
+      videoID
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query CommentsByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  commentsByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      body
+      timestamp
+      responses
+      videoID
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetFollower($id: ID!) {
+  getFollower(id: $id) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListFollowers(
+  $filter: ModelFollowerFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFollowers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      timestamp
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query FollowersByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelFollowerFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  followersByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      timestamp
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetVideo($id: ID!) {
+  getVideo(id: $id) {
+    id
+    description
+    title
+    views
+    votes
+    userID
+    Comments {
+      nextToken
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListVideos(
+  $filter: ModelVideoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVideos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      description
+      title
+      views
+      votes
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query VideosByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelVideoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  videosByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      description
+      title
+      views
+      votes
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetFollowing($id: ID!) {
+  getFollowing(id: $id) {
+    id
+    timestamp
+    userID
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListFollowings(
+  $filter: ModelFollowingFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFollowings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      timestamp
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query FollowingsByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelFollowingFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  followingsByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      timestamp
+      userID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    name
+    bio
+    birthdate
+    live
+    picture
+    userType
+    username
+    verified
+    following
+    followers
+    savedVideos
+    FollowingUsers {
+      nextToken
+      __typename
+    }
+    Videos {
+      nextToken
+      __typename
+    }
+    Followers {
+      nextToken
+      __typename
+    }
+    Comments {
+      nextToken
+      __typename
+    }
+    UserStreamKey {
+      id
+      streamKey
+      createdAt
+      updatedAt
+      __typename
+    }
+    Reactions {
+      nextToken
+      __typename
+    }
+    bioLink
+    createdAt
+    updatedAt
+    userUserStreamKeyId
+    __typename
+  }
+}
+
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      bio
+      birthdate
+      live
+      picture
+      userType
+      username
+      verified
+      following
+      followers
+      savedVideos
+      bioLink
+      createdAt
+      updatedAt
+      userUserStreamKeyId
       __typename
     }
     nextToken

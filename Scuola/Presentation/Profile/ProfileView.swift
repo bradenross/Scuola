@@ -6,30 +6,30 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct ProfileView: View {
-    var accId: String
-    @State var acc: Account = Account(id: "", username: "", name: "", bio: "", followers: 0, following: 0, birthdate: Date(), userType: "default", verified: false, live: false, picture: "")
+    var accID: String
+    
     @State var isHeaderLoading: Bool = true
     
+    @StateObject var viewModel: ProfileViewModel
+    
+    init(accID: String){
+        self.accID = accID
+        _viewModel = StateObject(wrappedValue: ProfileViewModel(userID: accID))
+    }
+    
     private func loadData(){
-//        getAccountFromFB(id: accId) { account in
-//            if let account = account {
-//                print("Retrieved account: \(account)")
-//                acc = account
-//                isHeaderLoading = false
-//            } else {
-//                print("Account not found or error occurred")
-//            }
-//        }
+        
     }
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView(){
                 VStack(){
-                    ProfileHeaderView(account: $acc, isLoading: $isHeaderLoading)
-                    ProfileContentView(account: $acc)
+                    ProfileHeaderView(viewModel: viewModel)
+                    ProfileContentView(viewModel: viewModel)
                 }
                 .frame(maxWidth: .infinity)
             }

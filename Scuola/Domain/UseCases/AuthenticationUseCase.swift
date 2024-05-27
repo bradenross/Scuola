@@ -21,6 +21,7 @@ final class AuthenticationUseCaseImpl: AuthenticationUseCase {
     }
     
     func login(email: String, password: String) async {
+        UserDefaults.standard.set("", forKey: "uid")
         print("LOGGING IN")
         do {
             let signInResult = try await Amplify.Auth.signIn(
@@ -34,6 +35,7 @@ final class AuthenticationUseCaseImpl: AuthenticationUseCase {
                 print("Sign in unsuccessful: \(signInResult.nextStep)")
             }
         } catch {
+            UserDefaults.standard.set(nil, forKey: "uid")
             print("Error: \(error)")
         }
     }

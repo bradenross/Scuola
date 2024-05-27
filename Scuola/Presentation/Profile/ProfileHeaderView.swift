@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    @Binding var account: Account
-    @Binding var isLoading: Bool
+    @ObservedObject var viewModel: ProfileViewModel
     var body: some View {
         VStack(alignment: .leading){
             VStack(){
                 ZStack(){
                     Circle()
-                        .stroke(account.live ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 10)
+                        .stroke(viewModel.user.live ?? false ? BrandedColor.liveGradient : BrandedColor.backgroundGradient, lineWidth: 10)
                         .frame(width: 100, height: 100)
                     Circle()
                         .stroke(BrandedColor.background, lineWidth: 4)
                         .frame(width: 100, height: 100)
                         .overlay(
-                            AsyncImage(url: URL(string: account.picture)) { image in
+                            AsyncImage(url: URL(string: viewModel.user.picture ?? "")) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -34,18 +33,18 @@ struct ProfileHeaderView: View {
                 
                 VStack(){
                     HStack(){
-                        Text("\(account.name)")
+                        Text("\(viewModel.user.name)")
                             .bold()
-                        if(account.verified) {
+                        if(viewModel.user.verified) {
                             Image(systemName: "checkmark.seal.fill")
                                 .foregroundStyle(BrandedColor.backgroundGradient)
                         }
                     }
-                    Text("@\(account.username)")
+                    Text("@\(viewModel.user.username)")
                         .foregroundColor(BrandedColor.secondaryText)
                 }
                 VStack(){
-                    Text("\(account.bio)")
+                    Text("\(viewModel.user.bio)")
                         .font(.callout)
                         .lineLimit(5)
                         .fixedSize(horizontal: false, vertical: true)
@@ -61,7 +60,7 @@ struct ProfileHeaderView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(suffixNumber(num: account.following))")
+                        Text("\(suffixNumber(num: 0))")
                             .bold()
                         Text("Posts")
                             .fontWeight(.light)
@@ -71,7 +70,7 @@ struct ProfileHeaderView: View {
                     Divider()
                     
                     VStack {
-                        Text("\(suffixNumber(num: account.following))")
+                        Text("\(suffixNumber(num: viewModel.user.following?.count ?? 0))")
                             .bold()
                         Text("Following")
                             .fontWeight(.light)
@@ -81,7 +80,7 @@ struct ProfileHeaderView: View {
                     Divider()
                     
                     VStack {
-                        Text("\(suffixNumber(num: account.followers))")
+                        Text("\(suffixNumber(num: viewModel.user.followers?.count ?? 0))")
                             .bold()
                         Text("Followers")
                             .fontWeight(.light)
@@ -93,7 +92,7 @@ struct ProfileHeaderView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
                 
-                if(account.id == UserDefaults.standard.string(forKey: "uid")!){
+                if(viewModel.user.id == UserDefaults.standard.string(forKey: "uid") ?? ""){
                     HStack(){
                         ShareLink(item: URL(string: "https://www.bradenross.me")!) {
                             Text("Share Profile")
@@ -104,12 +103,12 @@ struct ProfileHeaderView: View {
                                 .cornerRadius(100)
                         }
                         
-                        ScuolaCircleNavButton(symbol: "pencil", navigateTo: ProfileEditView(username: account.username, name: account.name, bio: account.bio))
+                        ScuolaCircleNavButton(symbol: "pencil", navigateTo: ProfileEditView(username: viewModel.user.username, name: viewModel.user.name, bio: viewModel.user.bio))
                     }
                 } else {
                     HStack(){
-                        ScuolaButton(title: "Follow", action: {}, isLoading: isLoading)
-                        ScuolaCircleNavButton(symbol: "ellipsis.message", symbolSize: 25, navigateTo: SignupScreen())
+                        ScuolaButton(title: "Follow", action: {}, isLoading: false)
+                        ScuolaCircleNavButton(symbol: "ellipsis.message", symbolSize: 25, navigateTo: ConversationView())
                     }
                 }
             }

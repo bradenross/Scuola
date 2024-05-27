@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Amplify
 
 class VideoAssetViewModel: ObservableObject {
     @Published var videoInfo: Video
@@ -13,39 +14,45 @@ class VideoAssetViewModel: ObservableObject {
     @Published var voteStatus: Reaction?
     @Published var voteCount: Int = 0
     @Published var isSaved: Bool = false
-    @Published var ownerAccountData: Account = Account(id: "", username: "", name: "", bio: "", followers: 0, following: 0, birthdate: Date(), userType: "default", verified: false, live: false, picture: "")
+    @Published var ownerAccountData: User = User(name: "", bio: "", birthdate: Temporal.DateTime(Date()), userType: "", username: "", verified: false)
+    @Published var loading: Bool = true
 
     private let videoDataUseCase: FetchVideoDataUseCase
     private let interactionUseCase = UserInteractionUseCaseImpl()
 
     init(videoThumbnailInfo: Thumbnail, videoDataUseCase: FetchVideoDataUseCaseImpl) {
         self.videoDataUseCase = videoDataUseCase
-        // Initialize videoInfo and other properties as needed
         self.videoInfo = Video(id: videoThumbnailInfo.videoID, description: "", title: videoThumbnailInfo.title, views: 0, votes: 0, userID: "")
-        // Fetch video data and other necessary information
         loadVideoData(videoID: videoThumbnailInfo.videoID) 
     }
 
     private func loadVideoData(videoID: String) {
         Task {
             do {
-                let video = try await videoDataUseCase.getVideoData(videoID: videoID)
+                // Fetch video data asynchronously and await the result
+                let videoData = try await videoDataUseCase.getVideoData(videoID: videoID)
                 DispatchQueue.main.async {
-                    self.videoInfo = video
-                    // Update other properties based on the fetched video data
+                    self.videoInfo = videoData
+                }
+                
+                // Once video data is fetched, fetch the owner's profile using the video's userID
+                let ownerProfile = try await videoDataUseCase.getOwnerProfile(userID: videoData.userID)
+                DispatchQueue.main.async {
+                    self.ownerAccountData = ownerProfile
+                    self.loading = false
                 }
             } catch {
-                // Handle errors
-                print(error)
+                DispatchQueue.main.async {
+                    // Handle errors, potentially updating the UI to reflect the error state
+                    print("Error loading video or owner profile: \(error)")
+                    self.loading = false
+                }
             }
         }
+
         
         videoDataUseCase.isUserFollowing(userID: "FP7uq0TiEJRFvekxVPJyCf0Lhbv1"){ isFollowingUser in
             self.isFollowing = isFollowingUser ? true : false
-        }
-        
-        Task {
-            self.videoInfo = try await videoDataUseCase.getVideoData(videoID: videoID)
         }
         
         Task {
@@ -62,10 +69,7 @@ class VideoAssetViewModel: ObservableObject {
             return
         }
         
-        // Toggle or change the reaction based on the current state
         if currentReaction.action == .dislike {
-            // If already disliked, consider removing or toggling off the reaction
-            print("222222222")
             await deleteReaction(currentReaction)
         } else {
             await createOrUpdateReaction(newAction: .dislike, currentReaction: currentReaction)
@@ -79,12 +83,9 @@ class VideoAssetViewModel: ObservableObject {
             return
         }
         
-        // Toggle or change the reaction based on the current state
         if currentReaction.action == .like {
-            // If already liked, consider removing or toggling off the reaction
             await deleteReaction(currentReaction)
         } else {
-            // Change the reaction to like
             await createOrUpdateReaction(newAction: .like, currentReaction: currentReaction)
         }
     }
@@ -94,7 +95,7 @@ class VideoAssetViewModel: ObservableObject {
             self.voteStatus = Reaction(action: newAction, videoID: self.videoInfo.id, userID: "")
             self.videoInfo.votes += self.determineVoteChange(from: currentReaction?.action, to: newAction)
         }
-        // Implement logic to create a new reaction or update an existing one
+        
         await interactionUseCase.updateVideoVoteCount(videoID: videoInfo.id, voteDiff: determineVoteChange(from: currentReaction?.action, to: newAction), vote: newAction)
     }
     
@@ -105,10 +106,7 @@ class VideoAssetViewModel: ObservableObject {
                 let voteDiff = reaction.action == .like ? -1 : 1
                 self.videoInfo.votes += voteDiff
             }
-            // Assuming you have a method in your interaction use case to handle reaction deletion
-            //try await interactionUseCase.updateVideoReaction(videoID: reaction.videoID, userID: reaction.userID, voteDiff: 0, vote: 0)
             await interactionUseCase.updateVideoVoteCount(videoID: videoInfo.id, voteDiff: reaction.action == .like ? -1 : 1, vote: nil)
-            // Dispatching to the main thread to safely update ObservableObject's @Published property
         } catch {
             print("Failed to delete reaction: \(error)")
         }

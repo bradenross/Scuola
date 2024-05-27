@@ -153,12 +153,16 @@ class AuthViewModel: ObservableObject {
             do {
                 let session = try await Amplify.Auth.fetchAuthSession()
                 self.isAuthenticated = session.isSignedIn
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-                self.isLoading = false
+                try await Task.sleep(seconds: 1.0)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
             } catch {
                 print("Error checking Amplify auth session: \(error)")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-                self.isLoading = false
+                try await Task.sleep(seconds: 1.0)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
             }
         }
     }

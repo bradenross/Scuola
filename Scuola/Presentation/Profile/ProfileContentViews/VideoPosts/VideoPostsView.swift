@@ -9,14 +9,14 @@ import SwiftUI
 
 struct VideoPostsView: View {
     @State var postIds: [Thumbnail] = []
-    @Binding var account: Account
+    @Binding var account: User
     var body: some View {
         VStack(){
             if(postIds.count == 0){
                 Text("User has not posted yet!")
             } else {
                 VStack(){
-                    if(account.live){
+                    if(account.live ?? false){
                         
                     }
                     ForEach(postIds, id: \.self) { postID in

@@ -17,9 +17,7 @@ protocol FetchVideoDataUseCase {
     func isSaved(videoID: String, completion: @escaping (Bool) -> Void)
     func isUserFollowing(userID: String, completion: @escaping (Bool) -> Void)
     func getUserVote(videoID: String) async -> Reaction?
-    func getVotes(videoID: String, completion: @escaping (Int) -> Void)
-    func getTimestamp(videoID: String)
-    func getOwnerProfile(videoID: String, completion: @escaping (Result<Account, Error>) -> Void)
+    func getOwnerProfile(userID: String) async throws -> User
     func getComments(videoID: String, by: Int, completion: @escaping ([Comment]) -> Void)
 }
 
@@ -35,21 +33,6 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
             }
         }
         await getUserVote(videoID: videoID)
-        getVotes(videoID: videoID){ isSaved in
-            if isSaved == 0 {
-                print("Video is saved.")
-            } else {
-                print("Video is not saved.")
-            }
-        }
-        getTimestamp(videoID: videoID)
-        getOwnerProfile(videoID: videoID){ isSaved in
-            if isSaved != nil {
-                print("Video is saved.")
-            } else {
-                print("Video is not saved.")
-            }
-        }
     }
     
     func getVideoData(videoID: String) async throws -> Video {
@@ -57,16 +40,17 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
         
         switch queryResult {
         case .success(let video):
-            guard let video = video else {
-                let error = NSError(domain: "com.yourapp", code: 404, userInfo: [NSLocalizedDescriptionKey: "Video not found"])
-                throw error
+            if let video = video {
+                return video
+            } else {
+                throw NSError(domain: "com.yourapp", code: 404, userInfo: [NSLocalizedDescriptionKey: "Video not found"])
             }
-            return video
         case .failure(let apiError):
-            // Directly throw the API error if it conforms to the Error protocol
             throw apiError
         }
     }
+
+
 
 
     func isSaved(videoID: String, completion: @escaping (Bool) -> Void){
@@ -147,66 +131,22 @@ final class FetchVideoDataUseCaseImpl: FetchVideoDataUseCase {
         return nil // Return nil if no reaction is found or an error occurs
     }
 
-    func getVotes(videoID: String, completion: @escaping (Int) -> Void) {
-        AppState.shared.isLoading = true
-        let videoRef = db.collection("videos").document(videoID)
+    
+    func getOwnerProfile(userID: String) async throws -> User {
+        let queryResult = try await Amplify.API.query(request: .get(User.self, byId: userID))
         
-        videoRef.getDocument { (document, error) in
-            if let error = error {
-                print("Error fetching video document: \(error)")
-                completion(0)
-                return
-            }
-            
-            if let document = document, document.exists {
-                if let votes = document.data()?["votes"] as? Int {
-                    completion(votes)
-                } else {
-                    print("Votes field not found or not an integer")
-                    completion(0)
-                }
+        switch queryResult {
+        case .success(let user):
+            if let user = user {
+                return user
             } else {
-                print("Video document does not exist")
-                completion(0)
+                throw NSError(domain: "com.yourapp", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found"])
             }
+        case .failure(let apiError):
+            throw apiError
         }
-        
-        AppState.shared.isLoading = false
     }
-    
-    func getTimestamp(videoID: String) {
-        AppState.shared.isLoading = true
-    }
-    
-    func getOwnerProfile(videoID: String, completion: @escaping (Result<Account, Error>) -> Void){
-        AppState.shared.isLoading = true
-        let videoRef = db.collection("videos").document(videoID)
-            
-        // Fetch the video document
-        videoRef.getDocument { (document, error) in
-            if let error = error {
-                print("Error fetching video document: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let document = document, document.exists else {
-                let customError = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Video document does not exist"])
-                completion(.failure(customError))
-                return
-            }
-            
-            // Fetch userID from the video document
-            guard let userID = document.data()?["userID"] as? String else {
-                let customError = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "userID field not found or not a string"])
-                completion(.failure(customError))
-                return
-            }
-        }
-        
-        AppState.shared.isLoading = false
-        
-    }
+
     
     func getComments(videoID: String, by: Int, completion: @escaping ([Comment]) -> Void){
         AppState.shared.isLoading = true
