@@ -97,6 +97,26 @@ struct MediaUploadView: View {
                         .fill(BrandedColor.foreground)
                 )
                 .padding(.horizontal, 30)
+                
+                HStack(){
+                    NavigationLink(destination: StreamKeyView()){
+                        Image(systemName: "key.radiowaves.forward.fill")
+                        VStack(alignment: .leading){
+                            Text("Stream Key")
+                                .fontWeight(.semibold)
+                            Text("Live stream from another device")
+                                .font(.callout)
+                                .fontWeight(.light)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(BrandedColor.foreground)
+                )
+                .padding(.horizontal, 30)
             }
             .fixedSize(horizontal: true, vertical: false)
             Spacer()
