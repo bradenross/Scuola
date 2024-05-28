@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "[Streaming Instructions](https://facto.live/instructions)" : {
+
+    },
     "@%@" : {
 
     },
@@ -160,6 +163,9 @@
     "Live" : {
 
     },
+    "Live stream from another device" : {
+
+    },
     "Live stream from your camera" : {
 
     },
@@ -241,6 +247,9 @@
     "Stream Info" : {
 
     },
+    "Stream Key" : {
+
+    },
     "TEST UNKNOWN" : {
 
     },
@@ -266,6 +275,9 @@
 
     },
     "Username" : {
+
+    },
+    "WARNING: Do NOT share this StreamKey with anyone. Anyone with this StreamKey can access and take over your live streams." : {
 
     },
     "Welcome Back!" : {
